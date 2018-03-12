@@ -74,9 +74,30 @@ return [
             'public' => 'Public',
             'status' => 'Status',
             'title' => 'Title',
-            'author' => 'Author',
+            'author.name' => 'Author',
         ],
-        'fields' => [],
+        'fields' => [
+            'public' => [
+                'label' => 'Public',
+                'type' => 'checkbox',
+            ],
+            'status' => [
+                'label' => 'Status',
+                'type' => 'select',
+                'options' => 'story_status',
+            ],
+            'title' => 'Title',
+            'summary' => [
+                'label' => 'Summary',
+                'type' => 'textarea',
+            ],
+            'author_id' => [
+                'label' => 'Author',
+                'type' => 'select',
+                'model' => \App\Author::class,
+                'field' => 'name',
+            ]
+        ],
     ],
     'user' => [
         'extends' => 'entity',

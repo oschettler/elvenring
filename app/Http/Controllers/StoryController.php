@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoryRequest;
 use App\Story;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Knowfox\Crud\Services\Crud;
 
 class StoryController extends Controller
@@ -35,7 +37,7 @@ class StoryController extends Controller
      */
     public function create()
     {
-        //
+        return $this->crud->create();
     }
 
     /**
@@ -44,9 +46,11 @@ class StoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoryRequest $request)
     {
-        //
+        $request->merge(['owner_id' => Auth::id()]);
+        list($story, $response) = $this->crud->store($request);
+        return $response;
     }
 
     /**
@@ -68,7 +72,7 @@ class StoryController extends Controller
      */
     public function edit(Story $story)
     {
-        //
+        return $this->crud->edit($story);
     }
 
     /**
@@ -78,9 +82,9 @@ class StoryController extends Controller
      * @param  \App\Story  $story
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Story $story)
+    public function update(StoryRequest $request, Story $story)
     {
-        //
+        return $this->crud->update($request, $story);
     }
 
     /**
