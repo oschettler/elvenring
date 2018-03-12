@@ -11,11 +11,20 @@ return [
         'entity_title' => [' Author', 'Authors'],
         'entity_name' => 'author',
         'order_by' => 'name',
+        'with' => 'circle',
         'columns' => [
             'name' => 'Name',
-            'circle' => 'Circle',
+            'circle.name' => 'Circle',
         ],
-        'fields' => [],
+        'fields' => [
+            'name' => 'Name',
+            'circle_id' => [
+                'label' => 'Circle',
+                'type' => 'select',
+                'model' => \App\Circle::class,
+                'field' => 'name',
+            ]
+        ],
     ],
     'circle' => [
         'extends' => 'entity',

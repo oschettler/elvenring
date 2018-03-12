@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Author;
+use App\Http\Requests\AuthorRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Knowfox\Crud\Services\Crud;
 
 class AuthorController extends Controller
@@ -12,7 +14,7 @@ class AuthorController extends Controller
 
     public function __construct(Crud $crud)
     {
-        parent::__construct();
+        //parent::__construct();
 
         $this->crud = $crud;
         $crud->setup('storylab.author');
@@ -23,7 +25,7 @@ class AuthorController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         return $this->crud->index($request);
     }
@@ -35,7 +37,7 @@ class AuthorController extends Controller
      */
     public function create()
     {
-        //
+        return $this->crud->create();
     }
 
     /**
@@ -44,9 +46,10 @@ class AuthorController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(AuthorRequest $request)
     {
-        //
+        list($author, $response) = $this->crud->store($request);
+        return $response;
     }
 
     /**
@@ -68,7 +71,7 @@ class AuthorController extends Controller
      */
     public function edit(Author $author)
     {
-        //
+        return $this->crud->edit($author);
     }
 
     /**
@@ -78,9 +81,9 @@ class AuthorController extends Controller
      * @param  \App\Author  $author
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Author $author)
+    public function update(AuthorRequest $request, Author $author)
     {
-        //
+        return $this->crud->update($request, $author);
     }
 
     /**
