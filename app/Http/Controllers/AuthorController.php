@@ -4,9 +4,20 @@ namespace App\Http\Controllers;
 
 use App\Author;
 use Illuminate\Http\Request;
+use Knowfox\Crud\Services\Crud;
 
 class AuthorController extends Controller
 {
+    protected $crud;
+
+    public function __construct(Crud $crud)
+    {
+        parent::__construct();
+
+        $this->crud = $crud;
+        $crud->setup('storylab.author');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +25,7 @@ class AuthorController extends Controller
      */
     public function index()
     {
-        //
+        return $this->crud->index($request);
     }
 
     /**

@@ -4,17 +4,28 @@ namespace App\Http\Controllers;
 
 use App\Passage;
 use Illuminate\Http\Request;
+use Knowfox\Crud\Services\Crud;
 
 class PassageController extends Controller
 {
+    protected $crud;
+
+    public function __construct(Crud $crud)
+    {
+        //parent::__construct();
+
+        $this->crud = $crud;
+        $crud->setup('storylab.passage');
+    }
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        return $this->crud->index($request);
     }
 
     /**

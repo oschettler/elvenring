@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "5d955ba645b643c71016cfd69dd0387d",
+    "content-hash": "002fc3a54818f81de7d71294aa905e9f",
     "packages": [
         {
             "name": "barryvdh/laravel-debugbar",
@@ -701,6 +701,49 @@
                 }
             ],
             "time": "2015-04-20T18:58:01+00:00"
+        },
+        {
+            "name": "knowfox/crud",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/knowfox/crud.git",
+                "reference": "4de6f82b8972049b12e93b434cc71f83d26c4f90"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/knowfox/crud/zipball/4de6f82b8972049b12e93b434cc71f83d26c4f90",
+                "reference": "4de6f82b8972049b12e93b434cc71f83d26c4f90",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "^5.4"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Knowfox\\Crud\\ServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Knowfox\\Crud\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPL-3.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Olav Schettler",
+                    "email": "olav@schettler.net"
+                }
+            ],
+            "description": "A CRUD generator for Laravel",
+            "time": "2018-03-04 21:59:12"
         },
         {
             "name": "laravel/framework",
@@ -4426,7 +4469,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "knowfox/crud": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {

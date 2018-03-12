@@ -1,3 +1,11 @@
 {
-  "Storylab": "Erzählkreis"
+  "Storylab": "Erzählkreis",
+  "Home": "Start",
+  "Circles": "Erzählkreise",
+  "New Circle": "Neuer Erzählkreis",
+  "No Circles": "Keine Erzählkreise",
+  "Authors": "Autoren",
+  "Stories": "Geschichten",
+  "Scenes": "Szenen",
+  "Passages": "Passagen"
 }

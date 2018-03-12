@@ -3,18 +3,31 @@
 namespace App\Http\Controllers;
 
 use App\Circle;
+use App\Http\Requests\CircleRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Knowfox\Crud\Services\Crud;
 
 class CircleController extends Controller
 {
+    protected $crud;
+
+    public function __construct(Crud $crud)
+    {
+        //parent::__construct();
+
+        $this->crud = $crud;
+        $crud->setup('storylab.circle');
+    }
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        return $this->crud->index($request);
     }
 
     /**
@@ -24,7 +37,7 @@ class CircleController extends Controller
      */
     public function create()
     {
-        //
+        return $this->crud->create();
     }
 
     /**
@@ -33,9 +46,11 @@ class CircleController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CircleRequest $request)
     {
-        //
+        $request->merge(['owner_id' => Auth::id()]);
+        list($circle, $response) = $this->crud->store($request);
+        return $response;
     }
 
     /**
@@ -57,7 +72,7 @@ class CircleController extends Controller
      */
     public function edit(Circle $circle)
     {
-        //
+        return $this->crud->edit($circle);
     }
 
     /**
@@ -67,9 +82,9 @@ class CircleController extends Controller
      * @param  \App\Circle  $circle
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Circle $circle)
+    public function update(CircleRequest $request, Circle $circle)
     {
-        //
+        return $this->crud->update($request, $circle);
     }
 
     /**

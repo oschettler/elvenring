@@ -18,3 +18,9 @@ Route::get('/', function () {
 // Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::resource('circle', 'CircleController');
+Route::resource('author', 'AuthorController');
+Route::resource('story', 'StoryController');
+Route::resource('scene', 'SceneController');
+Route::resource('passage', 'PassageController');

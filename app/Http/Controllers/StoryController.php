@@ -4,17 +4,28 @@ namespace App\Http\Controllers;
 
 use App\Story;
 use Illuminate\Http\Request;
+use Knowfox\Crud\Services\Crud;
 
 class StoryController extends Controller
 {
+    protected $crud;
+
+    public function __construct(Crud $crud)
+    {
+        //parent::__construct();
+
+        $this->crud = $crud;
+        $crud->setup('storylab.story');
+    }
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        return $this->crud->index($request);
     }
 
     /**
