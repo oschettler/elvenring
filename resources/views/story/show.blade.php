@@ -25,7 +25,7 @@
 
         function show(scene) {
             $('#scene h5').text(scene.title);
-            $('#scene p').html(scene.body.replace(/\n/, '<br>'));
+            $('#scene p').html(scene.body.replace(/\n/g, '<br>'));
 
             scene.passages.forEach(function (passage) {
                 $('#scene ul').append('<li><a data-id="'
