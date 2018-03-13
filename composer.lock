@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "002fc3a54818f81de7d71294aa905e9f",
+    "content-hash": "6afe48b34a3a67a3046df9f906df3fd9",
     "packages": [
         {
             "name": "barryvdh/laravel-debugbar",
@@ -744,6 +744,42 @@
             ],
             "description": "A CRUD generator for Laravel",
             "time": "2018-03-04 21:59:12"
+        },
+        {
+            "name": "knowfox/passwordless",
+            "version": "0.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/knowfox/passwordless.git",
+                "reference": "9af8c56ed9a76a130f9109afd9a0ce33490be544"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/knowfox/passwordless/zipball/9af8c56ed9a76a130f9109afd9a0ce33490be544",
+                "reference": "9af8c56ed9a76a130f9109afd9a0ce33490be544",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "^5.4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Knowfox\\Passwordless\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL v3"
+            ],
+            "authors": [
+                {
+                    "name": "Olav Schettler",
+                    "email": "olav@schettler.net"
+                }
+            ],
+            "description": "Passwordless login.",
+            "time": "2017-08-23T20:09:20+00:00"
         },
         {
             "name": "laravel/framework",
