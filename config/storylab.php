@@ -106,7 +106,7 @@ return [
             'body'=> [
                 'label'=> 'Body',
                 'type' => 'textarea',
-                'rows' => 10,
+                'rows' => 16,
             ],
         ],
     ],
@@ -123,27 +123,33 @@ return [
             'author.name' => 'Author',
         ],
         'fields' => [
+            'title' => [
+                'label' => 'Title',
+                'cols' => 9,
+            ],
             'public' => [
                 'label' => 'Public',
                 'type' => 'checkbox',
+                'cols' => 3,
             ],
             'status' => [
                 'label' => 'Status',
                 'type' => 'select',
                 'options' => 'story_status',
-            ],
-            'title' => 'Title',
-            'summary' => [
-                'label' => 'Summary',
-                'type' => 'textarea',
-                'rows' => 10,
+                'cols' => 3,
             ],
             'author_id' => [
                 'label' => 'Author',
                 'type' => 'select',
                 'model' => \App\Author::class,
                 'field' => 'name',
-            ]
+                'cols' => 9,
+            ],
+            'summary' => [
+                'label' => 'Summary',
+                'type' => 'textarea',
+                'rows' => 10,
+            ],
         ],
     ],
     'user' => [
