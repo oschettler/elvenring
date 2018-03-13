@@ -106,6 +106,7 @@ return [
             'body'=> [
                 'label'=> 'Body',
                 'type' => 'textarea',
+                'rows' => 10,
             ],
         ],
     ],
@@ -135,6 +136,7 @@ return [
             'summary' => [
                 'label' => 'Summary',
                 'type' => 'textarea',
+                'rows' => 10,
             ],
             'author_id' => [
                 'label' => 'Author',
