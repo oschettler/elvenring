@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col">
+            <div class="col-6 mx-auto">
                 <h1>{{ $story->title }}</h1>
                 <p>{!! nl2br($story->summary) !!}</p>
 
