@@ -81,7 +81,7 @@ return [
         'model' => \App\Scene::class,
         'entity_title' => [' Scene', 'Scenes'],
         'entity_name' => 'scene',
-        'order_by' => ['story_id', 'weight'],
+        'order_by' => ['story_id|desc', 'weight'],
         'columns' => [
             'title' => 'Title',
             'story.title' => 'Story',
