@@ -35,8 +35,8 @@
                 <div class="collapse navbar-collapse justify-content-end" id="navigation">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="#pablo">
-                                <span class="no-icon">@lang('Account')</span>
+                            <a class="nav-link" href="{{ route('passport') }}">
+                                <span class="no-icon">@lang('Passport')</span>
                             </a>
                         </li>
                         <li class="nav-item">
@@ -45,7 +45,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#pablo">
+                            <a class="nav-link" href="{{ route('logout') }}">
                                 <span class="no-icon">@lang('Log out')</span>
                             </a>
                         </li>
@@ -54,7 +54,7 @@
             </div>
         </nav>
         <!-- End Navbar -->
-        <div class="content">
+        <div id="app" class="content">
             @yield('content')
         </div>
         <footer class="footer">
@@ -68,10 +68,7 @@
                         </li>
                     </ul>
                     <p class="copyright text-center">
-                        ©
-                        <script>
-                            document.write(new Date().getFullYear())
-                        </script>
+                        © {{ date('Y') }}
                         <a href="https://schettler.net/imprint/">Dr. Olav Schettler</a>
                     </p>
                 </nav>
@@ -82,14 +79,5 @@
 </body>
 <script src="{{ asset('js/app.js') }}"></script>
 <script src="{{ asset('js/lbd.js') }}"></script>
-<script type="text/javascript">
-    $(document).ready(function() {
-        // Javascript method's body can be found in assets/js/demos.js
-        demo.initDashboardPageCharts();
-
-        demo.showNotification();
-
-    });
-</script>
 
 </html>

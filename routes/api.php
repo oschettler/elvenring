@@ -16,3 +16,6 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::middleware('auth:api')->get('/stories/{circle}', 'StoryController@apiList');
+Route::middleware('auth:api')->get('/story/{story}', 'StoryController@apiShow');

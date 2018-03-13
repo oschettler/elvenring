@@ -18,6 +18,7 @@ Route::get('/', function () {
 // Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/passport', 'HomeController@passport')->name('passport');
 
 Route::resource('circle', 'CircleController');
 Route::resource('author', 'AuthorController');

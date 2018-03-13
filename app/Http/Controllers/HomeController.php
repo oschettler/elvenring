@@ -25,4 +25,9 @@ class HomeController extends Controller
     {
         return view('home', ['page_title' => 'Home']);
     }
+
+    public function passport()
+    {
+        return view('passport', ['page_title' => 'Passport']);
+    }
 }

@@ -12,6 +12,7 @@
         "knowfox/crud": "dev-master",
         "knowfox/passwordless": "^0.4.0",
         "laravel/framework": "5.6.*",
+        "laravel/passport": "^5.0",
         "laravel/tinker": "~1.0",
         "mpociot/versionable": "^2.1"
     },

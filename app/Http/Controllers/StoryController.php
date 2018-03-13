@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Circle;
 use App\Http\Requests\StoryRequest;
 use App\Story;
 use Illuminate\Http\Request;
@@ -97,5 +98,16 @@ class StoryController extends Controller
     public function destroy(Story $story)
     {
         //
+    }
+
+    public function apiList(Circle $circle)
+    {
+        return $circle->stories()->paginate();
+    }
+
+    public function apiShow(Story $story)
+    {
+        $story->load('scenes.passages');
+        return $story;
     }
 }
