@@ -1,0 +1,56 @@
+{
+    "interactionModel":{
+        "languageModel":{
+            "invocationName":"Erzähl Kreis",
+            "types":[],
+            "intents":[
+                {
+                  "name": "AMAZON.CancelIntent",
+                  "samples": []
+                },
+                {
+                  "name": "AMAZON.HelpIntent",
+                  "samples": []
+                },
+                {
+                  "name": "AMAZON.StopIntent",
+                  "samples": []
+                },
+                {
+                    "name":"ListStoriesIntent",
+                    "samples": [
+                        "Geschichten",
+                        "Welche Geschichten gibt es"
+                    ]
+                },
+                {
+                    "name":"StoryIntent",
+                    "slots":[
+                        {
+                            "name":"name",
+                            "type":"AMAZON.SearchQuery"
+                        }
+                    ],
+                    "samples":[
+                        "Starte Geschichte {name}",
+                        "Spiele {name}"
+                    ]
+                },
+                {
+                    "name":"PassageIntent",
+                    "slots":[
+                        {
+                            "name":"number",
+                            "type":"AMAZON.NUMBER"
+                        }
+                    ],
+                    "samples":[
+                        "Ausgang nummer {passage}",
+                        "Nummer {passage}",
+                        "{passage}"
+                    ]
+                }
+            ]
+        }
+    }
+}
