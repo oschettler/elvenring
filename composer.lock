@@ -708,12 +708,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/knowfox/crud.git",
-                "reference": "4de6f82b8972049b12e93b434cc71f83d26c4f90"
+                "reference": "2e50d382ae2a64c850ede220609aef1095787ffc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/knowfox/crud/zipball/4de6f82b8972049b12e93b434cc71f83d26c4f90",
-                "reference": "4de6f82b8972049b12e93b434cc71f83d26c4f90",
+                "url": "https://api.github.com/repos/knowfox/crud/zipball/2e50d382ae2a64c850ede220609aef1095787ffc",
+                "reference": "2e50d382ae2a64c850ede220609aef1095787ffc",
                 "shasum": ""
             },
             "require": {
@@ -743,7 +743,7 @@
                 }
             ],
             "description": "A CRUD generator for Laravel",
-            "time": "2018-03-04 21:59:12"
+            "time": "2018-03-13 14:53:23"
         },
         {
             "name": "knowfox/passwordless",
