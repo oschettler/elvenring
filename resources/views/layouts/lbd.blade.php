@@ -62,23 +62,8 @@
                 <nav>
                     <ul class="footer-menu">
                         <li>
-                            <a href="#">
+                            <a href="https://schettler.net">
                                 Home
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                Company
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                Portfolio
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                Blog
                             </a>
                         </li>
                     </ul>
@@ -87,7 +72,7 @@
                         <script>
                             document.write(new Date().getFullYear())
                         </script>
-                        <a href="http://www.creative-tim.com">Creative Tim</a>, made with love for a better web
+                        <a href="https://schettler.net/imprint/">Dr. Olav Schettler</a>
                     </p>
                 </nav>
             </div>
