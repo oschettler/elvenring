@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\SceneRequest;
 use App\Scene;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Knowfox\Crud\Services\Crud;
 
 class SceneController extends Controller
@@ -35,7 +37,7 @@ class SceneController extends Controller
      */
     public function create()
     {
-        //
+        return $this->crud->create();
     }
 
     /**
@@ -44,9 +46,10 @@ class SceneController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(SceneRequest $request)
     {
-        //
+        list($scene, $response) = $this->crud->store($request);
+        return $response;
     }
 
     /**
@@ -68,7 +71,7 @@ class SceneController extends Controller
      */
     public function edit(Scene $scene)
     {
-        //
+        return $this->crud->edit($scene);
     }
 
     /**
@@ -78,9 +81,9 @@ class SceneController extends Controller
      * @param  \App\Scene  $scene
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Scene $scene)
+    public function update(SceneRequest $request, Scene $scene)
     {
-        //
+        return $this->crud->update($request, $scene);
     }
 
     /**

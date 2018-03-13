@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\PassageRequest;
 use App\Passage;
 use Illuminate\Http\Request;
 use Knowfox\Crud\Services\Crud;
@@ -35,7 +36,7 @@ class PassageController extends Controller
      */
     public function create()
     {
-        //
+        return $this->crud->create();
     }
 
     /**
@@ -44,9 +45,10 @@ class PassageController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PassageRequest $request)
     {
-        //
+        list($passage, $response) = $this->crud->store($request);
+        return $response;
     }
 
     /**
@@ -68,7 +70,7 @@ class PassageController extends Controller
      */
     public function edit(Passage $passage)
     {
-        //
+        return $this->crud->edit($passage);
     }
 
     /**
@@ -80,7 +82,7 @@ class PassageController extends Controller
      */
     public function update(Request $request, Passage $passage)
     {
-        //
+        return $this->crud->update($request, $passage);
     }
 
     /**

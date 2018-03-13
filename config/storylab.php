@@ -47,11 +47,34 @@ return [
         'order_by' => 'title',
         'columns' => [
             'weight' => 'Weight',
-            'scene' => 'Scene',
-            'target_id' => 'Target',
+            'scene.title' => 'Scene',
+            'target.title' => 'Target',
             'title' => 'Title',
         ],
-        'fields' => [],
+        'fields' => [
+            'title' => [
+                'label' => 'Title',
+                'cols' => 9,
+            ],
+            'weight' => [
+                'label' => 'Weight',
+                'type' => 'select',
+                'options' => 'weight',
+                'cols' => 3
+            ],
+            'scene_id' => [
+                'label' => 'Scene',
+                'type' => 'select',
+                'model' => \App\Scene::class,
+                'field' => 'title',
+            ],
+            'target_id' => [
+                'label' => 'Target Scene',
+                'type' => 'select',
+                'model' => \App\Scene::class,
+                'field' => 'title',
+            ],
+        ],
     ],
     'scene' => [
         'extends' => 'entity',
@@ -61,8 +84,30 @@ return [
         'order_by' => 'title',
         'columns' => [
             'title' => 'Title',
+            'story.title' => 'Story',
         ],
-        'fields' => [],
+        'fields' => [
+            'title' => [
+                'label' => 'Title',
+                'cols' => 9,
+            ],
+            'weight' => [
+                'label' => 'Weight',
+                'type' => 'select',
+                'options' => 'weight',
+                'cols' => 3,
+            ],
+            'story_id' => [
+                'label' => 'Story',
+                'type' => 'select',
+                'model' => \App\Story::class,
+                'field' => 'title',
+            ],
+            'body'=> [
+                'label'=> 'Body',
+                'type' => 'textarea',
+            ],
+        ],
     ],
     'story' => [
         'extends' => 'entity',
