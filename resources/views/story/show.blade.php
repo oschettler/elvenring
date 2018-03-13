@@ -27,6 +27,7 @@
             $('#scene h5').text(scene.title);
             $('#scene p').html(scene.body.replace(/\n/g, '<br>'));
 
+            $('#scene ul').html('');
             scene.passages.forEach(function (passage) {
                 $('#scene ul').append('<li><a data-id="'
                     + passage.target_id + '" href="#">' + passage.title + '</a></li>');
