@@ -116,11 +116,12 @@ return [
         'entity_title' => [' Story', 'Stories'],
         'entity_name' => 'story',
         'order_by' => 'title',
+        'show' => true,
         'columns' => [
-            'public' => 'Public',
-            'status' => 'Status',
             'title' => 'Title',
             'author.name' => 'Author',
+            'public' => 'Public',
+            'status' => 'Status',
         ],
         'fields' => [
             'title' => [

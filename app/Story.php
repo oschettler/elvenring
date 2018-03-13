@@ -12,4 +12,9 @@ class Story extends Model
     {
         return $this->belongsTo(Author::class);
     }
+
+    public function scenes()
+    {
+        return $this->hasMany(Scene::class)->orderby('weight');
+    }
 }

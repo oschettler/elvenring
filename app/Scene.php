@@ -12,4 +12,9 @@ class Scene extends Model
     {
         return $this->belongsTo(Story::class);
     }
+
+    public function passages()
+    {
+        return $this->hasMany(Passage::class);
+    }
 }

@@ -61,7 +61,8 @@ class StoryController extends Controller
      */
     public function show(Story $story)
     {
-        //
+        $story->load('scenes.passages');
+        return view('story.show', ['story' => $story]);
     }
 
     /**
