@@ -2,9 +2,11 @@
 
 namespace App\Providers;
 
+use App\ViewComposers\SidebarComposer;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\View;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -27,6 +29,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->setLanguage();
+        View::composer('partials.sidebar', SidebarComposer::class);
     }
 
     /**

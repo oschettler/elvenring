@@ -15,43 +15,13 @@
     <!-- CSS Files -->
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/light-bootstrap-dashboard.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/storylab.css') }}" rel="stylesheet">
 </head>
 
 <body>
 <div class="wrapper">
-    <div class="sidebar" data-image="img/sidebar-5.jpg">
-        <div class="sidebar-wrapper">
-            <div class="logo">
-                <a href="http://www.creative-tim.com" class="simple-text">
-                    @lang(config('app.name', 'Laravel'))
-                </a>
-            </div>
-            <ul class="nav">
-                <li class="nav-item active">
-                    <a class="nav-link" href="dashboard.html">
-                        <i class="nc-icon nc-chart-pie-35"></i>
-                        <p>@lang('Home')</p>
-                    </a>
-                </li>
+    @include('partials.sidebar')
 
-                @foreach ([
-                    route('circle.index') => 'Circles',
-                    route('author.index') => 'Authors',
-                    route('story.index') => 'Stories',
-                    route('scene.index') => 'Scenes',
-                    route('passage.index') => 'Passages',
-                ] as $link => $title)
-
-                    <li>
-                        <a class="nav-link" href="{{ $link }}">
-                            <i class="nc-icon nc-circle-09"></i>
-                            <p>@lang($title)</p>
-                        </a>
-                    </li>
-                @endforeach
-            </ul>
-        </div>
-    </div>
     <div class="main-panel">
         <!-- Navbar -->
         <nav class="navbar navbar-expand-lg " color-on-scroll="500">
@@ -66,7 +36,7 @@
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
                             <a class="nav-link" href="#pablo">
-                                <span class="no-icon">Account</span>
+                                <span class="no-icon">@lang('Account')</span>
                             </a>
                         </li>
                         <li class="nav-item">
@@ -76,7 +46,7 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#pablo">
-                                <span class="no-icon">Log out</span>
+                                <span class="no-icon">@lang('Log out')</span>
                             </a>
                         </li>
                     </ul>
