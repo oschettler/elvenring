@@ -24,17 +24,22 @@
         var scenes = {!! json_encode($story->scenes) !!};
 
         function show(scene) {
-            $('#scene h5').text(scene.title);
-            $('#scene p').html(scene.body.replace(/\n/g, '<br>'));
-
             $('#scene ul').html('');
-            scene.passages.forEach(function (passage) {
-                $('#scene ul').append('<li><a data-id="'
-                    + passage.target_id + '" href="#">' + passage.title + '</a></li>');
+
+            $('#scene p').fadeOut('slow', function () {
+                $('#scene h5').text(scene.title);
+                $('#scene p').html(scene.body.replace(/\n/g, '<br>'));
+
+                scene.passages.forEach(function (passage) {
+                    $('#scene ul').append('<li><a data-id="'
+                        + passage.target_id + '" href="#">' + passage.title + '</a></li>');
+                });
             });
         }
 
-        $('#passages').on('click', 'a', function () {
+        $('#passages').on('click', 'a', function (e) {
+            e.preventDefault();
+
             var target_id = $(this).data('id');
 
             scenes.forEach(function (scene) {
