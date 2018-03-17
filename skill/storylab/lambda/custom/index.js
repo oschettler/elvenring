@@ -1,65 +1,66 @@
-'use strict';
-var Alexa = require("alexa-sdk");
+/* eslint-disable  func-names */
+/* eslint quote-props: ["error", "consistent"]*/
 
-var samples = [
-    "Welche Geschichten gibt es",
-    "Spiele {name}"
+'use strict';
+const Alexa = require('alexa-sdk');
+
+const APP_ID = 'amzn1.ask.skill.c925a17b-b3cc-46e7-91e4-f6317c8e88e1';
+
+const SKILL_NAME = 'Erzählkreis';
+const GET_FACT_MESSAGE = "Ich habe diese Gschichten für dich: ";
+const HELP_MESSAGE = 'Starte, indem du "Geschichten" sagst. Wähle eine der Geschichten aus und sage "Erste Geschichte". Folgen dann den Anweisungen';
+const HELP_REPROMPT = 'Wie kann ich dir weiterhelfen?';
+const STOP_MESSAGE = 'Tschüss!';
+
+const data = [
+    'Plom vom Planeten Gurgius',
+    'Abenteuer im Abteil'
 ];
 
-exports.handler = function(event, context) {
+let welcomed = false;
+
+exports.handler = function(event, context, callback) {
     var alexa = Alexa.handler(event, context);
+    alexa.appId = APP_ID;
     alexa.registerHandlers(handlers);
-    alexa.appId = "amzn1.ask.skill.ef67b0de-978f-4f4a-b676-899da832e51a";
     alexa.execute();
 };
 
-var handlers = {
+const handlers = {
     'LaunchRequest': function () {
-        this.emit('Welcome');
-    },
-    'Welcome': function () {
-        this.response.speak('Willkommen im Erzählkreis!')
-                     .cardRenderer('Erzählkreis', 'Willkommen in Erzählkreis');
-        this.emit(':responseReady');
+        this.emit('ListStoriesIntent');
     },
     'ListStoriesIntent': function () {
-        var stories = [
-            'Abenteuer im Abteil',
-            'Plom und das Heilkraut'
-        ];
+        let text;
+        
+        if (!welcomed) {
+            text = 'Willkommen im Erzählkreis! ';
+            welcomed = true;
+        }
+        else {
+            text = '';
+        }
 
-        this.response.speak('Ich habe ' + stories.length + ' Geschichten für dich: '
-            + stories.join(', ')
-        )
-            .cardRenderer('hello world', 'hello world');
+        text += 'Ich habe diese ' + data.length + ' Geschichten für dich: "'
+            + data.join(', ') + '"';
+
+        this.response.cardRenderer(SKILL_NAME, text);
+        this.response.speak(text);
         this.emit(':responseReady');
     },
-    'StoryIntent': function () {
-        var name = this.event.request.intent.slots.name.value;
-        this.response.speak('OK, hier kommt ' + name)
-            .cardRenderer('hello world', 'hello ' + name);
+    'AMAZON.HelpIntent': function () {
+        const speechOutput = HELP_MESSAGE;
+        const reprompt = HELP_REPROMPT;
+
+        this.response.speak(speechOutput).listen(reprompt);
         this.emit(':responseReady');
     },
-    'SessionEndedRequest' : function() {
-        console.log('Session ended with reason: ' + this.event.request.reason);
-    },
-    'AMAZON.StopIntent' : function() {
-        this.response.speak('Bye');
+    'AMAZON.CancelIntent': function () {
+        this.response.speak(STOP_MESSAGE);
         this.emit(':responseReady');
     },
-    'AMAZON.HelpIntent' : function() {
-        this.response.speak("Du kannst sagen: '"
-            + samples.join("' oder '") + "'"
-        );
+    'AMAZON.StopIntent': function () {
+        this.response.speak(STOP_MESSAGE);
         this.emit(':responseReady');
     },
-    'AMAZON.CancelIntent' : function() {
-        this.response.speak('Tschüß');
-        this.emit(':responseReady');
-    },
-    'Unhandled' : function() {
-        this.response.speak("Das habe ich leider nicht verstanden. Du kannst sagen: '"
-            + samples.join("' oder '") + "'"
-        );
-    }
 };
