@@ -20,8 +20,10 @@ module.exports = function () {
     utils.api('/api/stories/2', data => {
         const stories = data.data;
 
-        text += 'Ich habe ' + utils.plural(stories.length, ['eine Geschichte', 'Geschichten']) + ' für dich. Sage ';
-        + utils.conjunct(stories.map((story, i) => { return i.toString() + ' für ' + story.title; }), 'oder') + '. ';
+        text += 'Ich habe ' + utils.plural(stories.length, ['eine Geschichte', 'Geschichten']) + ' für dich. Sage '
+            + utils.conjunct(stories.map((story, i) => {
+                return 'Geschichte ' + (i+1).toString() + ' für ' + story.title; 
+            }), 'oder') + '. ';
 
         console.log(text);
 

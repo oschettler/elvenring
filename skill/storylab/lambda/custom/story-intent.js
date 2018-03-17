@@ -10,15 +10,11 @@ module.exports = function () {
     utils.api('/api/story/2', story => {
         let text = 'Dies ist die Geschichte "' + story.title + '". ';
 
-        text += sceneText(story.scenes[0]);
+        text += utils.sceneText(story.scenes[0]);
+
+        this.response.sessionAttributes.story = story;
 
         this.response.cardRenderer(settings.SKILL_NAME, text);
         this.emit(':ask', text, 'Bitte sage, wie es weiter gehen soll.');
     });
 };
-
-function sceneText(scene) {
-    return scene.text + ' Sage '
-        + utils.conjunct(scene.passages.map((passage, i) => { 
-            return i.toString() + ' für ' + passage.title; }), 'oder') + '. ';
-}

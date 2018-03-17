@@ -63,8 +63,17 @@ function conjunct(ary, conjunction) {
     }
 }
 
+function sceneText(scene) {
+    return scene.body + ' Sage '
+        + utils.conjunct(
+            scene.passages.map((passage, i) => { 
+                return 'Ausgang ' + (i+1).toString() + ' für ' + passage.title; 
+            }), 'oder') + '. ';
+}
+
 module.exports = {
     api,
     conjunct,
-    plural
+    plural,
+    sceneText
 };

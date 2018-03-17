@@ -1,55 +1,52 @@
 {
+  "interactionModel": {
     "languageModel": {
-        "invocationName": "erzähl kreis",
-        "intents": [
+      "invocationName": "erzähl kreis",
+      "intents": [
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "ListStoriesIntent",
+          "samples": [
+            "Geschichten",
+            "Welche Geschichten gibt es"
+          ]
+        },
+        {
+          "name": "StoryIntent",
+          "slots": [
             {
-                "name": "AMAZON.CancelIntent",
-                "slots": [],
-                "samples": []
-            },
-            {
-                "name": "AMAZON.HelpIntent",
-                "slots": [],
-                "samples": []
-            },
-            {
-                "name": "AMAZON.StopIntent",
-                "slots": [],
-                "samples": []
-            },
-            {
-                "name": "ListStoriesIntent",
-                "slots": [],
-                "samples": [
-                    "Geschichten",
-                    "Welche Geschichten gibt es"
-                ]
-            },
-            {
-                "name": "StoryIntent",
-                "slots": [
-                    {
-                        "name": "story",
-                        "type": "AMAZON.NUMBER"
-                    }
-                ],
-                "samples": [
-                    "Geschichte {story}"
-                ]
-            },
-            {
-                "name": "PassageIntent",
-                "slots": [
-                    {
-                        "name": "passage",
-                        "type": "AMAZON.NUMBER"
-                    }
-                ],
-                "samples": [
-                    "Ausgang {passage}"
-                ]
+              "name": "story",
+              "type": "AMAZON.NUMBER"
             }
-        ],
-        "types": []
+          ],
+          "samples": [
+            "Geschichte {story}"
+          ]
+        },
+        {
+          "name": "PassageIntent",
+          "slots": [
+            {
+              "name": "passage",
+              "type": "AMAZON.NUMBER"
+            }
+          ],
+          "samples": [
+            "Ausgang {passage}"
+          ]
+        }
+      ]
     }
+  }
 }
