@@ -37,10 +37,10 @@
                     ]
                 },
                 {
-                    "name":"PassageIntent",
+                    "nummer":"PassageIntent",
                     "slots":[
                         {
-                            "name":"passage",
+                            "nummer":"passage",
                             "type":"AMAZON.NUMBER"
                         }
                     ],
