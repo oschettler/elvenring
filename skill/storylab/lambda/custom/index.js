@@ -15,11 +15,6 @@ const STOP_MESSAGE = 'Tschüss!';
 const API_HOST = 'storylab.schettler.net';
 const API_PORT = 443;
 
-const data = [
-    'Plom vom Planeten Gurgius',
-    'Abenteuer im Abteil'
-];
-
 let welcomed = false;
 
 exports.handler = function(event, context, callback) {
@@ -47,8 +42,8 @@ const handlers = {
         api('/api/stories/2', data => {
             const stories = data.data;
 
-            text += 'Ich habe diese ' + stories.length + ' Geschichten für dich: "'
-            + stories.join(', ') + '"';
+            text += 'Ich habe ' + plural(stories.length, ['eine Geschichte', 'Geschichten']) + ' für dich: "'
+                + conjunct(stories.map(story => { return story.title; })) + '"';
 
             console.log(text);
 
@@ -78,6 +73,7 @@ const https = require('https');
 
 function api(path, callback) {
     let req = https.request({
+        timeout: 2000,
         host: API_HOST,
         port: API_PORT,
         path,
@@ -98,4 +94,36 @@ function api(path, callback) {
             callback(JSON.parse(return_data));
         })
     });
+
+    req.on('error', e => {
+        console.error('Problem with request: ${e.message}');
+    });
+
+    req.end();
+}
+
+function plural(count, noun) {
+    if (count == 1) {
+        return noun[0]; 
+    } 
+    else
+    if (count == 0) { 
+        return 'keine ' + noun[1];
+    }
+    else {
+        return count.toString() + ' ' + noun[1];
+    }
+}
+
+function conjunct(ary) {
+    if (ary.length == 0) {
+        return 'keine';
+    }
+    else
+    if (ary.length == 1) {
+        return ary[0];
+    }
+    else {
+        return ary.slice(0, -1).join(', ') + ' und ' + ary[ary.length - 1];
+    }
 }
