@@ -16,7 +16,8 @@ const handlers = {
     'LaunchRequest': function () {
         this.emit('ListStoriesIntent');
     },
-    'ListStoriesIntent': require('./stories-intent'),
+    'ListStoriesIntent': require('./list-stories-intent'),
+    'StoryIntent': require('./story-intent'),
     'AMAZON.HelpIntent': function () {
         const speechOutput = settings.HELP_MESSAGE;
         const reprompt = settings.HELP_REPROMPT;

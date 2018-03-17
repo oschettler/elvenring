@@ -48,7 +48,9 @@ function plural(count, noun) {
     }
 }
 
-function conjunct(ary) {
+function conjunct(ary, conjunction) {
+    conjunction = conjunction || 'und';
+
     if (ary.length == 0) {
         return 'keine';
     }
@@ -57,7 +59,7 @@ function conjunct(ary) {
         return ary[0];
     }
     else {
-        return ary.slice(0, -1).join(', ') + ' und ' + ary[ary.length - 1];
+        return ary.slice(0, -1).join(', ') + ' ' + conjunction + ' ' + ary[ary.length - 1];
     }
 }
 

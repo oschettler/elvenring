@@ -20,13 +20,12 @@ module.exports = function () {
     utils.api('/api/stories/2', data => {
         const stories = data.data;
 
-        text += 'Ich habe ' + utils.plural(stories.length, ['eine Geschichte', 'Geschichten']) + ' für dich: "'
-            + utils.conjunct(stories.map(story => { return story.title; })) + '"';
+        text += 'Ich habe ' + utils.plural(stories.length, ['eine Geschichte', 'Geschichten']) + ' für dich. Sage ';
+        + utils.conjunct(stories.map((story, i) => { return i.toString() + ' für ' + story.title; }), 'oder') + '. ';
 
         console.log(text);
 
         this.response.cardRenderer(settings.SKILL_NAME, text);
-        this.response.speak(text);
-        this.emit(':responseReady');
+        this.emit(':ask', text, 'Bitte wähle eine Geschichte.');
     });
 };
