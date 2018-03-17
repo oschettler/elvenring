@@ -1,7 +1,7 @@
 {
     "interactionModel":{
         "languageModel":{
-            "invocationName":"Erzähl Kreis",
+            "invocationName":"erzähl kreis",
             "types":[],
             "intents":[
                 {
@@ -40,7 +40,7 @@
                     "name":"PassageIntent",
                     "slots":[
                         {
-                            "name":"number",
+                            "name":"passage",
                             "type":"AMAZON.NUMBER"
                         }
                     ],

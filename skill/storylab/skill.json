@@ -10,19 +10,16 @@
             "Alexa, frage Erzählkreis nach meinen Geschichten"
           ],
           "name": "Erzählkreis",
-          "description": "im Erzählkreis list Alexa dir interaktive Geschichten vor. Du kannst aus öffentlichen Geschichten wählen oder mit deinen Freunden auf der Website erzählkreis.de eigene Geschichten schreiben."
+          "description": "Im Erzählkreis list Alexa dir interaktive Geschichten vor. Du kannst aus öffentlichen Geschichten wählen oder mit deinen Freunden auf der Website erzählkreis.de eigene Geschichten schreiben."
         }
-      },
-      "isAvailableWorldwide": false,
-      "testingInstructions": "Retrieve a list of available stories by asking 'Alexa, frage Erzählkreis nach meinen Geschichten'. Then start a story by its title, e.g. 'Alexa, starte Erzählkreis mit Abenteuer im Abteil'. Stories are read scene by scene. Every scene ends with a list of passages. Invoke a passage by calling there number, e.g. 'Nummer eins'.",
-      "category": "EDUCATION_AND_REFERENCE",
-      "distributionCountries": ["Germany"]
+      }
     },
     "apis": {
       "custom": {
         "endpoint": {
           "sourceDir": "lambda/custom"
-        }
+        },
+        "interfaces": []
       }
     },
     "manifestVersion": "1.0"

@@ -9,6 +9,7 @@ var samples = [
 exports.handler = function(event, context) {
     var alexa = Alexa.handler(event, context);
     alexa.registerHandlers(handlers);
+    alexa.appId = "amzn1.ask.skill.ef67b0de-978f-4f4a-b676-899da832e51a";
     alexa.execute();
 };
 
@@ -18,7 +19,7 @@ var handlers = {
     },
     'Welcome': function () {
         this.response.speak('Willkommen im Erzählkreis!')
-                     .cardRenderer('hello world', 'hello world');
+                     .cardRenderer('Erzählkreis', 'Willkommen in Erzählkreis');
         this.emit(':responseReady');
     },
     'ListStoriesIntent': function () {
