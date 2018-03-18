@@ -5,16 +5,28 @@ const utils = require('./utils');
 const settings = require('./settings');
 
 module.exports = function () {
-    let text;
-    
-    utils.api('/api/story/2', story => {
+
+    const attributes = this.attributes;
+    const response = this.response;
+    const emit = this.emit;
+
+    const stories = this.attributes.stories;
+    if (typeof stories === 'undefined') {
+        this.emit('ListStoriesIntent');
+        return;
+    }
+
+    const listed_story = stories[this.event.request.intent.slots.story.value];
+
+    utils.api('/api/story/' + listed_story.id, story => {
         let text = 'Dies ist die Geschichte "' + story.title + '". ';
 
         text += utils.sceneText(story.scenes[0]);
 
-        this.response.sessionAttributes.story = story;
+        attributes.story = story;
+        attributes.sceneIndex = 0;
 
-        this.response.cardRenderer(settings.SKILL_NAME, text);
-        this.emit(':ask', text, 'Bitte sage, wie es weiter gehen soll.');
+        response.cardRenderer(settings.SKILL_NAME, text);
+        emit(':ask', text, 'Bitte sage, wie es weiter gehen soll.');
     });
 };

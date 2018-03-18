@@ -8,6 +8,9 @@ let welcome_seen = false;
 
 module.exports = function () {
     let text;
+    const response = this.response;
+    const attributes = this.attributes;
+    const emit = this.emit;
     
     if (!welcome_seen) {
         text = 'Willkommen im Erzählkreis! ';
@@ -20,6 +23,8 @@ module.exports = function () {
     utils.api('/api/stories/2', data => {
         const stories = data.data;
 
+        attributes.stories = stories;
+
         text += 'Ich habe ' + utils.plural(stories.length, ['eine Geschichte', 'Geschichten']) + ' für dich. Sage '
             + utils.conjunct(stories.map((story, i) => {
                 return 'Geschichte ' + (i+1).toString() + ' für ' + story.title; 
@@ -27,7 +32,7 @@ module.exports = function () {
 
         console.log(text);
 
-        this.response.cardRenderer(settings.SKILL_NAME, text);
-        this.emit(':ask', text, 'Bitte wähle eine Geschichte.');
+        response.cardRenderer(settings.SKILL_NAME, text);
+        emit(':ask', text, 'Bitte wähle eine Geschichte.');
     });
 };
