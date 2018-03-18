@@ -5,8 +5,6 @@ const utils = require('./utils');
 const settings = require('./settings');
 
 module.exports = function () {
-    let text;
-
     const story = this.attributes.story;
     const scene_index = this.attributes.sceneIndex;
     if (typeof story === 'undefined') {

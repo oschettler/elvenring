@@ -5,8 +5,6 @@ const utils = require('./utils');
 const settings = require('./settings');
 
 module.exports = function () {
-    let text;
-
     const story = this.attributes.story;
     if (typeof story === 'undefined') {
         this.emit('ListStoriesIntent');
