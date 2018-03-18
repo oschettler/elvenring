@@ -13,7 +13,7 @@ module.exports = function () {
         return;
     }
     const scene = story[this.attributes.sceneIndex];
-    const passage = scene.passages[this.event.request.intent.slots.passage.value];
+    const passage = scene.passages[this.event.request.intent.slots.passage.value - 1];
 
     const i = story.scenes.findIndex(scene => {
         return scene.id == passage.target_id;
