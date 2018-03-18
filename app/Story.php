@@ -2,7 +2,9 @@
 
 namespace App;
 
+use App\Http\Resources\SceneResource;
 use Illuminate\Database\Eloquent\Model;
+use Symfony\Component\Yaml\Yaml;
 
 class Story extends Model
 {
@@ -16,5 +18,14 @@ class Story extends Model
     public function scenes()
     {
         return $this->hasMany(Scene::class)->orderby('weight');
+    }
+
+    public function getYamlScenesAttribute()
+    {
+        return Yaml::dump(SceneResource::collection($this->scenes)->resolve(),
+            4,
+            4,
+            Yaml::DUMP_MULTI_LINE_LITERAL_BLOCK
+        );
     }
 }

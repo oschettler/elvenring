@@ -26,6 +26,7 @@ const handlers = {
         this.emit('ListStoriesIntent');
     },
     'ListStoriesIntent': require('./list-stories-intent'),
+    'StorySearchIntent': require('./story-search-intent'),
     'StoryIntent': require('./story-intent'),
     'PassageIntent': require('./passage-intent'),
     'StoryAgainIntent': require('./story-again-intent'),

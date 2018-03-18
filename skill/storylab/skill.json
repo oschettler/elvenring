@@ -3,11 +3,10 @@
     "publishingInformation": {
       "locales": {
         "de-DE": {
-          "summary": "Im Erzählkreis kannst du deine interaktive Geschichte erzählen",
+          "summary": "Im Erzählkreis kannst du interaktive Geschichten erzählen",
           "examplePhrases": [
             "Alexa, starte Erzählkreis",
-            "Alexa, starte Erzählkreis mit Abenteuer im Abteil",
-            "Alexa, frage Erzählkreis nach meinen Geschichten"
+            "Alexa, starte Erzählkreis mit Abenteuer im Abteil"
           ],
           "name": "Erzählkreis",
           "description": "Im Erzählkreis liest Alexa dir interaktive Geschichten vor. Du kannst aus öffentlichen Geschichten wählen oder mit deinen Freunden auf der Website erzählkreis.de eigene Geschichten schreiben."

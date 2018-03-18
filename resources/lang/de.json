@@ -1,11 +1,13 @@
 {
   "Account": "Konto",
+  "Author": "Autor",
   "Authors": "Autoren",
   "Changes to Circle saved": "Änderungen am Erzählkreis gespeichert",
   "Circle": "Erzählkreis",
   "Circles": "Erzählkreise",
   "Edit": "Bearbeiten",
   "Edit Circle": "Erzählkreis bearbeiten",
+  "Edit Story": "Geschichte bearbeiten",
   "Home": "Start",
   "Log out": "Abmelden",
   "New Author": "Neuer Autor",
@@ -15,9 +17,12 @@
   "New Story": "Neue Geschichte",
   "No Circles": "Keine Erzählkreise",
   "Passages": "Passagen",
+  "Public": "Öffentlich",
   "Save": "Speichern",
   "Scenes": "Szenen",
   "Settings": "Einstellungen",
   "Stories": "Geschichten",
-  "Storylab": "Erzählkreis"
+  "Storylab": "Erzählkreis",
+  "Summary": "Zusammenfassung",
+  "Title": "Titel"
 }
