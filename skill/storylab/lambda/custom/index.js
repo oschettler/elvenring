@@ -5,10 +5,12 @@
 const Alexa = require('alexa-sdk');
 const settings = require('./settings');
 
+//console.log(this.context.logGroupName, this.context.logStreamName);
+
 exports.handler = function(event, context, callback) {
     var alexa = Alexa.handler(event, context);
     alexa.appId = settings.APP_ID;
-    alexa.dynamoDBTableName = 'storylab';
+    //alexa.dynamoDBTableName = 'storylab';
     alexa.registerHandlers(handlers);
     alexa.execute();
 };

@@ -80,7 +80,7 @@ class PassageController extends Controller
      * @param  \App\Passage  $passage
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Passage $passage)
+    public function update(PassageRequest $request, Passage $passage)
     {
         return $this->crud->update($request, $passage);
     }
