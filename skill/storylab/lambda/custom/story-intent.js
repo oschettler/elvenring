@@ -28,7 +28,7 @@ module.exports = function () {
         const scene_index = 0;
         const scene = story.scenes[scene_index];
 
-        const prompt = 'Bitte nenne eine Zahl zwischen 1 und ' 
+        const prompt = 'Bitte sage "Ausgang", gefolgt von einer Zahl zwischen 1 und ' 
             + scene.passages.length.toString() + '.';
 
         text += utils.sceneText(scene);
@@ -37,6 +37,6 @@ module.exports = function () {
         this.attributes.sceneIndex = scene_index;
 
         this.response.cardRenderer(settings.SKILL_NAME, text);
-        this.emit(':ask', prompt);
+        this.emit(':ask', text, prompt);
     });
 };
