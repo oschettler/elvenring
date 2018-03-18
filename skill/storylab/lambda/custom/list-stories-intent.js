@@ -17,13 +17,13 @@ module.exports = function () {
         text = '';
     }
 
-    if (!this.session || !this.session.user.accessToken) {
+    if (!this.event.session.user.accessToken) {
         this.emit(':tellWithLinkAccountCard', 'Für den Zugang zu Geschichten musst du dich mit deinem Konto auf ' 
             + settings.API_HOST + ' verbinden. Gehe dazu in deine Alexa App.');
         return;
     }
 
-    utils.api('/api/stories', this.session.user.accessToken, data => {
+    utils.api('/api/stories', this.event.session.user.accessToken, data => {
         const stories = data.data;
 
         this.attributes.stories = stories;
