@@ -27,7 +27,9 @@
             "Geschichten",
             "Welche Geschichten gibt es",
             "Neue Geschichte",
-            "mit der Geschichte {query}"
+            "mit der Geschichte {query}",
+            "Geschichten mit {query}",
+            "Die Geschichte {query}"
           ]
         },
         {

@@ -23,7 +23,13 @@ module.exports = function () {
         return;
     }
 
-    utils.api('/api/stories', this.event.session.user.accessToken, data => {
+    const query = this.event.request.intent.slots.query.value;
+    const url = '/api/stories';
+    if (query) {
+        url += '?q=' + encodeURIComponent(query);
+    }
+
+    utils.api(url, this.event.session.user.accessToken, data => {
         const stories = data.data;
 
         this.attributes.stories = stories;
