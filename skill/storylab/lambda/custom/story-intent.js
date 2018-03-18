@@ -23,7 +23,7 @@ module.exports = function () {
 
     const listed_story = stories[story_index - 1];
 
-    if (typeof this.endpoint.scope === 'undefined') {
+    if (!this.endpoint || !this.endpoint.scope) {
         this.emit(':tellWithLinkAccountCard', 'Für den Zugang zu Geschichten musst du dich mit deinem Konto auf ' 
             + settings.API_HOST + ' verbinden. Gehe dazu in deine Alexa App.');
         return;
