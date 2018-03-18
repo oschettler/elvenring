@@ -12,17 +12,31 @@ module.exports = function () {
         return;
     }
 
-    const listed_story = stories[this.event.request.intent.slots.story.value - 1];
+    const story_index = this.event.request.intent.slots.story.value;
+    const prompt = 'Bitte sage "Geschichte", gefolgt von einer Zahl zwischen 1 und ' 
+    + stories.length.toString() + '.';
+
+    if (story_index < 1 || story_index > stories.length) {
+        this.emit(':ask', prompt);
+        return;
+    }
+
+    const listed_story = stories[story_index - 1];
 
     utils.api('/api/story/' + listed_story.id, story => {
         let text = 'Dies ist die Geschichte "' + story.title + '". ';
+        const scene_index = 0;
+        const scene = story.scenes[scene_index];
 
-        text += utils.sceneText(story.scenes[0]);
+        const prompt = 'Bitte nenne eine Zahl zwischen 1 und ' 
+            + scene.passages.length.toString() + '.';
+
+        text += utils.sceneText(scene);
 
         this.attributes.story = story;
-        this.attributes.sceneIndex = 0;
+        this.attributes.sceneIndex = scene_index;
 
         this.response.cardRenderer(settings.SKILL_NAME, text);
-        this.emit(':ask', text, 'Bitte sage, wie es weiter gehen soll.');
+        this.emit(':ask', prompt);
     });
 };

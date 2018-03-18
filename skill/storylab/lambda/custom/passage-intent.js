@@ -13,18 +13,27 @@ module.exports = function () {
         return;
     }
     const scene = story.scenes[this.attributes.sceneIndex];
-    const passage = scene.passages[this.event.request.intent.slots.passage.value - 1];
+    const prompt = 'Bitte nenne eine Zahl zwischen 1 und ' 
+        + scene.passages.length.toString() + '.';
+
+    const passage_index = this.event.request.intent.slots.passage.value;
+    if (passage_index < 1 || passage_index > scene.passages.length) {
+        this.emit(':ask', prompt);
+        return;
+    }
+
+    const passage = scene.passages[passage_index - 1];
 
     const i = story.scenes.findIndex(scene => {
         return scene.id == passage.target_id;
     });
 
-    text = 'Ziel nicht gefunden';
+    text = 'Szene nicht gefunden';
     if (i >= 0) {
         this.attributes.sceneIndex = i;
         text = utils.sceneText(story.scenes[i]);
     }
 
     this.response.cardRenderer(settings.SKILL_NAME, text);
-    this.emit(':ask', text, 'Bitte sage, wie es weiter gehen soll.');
+    this.emit(':ask', text, prompt);
 };

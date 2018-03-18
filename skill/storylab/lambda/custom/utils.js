@@ -67,7 +67,7 @@ function sceneText(scene) {
     return scene.body + ' Sage '
         + conjunct(
             scene.passages.map((passage, i) => { 
-                return 'Ausgang ' + (i+1).toString() + ' für ' + passage.title; 
+                return (i+1).toString() + ' für ' + passage.title; 
             }), 'oder') + '. ';
 }
 
