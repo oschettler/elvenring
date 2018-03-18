@@ -68,7 +68,7 @@ function sceneText(scene) {
     let text = scene.body + ' Sage '
     + conjunct(
         scene.passages.map((passage, i) => { 
-            return (i+1).toString() + ' für ' + passage.title; 
+            return (i+1).toString() + ' für "' + passage.title + '"'; 
         }), 'oder');
 
     text += ' oder sage "noch mal" zum Wiederholen oder "anfang", um die Geschichte noch einmal von vorne zu hören.';
