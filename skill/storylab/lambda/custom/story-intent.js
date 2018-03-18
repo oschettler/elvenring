@@ -23,13 +23,13 @@ module.exports = function () {
 
     const listed_story = stories[story_index - 1];
 
-    if (!this.endpoint || !this.endpoint.scope) {
+    if (!this.session || !this.session.user.accessToken) {
         this.emit(':tellWithLinkAccountCard', 'Für den Zugang zu Geschichten musst du dich mit deinem Konto auf ' 
             + settings.API_HOST + ' verbinden. Gehe dazu in deine Alexa App.');
         return;
     }
 
-    utils.api('/api/story/' + listed_story.id, this.endpoint.scope.token, story => {
+    utils.api('/api/story/' + listed_story.id, this.session.user.accessToken, story => {
         const text = utils.startStory(story);
         const prompt = utils.scenePrompt(story.scenes[0]);
 
