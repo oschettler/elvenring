@@ -13,8 +13,7 @@ module.exports = function () {
         return;
     }
     const scene = story.scenes[this.attributes.sceneIndex];
-    const prompt = 'Bitte nenne eine Zahl zwischen 1 und ' 
-        + scene.passages.length.toString() + '.';
+    const prompt = utils.scenePrompt(scene);
 
     const passage_index = this.event.request.intent.slots.passage.value;
     if (passage_index < 1 || passage_index > scene.passages.length) {

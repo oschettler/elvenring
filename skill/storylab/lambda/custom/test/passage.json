@@ -1,0 +1,308 @@
+{
+    "session": {
+      "sessionId": "SessionId.Session1",
+      "application": {
+        "applicationId": "amzn1.ask.skill.c925a17b-b3cc-46e7-91e4-f6317c8e88e1"
+			},
+			"attributes": {
+				"stories": [
+					{
+						"id": 2,
+						"public": 1,
+						"status": "draft",
+						"title": "Abenteuer im Abteil",
+						"summary": "Dies ist die Adaption einer Kurzgeschichte aus dem Buch \"Was für Lumpen sind doch Männer\", erschienen im Jahr 1940 im Paul Neff Verlag, Berlin.\r\n\r\nQuelle: http://gutenberg.spiegel.de/buch/kurzgeschichten-4780/2\r\n\r\nEs gibt auch eine gelesene Fassung von Detlev Hürter: http://detlevhuerter.de/abenteuer-im-abteil",
+						"author_id": 4,
+						"created_at": "2018-03-13 11:25:03",
+						"updated_at": "2018-03-13 16:11:21",
+						"circle_id": 2
+					}
+				],
+				"sceneIndex": 0,
+				"story": {
+					"id": 2,
+					"public": 1,
+					"status": "draft",
+					"title": "Abenteuer im Abteil",
+					"summary": "Dies ist die Adaption einer Kurzgeschichte aus dem Buch \"Was für Lumpen sind doch Männer\", erschienen im Jahr 1940 im Paul Neff Verlag, Berlin.\r\n\r\nQuelle: http://gutenberg.spiegel.de/buch/kurzgeschichten-4780/2\r\n\r\nEs gibt auch eine gelesene Fassung von Detlev Hürter: http://detlevhuerter.de/abenteuer-im-abteil",
+					"author_id": 4,
+					"created_at": "2018-03-13 11:25:03",
+					"updated_at": "2018-03-13 16:11:21",
+					"scenes": [
+						{
+							"id": 3,
+							"story_id": 2,
+							"weight": -5,
+							"title": "Im Schnellzug nach Süden",
+							"body": "Der Schnellzug raste nach dem Süden. In einem Abteil zweiter Klasse saß der Beamte des Kontrollamtes Iwan Michailow mit seiner jungen, schlanken Frau Sinotschka. Ihnen gegenüber lehnte der Geschäftsreisende Schitomirski und las ein humoristisches Blatt. Die Passagiere sprachen kein Wort.",
+							"created_at": "2018-03-13 11:27:04",
+							"updated_at": "2018-03-13 11:27:04",
+							"passages": [
+								{
+									"id": 2,
+									"weight": 0,
+									"scene_id": 3,
+									"target_id": 4,
+									"title": "Weiter",
+									"created_at": "2018-03-13 11:31:30",
+									"updated_at": "2018-03-13 11:31:30"
+								}
+							]
+						},
+						{
+							"id": 4,
+							"story_id": 2,
+							"weight": -4,
+							"title": "Langweilig",
+							"body": "»Mein Gott, wie langweilig!« bemerkte die junge Frau und gähnte.\r\n\r\n»Hör doch auf!« rief ihr der Mann zu. »Du steckst doch alle an!« Und unwillkürlich gähnte er auch. Dann wandte er sich seinem Gegenüber zu und sagte: »Nicht wahr, mein Herr, es ist ein wenig ermüdend?«\r\n\r\nDer Geschäftsreisende legte die Zeitung zur Seite, schaute Michailow an, entzündete sich eine Zigarrette und sprach bedächtig: »Ja, lustig ist es nicht. Wenn man lange im Abteil sitzt, beginnt es langweilig zu werden. Was für eine Station war das?«",
+							"created_at": "2018-03-13 11:28:38",
+							"updated_at": "2018-03-13 11:28:38",
+							"passages": [
+								{
+									"id": 3,
+									"weight": 0,
+									"scene_id": 4,
+									"target_id": 5,
+									"title": "Weiter",
+									"created_at": "2018-03-13 21:23:30",
+									"updated_at": "2018-03-13 21:23:30"
+								}
+							]
+						},
+						{
+							"id": 5,
+							"story_id": 2,
+							"weight": -3,
+							"title": "Ein dritter Fahrgast",
+							"body": "Der Beamte wischte den Hauch vom Fenster und nannte irgendeinen Namen.\r\n\r\n»Ach, ist das eine Fahrt!« rief indes seine Frau.\r\n\r\n»Hör doch auf«, sagte Michailow. »Deshalb kommen wir auch nicht rascher in die Krim.«\r\n\r\nEine Weile später fuhr der Zug in eine Station ein und blieb stehen.\r\n\r\nGleich darauf trat ein Herr ins Abteil. Er trug einen großkarierten Mantel und eine graue Reisemütze, grüßte die Passagiere höflich, warf seine Tasche ins Netz und sagte zu Michailow: »Sie gestatten?«",
+							"created_at": "2018-03-13 11:33:17",
+							"updated_at": "2018-03-13 11:33:17",
+							"passages": [
+								{
+									"id": 4,
+									"weight": 0,
+									"scene_id": 5,
+									"target_id": 6,
+									"title": "Weiter",
+									"created_at": "2018-03-13 21:23:57",
+									"updated_at": "2018-03-13 21:23:57"
+								}
+							]
+						},
+						{
+							"id": 6,
+							"story_id": 2,
+							"weight": -2,
+							"title": "Stille zu dritt",
+							"body": "Michailow drückte sich noch mehr in seine Ecke und murmelte etwas, aber Sinotschka schaute den Unbekannten an, und da er ein eleganter Mann war, bemerkte sie lächelnd:\r\n\r\n»Bitte.«\r\n\r\nDer Geschäftsreisende Schitomirski war mit dem Auftreten des neuen Passagiers keineswegs zufrieden. Leise sagte er: »Das haben wir nötig!«\r\n\r\nDer Fremde sprach kein Wort, nahm eine Zeitung aus der Tasche und vertiefte sich in seine Lektüre. Im Wagen trat Stille ein. Man hörte nur das Rattern der Räder und das Pfeifen der Lokomotive.",
+							"created_at": "2018-03-13 11:35:06",
+							"updated_at": "2018-03-13 11:35:06",
+							"passages": [
+								{
+									"id": 5,
+									"weight": 0,
+									"scene_id": 6,
+									"target_id": 7,
+									"title": "Weiter",
+									"created_at": "2018-03-13 21:24:17",
+									"updated_at": "2018-03-13 21:24:17"
+								}
+							]
+						},
+						{
+							"id": 7,
+							"story_id": 2,
+							"weight": -1,
+							"title": "Ich als intelligenter Mensch",
+							"body": "Die junge Frau Sina kreuzte bedächtig ein Bein über das andere, nahm den Hut herunter, damit man ihren schönen blonden Pagenkopf sehen konnte, dehnte und streckte sich und rief: »Wir müssen noch sechs Stunden fahren!«\r\n\r\n»Ach ja«, sagte ihr Mann. »Das Reisen ist eintönig.«\r\n\r\nDer Geschäftsreisende nickte. »Stimmt! Und dabei ist es ein ziemlich teures Vergnügen.«\r\n\r\n»Und so wenig unterhaltend!« rief Sina und blickte den Fremden an.\r\n\r\nDer Unbekannte fing ihren Blick auf, legte die Zeitung zur Seite und lachte:\r\n\r\n»Die Herrschaften langweilen sich? Wissen Sie, woher das kommt? Weil die Menschen nicht so sind, wie sie sich zeigen.«\r\n\r\nSchitomirski rief beleidigt: »Was heißt das? Was wollen Sie damit sagen, Herr? Ich als intelligenter Mensch . . .«\r\n\r\nDer Fremde unterbrach ihn.",
+							"created_at": "2018-03-13 16:50:52",
+							"updated_at": "2018-03-13 16:50:52",
+							"passages": [
+								{
+									"id": 6,
+									"weight": 0,
+									"scene_id": 7,
+									"target_id": 8,
+									"title": "Weiter",
+									"created_at": "2018-03-13 21:24:34",
+									"updated_at": "2018-03-13 21:24:34"
+								}
+							]
+						},
+						{
+							"id": 8,
+							"story_id": 2,
+							"weight": 0,
+							"title": "Kardinal Giuseppe",
+							"body": "»Und wer sind Sie zum Beispiel?«\r\n\r\n»Ich? Geschäftsreisender! Mein Name ist Schitomirski. Ich vertrete die Firma Krimbel u. Co., Tuche und Seiden en gros.«\r\n\r\nDer Fremde lachte hellauf. »Ich habe gewußt, daß Sie die Unwahrheit sagen werden. Weshalb lügen Sie Ihre Mitreisenden an ? Weshalb behaupten Sie, daß Sie Geschäftsreisender sind? Sie sind doch der Kardinal Giuseppe beim päpstlichen Hof! Mein Herr, Ihr Inkognito ist entlarvt!«\r\n\r\nSchitomirski schaute den Sprecher erschreckt an.\r\n\r\n»Was? Ich ein päpstlicher Kardinal? Sie irren sich!«\r\n\r\nAber der Fremde sagte energisch: »Jawohl, Sie sind der Kardinal Giuseppe! Spielen Sie keine Komödie! Ich weiß, daß Sie eine der einflußreichsten Persönlichkeiten der Gegenwart sind. Man hat mir erzählt, daß . . .«",
+							"created_at": "2018-03-13 20:17:21",
+							"updated_at": "2018-03-13 20:17:21",
+							"passages": [
+								{
+									"id": 7,
+									"weight": 0,
+									"scene_id": 8,
+									"target_id": 9,
+									"title": "Weiter",
+									"created_at": "2018-03-13 21:24:52",
+									"updated_at": "2018-03-13 21:24:52"
+								}
+							]
+						},
+						{
+							"id": 9,
+							"story_id": 2,
+							"weight": 1,
+							"title": "Mit der Pistole bedroht",
+							"body": "Der Geschäftsreisende warf die Zigarette weg, sprang auf und rief wütend: »Herr, lassen Sie diese dummen Späße! Was erlauben Sie sich eigentlich?«\r\n\r\nDer Unbekannte stand gleichfalls auf, legte seine Hand auf die Schulter des Reisenden und sagte in einem Tone, der keinen Widerspruch erlaubte: »Mich werden Sie nicht zum Narren halten. Statt dummer Gespräche erzählen Sie mir lieber etwas vom Vatikan, von den Sitten, die am päpstlichen Hofe herrschen, von Ihren Erfolgen bei den schönen Italienerinnen!«\r\n\r\nDer Reisende wich entsetzt zurück, blickte nach der Notleine und rief: »Was wollen Sie von mir? Lassen Sie mich in Ruhe!«\r\n\r\nDer Unbekannte trat auf ihn zu und rief drohend: »Nicht schreien – Hand von der Notleine – hier ist eine Dame!« Dann ließ er sich auf seinen Sitz nieder, zog einen Revolver aus der Tasche und richtete langsam den Lauf gegen Schitomirski: »Heraus mit der Wahrheit! Ich vertrage keine Komödie!«\r\n\r\nUnter den Mitreisenden entstand eine Panik. Sina drückte sich in die Ecke, ihr Mann versuchte aufzustehen, doch eine Handbewegung des Unbekannten zwang ihn, Platz zu behalten.",
+							"created_at": "2018-03-13 20:19:47",
+							"updated_at": "2018-03-13 20:19:47",
+							"passages": [
+								{
+									"id": 8,
+									"weight": 0,
+									"scene_id": 9,
+									"target_id": 10,
+									"title": "Weiter",
+									"created_at": "2018-03-13 21:25:08",
+									"updated_at": "2018-03-13 21:25:08"
+								}
+							]
+						},
+						{
+							"id": 10,
+							"story_id": 2,
+							"weight": 2,
+							"title": "\"Gut, ich bin ein Kardinal\"",
+							"body": "Der Fremde spielte mit dem Revolver und sagte dann: »Meine Herrschaften, Sie können beruhigt sein, ich werde Ihnen nichts tun, aber ich verlange, daß dieser Mensch die Wahrheit gesteht!«\r\n\r\nSchitomirski stand zitternd und rief nur immer: »Was wollen Sie von mir? Ich bin Reisender der Firma Krimbel u. Co.!«\r\n\r\n»Du lügst!« bemerkte der Fremde. »Du bist der Kardinal Giuseppe!«\r\n\r\nMichailow flüsterte: »Sehen Sie nicht, mit wem Sie es zu tun haben? Das ist ein Wahnsinniger, der aus dem Irrenhaus entsprungen ist. Sagen Sie ihm, daß Sie ein Kardinal sind – das kostet doch nichts!«\r\n\r\nSchitomirski schüttelte verzweifelt den Kopf. »Aber ich bin doch kein Kardinal!«\r\n\r\nDa trat Michailow auf den Fremden zu und sagte mit wehmütigem Lächeln: »Seinen Zügen nach zu urteilen, sieht er einem Kardinal ähnlich. Sicher reist er in geheimer Mission!« Und sich zu Schitomirski wendend, rief er leise: »Hol's der Teufel, sagen Sie ihm doch, daß Sie ein Kardinal sind, sonst knallt er Sie noch nieder!«\r\n\r\nDer Geschäftsreisende nickte schweigend mit dem Kopfe und sagte verzweifelt: »Gut: ich bin ein Kardinal!«",
+							"created_at": "2018-03-13 20:21:53",
+							"updated_at": "2018-03-13 20:21:53",
+							"passages": [
+								{
+									"id": 9,
+									"weight": 0,
+									"scene_id": 10,
+									"target_id": 11,
+									"title": "Weiter",
+									"created_at": "2018-03-13 21:25:26",
+									"updated_at": "2018-03-13 21:25:26"
+								}
+							]
+						},
+						{
+							"id": 11,
+							"story_id": 2,
+							"weight": 3,
+							"title": "Anselmi von der Mailänder Scala",
+							"body": "Der Unbekannte bemerkte triumphierend: »Sehen Sie? Was habe ich gesagt? Die Menschen sind nicht so, wie sie erscheinen!«\r\n\r\nSchitomirski brach auf seinem Platz zusammen und saß wie ein Häufchen Unglück da.\r\n\r\nDer Unbekannte wandte sich nun an Michailow und sagte liebenswürdig: »Ich begreife nicht, wie Ihre reizende, kleine Frau mit diesem entzückenden Pagenkopf und den schlanken Beinen sich langweilen kann, wenn sie die Gattin einer so berühmten Persönlichkeit ist!«\r\n\r\n»Welcher berühmten Persönlichkeit?« fragte der Kontrollbeamte unruhig. Der Unbekannte schaute ihn scharf an und sagte, jede Silbe betonend: »Sie sind doch der berühmte Sänger Anselmi von der Mailänder Scala, der beste Bariton der Welt! Singen Sie uns etwas vor, Maestro!«\r\n\r\nMichailow blickte den Sprecher geistesabwesend an und rief: »Herr, das ist ein Irrtum – ich kann gar nicht singen. Ich habe eine kleine, kreischende Stimme!«",
+							"created_at": "2018-03-13 20:23:27",
+							"updated_at": "2018-03-13 20:23:27",
+							"passages": [
+								{
+									"id": 10,
+									"weight": 0,
+									"scene_id": 11,
+									"target_id": 12,
+									"title": "Weiter",
+									"created_at": "2018-03-13 21:25:44",
+									"updated_at": "2018-03-13 21:25:44"
+								}
+							]
+						},
+						{
+							"id": 12,
+							"story_id": 2,
+							"weight": 4,
+							"title": "Die Venus von Milo",
+							"body": "Der Fremde lachte wild auf: »Ha, ha! Die Bescheidenheit der großen Talente – lassen Sie das! Singen Sie, oder . . .!« Und er begann wieder mit dem Revolver zu spielen.\r\n\r\nIn seiner Todesangst sang Michailow so falsch, wie noch nie im Leben: »Adieu, mein kleiner Gardeoffizier!«\r\n\r\n»So!« rief der Fremde. »Jetzt habe ich die Maske von diesen zwei Herren gerissen. Der eine erwies sich als Kardinal, der zweite als Bariton. Lüge auf Schritt und Tritt! Die Lüge begleitet uns von der Wiege, wir atmen sie ein und tragen sie mit uns!«\r\n\r\nDann wendete er sich zu Sina und rief: »Meine Gnädige, Sie sind die Venus von Milo! Unter Ihrem Kleide befindet sich der idealste Körper der Welt. Streifen Sie Ihre Bluse ab!« Dabei zog er den Revolver und richtete den Lauf gegen Michailow: »Ihr Mann wird doch nichts dagegen haben?«",
+							"created_at": "2018-03-13 20:24:51",
+							"updated_at": "2018-03-13 20:24:51",
+							"passages": [
+								{
+									"id": 11,
+									"weight": 0,
+									"scene_id": 12,
+									"target_id": 13,
+									"title": "Weiter",
+									"created_at": "2018-03-13 21:26:00",
+									"updated_at": "2018-03-13 21:26:00"
+								}
+							]
+						},
+						{
+							"id": 13,
+							"story_id": 2,
+							"weight": 5,
+							"title": "In wenigen Minuten steige ich aus",
+							"body": "Michailow blickte zitternd auf den Revolver und sagte stammelnd: »Nein, ich habe nichts dagegen – ich liebe die Schönheit! Ein wenig kannst du die Bluse abstreifen!«\r\n\r\nSina schaute ihren Mann voll Verachtung an, lachte hysterisch, erhob sich und sagte »Kardinal, wenden Sie sich um!« Sie streifte die Bluse ab, so daß man ihre schneeweißen, runden Schultern sehen konnte. »Nicht wahr, ich bin hübsch?« bemerkte sie zu dem Fremden. »Wenn Sie mich küssen wollen, fragen Sie meinen Mann, er erlaubt alles!«\r\n\r\nDoch der Fremde küßte bloß galant ihre Hand.\r\n\r\nPlötzlich verlangsamte der Zug das Tempo, denn er näherte sich einer Station. Der Fremde stand auf, nahm seine Handtasche und sagte zu dem Beamten und zu dem Geschäftsreisenden: »Meine Herren, in wenigen Minuten steige ich aus. Der Zug hält in dieser Station fünf Minuten. Ich stehe auf dem Perron, mit dem Revolver in der Hand, und wenn einer von Ihnen den Zug verläßt, schieße ich ihn nieder – verstanden?«",
+							"created_at": "2018-03-13 20:27:41",
+							"updated_at": "2018-03-13 20:27:41",
+							"passages": [
+								{
+									"id": 12,
+									"weight": 0,
+									"scene_id": 13,
+									"target_id": 14,
+									"title": "Weiter",
+									"created_at": "2018-03-13 21:26:15",
+									"updated_at": "2018-03-13 21:26:15"
+								}
+							]
+						},
+						{
+							"id": 14,
+							"story_id": 2,
+							"weight": 6,
+							"title": "Eine Hand warf einen Zettel in den Wagen",
+							"body": "Der Unbekannte verließ den Wagen. Alle saßen erstarrt. Plötzlich öffnete sich leise die Tür, eine Hand warf einen Zettel in den Wagen und verschwand. Gleich darauf setzte sich der Zug in Bewegung . . .",
+							"created_at": "2018-03-13 20:29:14",
+							"updated_at": "2018-03-13 20:29:14",
+							"passages": [
+								{
+									"id": 13,
+									"weight": 0,
+									"scene_id": 14,
+									"target_id": 15,
+									"title": "Weiter",
+									"created_at": "2018-03-13 21:26:30",
+									"updated_at": "2018-03-13 21:26:30"
+								}
+							]
+						},
+						{
+							"id": 15,
+							"story_id": 2,
+							"weight": 7,
+							"title": "Die Seele der Gesellschaft",
+							"body": "Der Beamte hob den Zettel auf, schaute ihn an und las dann vor: »Meine Herrschaften, gestehen Sie, daß Sie sich nicht gelangweilt haben. Diese originelle Methode verjagt die Langeweile und zeigt die Menschen in ihrer wahren Gestalt. Wir waren vier im Waggon: Ein Trottel, ein Feigling, eine mutige Frau und ein Spaßmacher – die Seele der Gesellschaft! Bariton, küssen Sie den Kardinal!«\r\n\r\nDie drei Passagiere sprachen kein Wort und sahen einander an. Der Zug ratterte weiter . . .",
+							"created_at": "2018-03-13 20:29:54",
+							"updated_at": "2018-03-13 20:29:54",
+							"passages": []
+						}
+					]
+				}
+			},
+      "user": {
+        "userId": "amzn1.ask.account.AFAIKLJ34U2PTFZZGKN7OXJWIYJ3ZCRYGB5TTRC6EW2I4OO4DPAS7VCQNUGV6UV76XROQAG56TOWDFFAR6PKV2O756I3OZB3VHGMS4VXZ4EFUETNOLGNN7RCJGI7JWXJTFVEUGSHM4Z3NG4R7QXO6ZQA7IPPK7GT7YEQDV3ZLQTFVMV5NLPUKGWMV7MFI2HX4ZNGXOCV2TFHLLQ"
+      },
+      "new": true
+    },
+    "request":  {
+		"type": "IntentRequest",
+		"requestId": "amzn1.echo-api.request.8be22a54-68c9-4e2b-a6b4-10896286d43b",
+		"timestamp": "2018-03-17T17:35:46Z",
+		"locale": "de-DE",
+		"intent": {
+			"name": "PassageIntent",
+			"confirmationStatus": "NONE",
+			"slots": {
+				"passage": {
+					"name": "passage",
+					"value": "1",
+					"confirmationStatus": "NONE"
+				}
+			}
+		}
+	},
+    "version": "1.0"
+  }

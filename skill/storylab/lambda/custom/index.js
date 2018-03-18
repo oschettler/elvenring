@@ -19,6 +19,8 @@ const handlers = {
     'ListStoriesIntent': require('./list-stories-intent'),
     'StoryIntent': require('./story-intent'),
     'PassageIntent': require('./passage-intent'),
+    'StoryAgainIntent': require('./story-again-intent'),
+    'SceneAgainIntent': require('./scene-again-intent'),
     'AMAZON.HelpIntent': function () {
         const speechOutput = settings.HELP_MESSAGE;
         const reprompt = settings.HELP_REPROMPT;

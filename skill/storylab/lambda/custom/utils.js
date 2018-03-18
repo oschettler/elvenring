@@ -64,16 +64,38 @@ function conjunct(ary, conjunction) {
 }
 
 function sceneText(scene) {
-    return scene.body + ' Sage '
-        + conjunct(
-            scene.passages.map((passage, i) => { 
-                return 'Ausgang ' + (i+1).toString() + ' für ' + passage.title; 
-            }), 'oder') + '. ';
+
+    let text = scene.body + ' Sage '
+    + conjunct(
+        scene.passages.map((passage, i) => { 
+            return (i+1).toString() + ' für ' + passage.title; 
+        }), 'oder');
+
+    text += ' oder sage "noch mal" zum Wiederholen oder "anfang", um die Geschichte noch einmal von vorne zu hören.';
+
+    return text;
+}
+
+function scenePrompt(scene) {
+    return 'Bitte nenne eine Zahl zwischen 1 und ' 
+        + scene.passages.length.toString() + '.';
+}
+
+function startStory(story) {
+    let text = 'Dies ist die Geschichte "' + story.title + '". ';
+    const scene = story.scenes[0];
+    const prompt = scenePrompt(scene);
+
+    text += sceneText(scene);
+
+    return text;
 }
 
 module.exports = {
     api,
     conjunct,
     plural,
-    sceneText
+    sceneText,
+    scenePrompt,
+    startStory
 };

@@ -24,18 +24,12 @@ module.exports = function () {
     const listed_story = stories[story_index - 1];
 
     utils.api('/api/story/' + listed_story.id, story => {
-        let text = 'Dies ist die Geschichte "' + story.title + '". ';
-        const scene_index = 0;
-        const scene = story.scenes[scene_index];
-
-        const prompt = 'Bitte sage "Ausgang", gefolgt von einer Zahl zwischen 1 und ' 
-            + scene.passages.length.toString() + '.';
-
-        text += utils.sceneText(scene);
+        const text = utils.startStory(story);
+        const prompt = utils.scenePrompt(story.scenes[0]);
 
         this.attributes.story = story;
-        this.attributes.sceneIndex = scene_index;
-
+        this.attributes.sceneIndex = 0;
+    
         this.response.cardRenderer(settings.SKILL_NAME, text);
         this.emit(':ask', text, prompt);
     });

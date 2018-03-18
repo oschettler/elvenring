@@ -46,6 +46,19 @@
             "{passage}",
             "Ausgang {passage}"
           ]
+        },
+        {
+          "name": "SceneAgainIntent",
+          "samples": [
+            "noch mal",
+            "wiederholen"
+          ]
+        },
+        {
+          "name": "StoryAgainIntent",
+          "samples": [
+            "anfang"
+          ]
         }
       ]
     }
