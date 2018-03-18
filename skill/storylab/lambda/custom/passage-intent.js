@@ -12,7 +12,7 @@ module.exports = function () {
         this.emit('ListStoriesIntent');
         return;
     }
-    const scene = story[this.attributes.sceneIndex];
+    const scene = story.scenes[this.attributes.sceneIndex];
     const passage = scene.passages[this.event.request.intent.slots.passage.value - 1];
 
     const i = story.scenes.findIndex(scene => {

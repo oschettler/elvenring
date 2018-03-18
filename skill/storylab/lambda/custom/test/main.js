@@ -68,7 +68,7 @@ sts.assumeRole({
           }
         };        
         var lambda = require('../index.js');
-        var event = require('./story.json');
+        var event = require('./passage.json');
         lambda.handler(event, context());
     }
 });
