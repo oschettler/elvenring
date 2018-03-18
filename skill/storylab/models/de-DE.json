@@ -19,7 +19,8 @@
           "name": "ListStoriesIntent",
           "samples": [
             "Geschichten",
-            "Welche Geschichten gibt es"
+            "Welche Geschichten gibt es",
+            "Neue Geschichte",
           ]
         },
         {
@@ -51,7 +52,8 @@
           "name": "SceneAgainIntent",
           "samples": [
             "noch mal",
-            "wiederholen"
+            "wiederholen",
+            "weiter"
           ]
         },
         {

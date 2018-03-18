@@ -8,12 +8,19 @@ const settings = require('./settings');
 exports.handler = function(event, context, callback) {
     var alexa = Alexa.handler(event, context);
     alexa.appId = settings.APP_ID;
+    alexa.dynamoDBTableName = 'storylab';
     alexa.registerHandlers(handlers);
     alexa.execute();
 };
 
 const handlers = {
     'LaunchRequest': function () {
+        if (this.attributes.story && this.attributes.sceneIndex) {
+            this.emit(':ask', 'Willkommen zurück. Sage "weiter", um die Geschichte '
+                + story.title + ' fortzusetzen oder sage "neue Geschichte".'
+            );
+            return;
+        }
         this.emit('ListStoriesIntent');
     },
     'ListStoriesIntent': require('./list-stories-intent'),
