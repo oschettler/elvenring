@@ -17,7 +17,13 @@ module.exports = function () {
         text = '';
     }
 
-    utils.api('/api/stories/2', data => {
+    if (typeof this.endpoint.scope === 'undefined') {
+        this.emit(':tellWithLinkAccountCard', 'Für den Zugang zu Geschichten musst du dich mit deinem Konto auf ' 
+            + settings.API_HOST + ' verbinden. Gehe dazu in deine Alexa App.');
+        return;
+    }
+
+    utils.api('/api/stories', this.endpoint.scope.token, data => {
         const stories = data.data;
 
         this.attributes.stories = stories;

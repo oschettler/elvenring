@@ -102,7 +102,14 @@ class StoryController extends Controller
 
     public function apiList(Circle $circle)
     {
-        return $circle->stories()->paginate();
+        if ($circle->id) {
+            return $circle->stories()->paginate();
+        }
+        else {
+            return Story::whereHas('author.circle', function($q) {
+                return $q->where('owner_id', Auth::id());
+            })->paginate();
+        }
     }
 
     public function apiShow(Story $story)
