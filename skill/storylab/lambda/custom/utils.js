@@ -74,9 +74,9 @@ function sceneText(scene) {
     + conjunct(
         scene.passages.map((passage, i) => { 
             return (i+1).toString() + ' für "' + passage.title + '"'; 
-        }), 'oder');
+        }), '<break time="1s">oder');
 
-    text += ' oder sage "noch mal" zum Wiederholen oder "anfang", um die Geschichte noch einmal von vorne zu hören.';
+    text += '<break time="1s"> oder sage "noch mal" zum Wiederholen<break time="1s"> oder "anfang", um die Geschichte noch einmal von vorne zu hören.';
 
     return text;
 }
