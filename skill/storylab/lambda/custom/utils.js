@@ -71,12 +71,10 @@ function conjunct(ary, conjunction) {
 function sceneText(scene) {
 
     let text = scene.body + '\n\n Sage '
-    + conjunct(
-        scene.passages.map((passage, i) => { 
-            return (i+1).toString() + ' für "' + passage.title + '"'; 
-        }), ' <break time="500ms" />oder');
-
-    text += ' <break time="500ms" />oder sage "noch mal" zum Wiederholen <break time="500ms" />oder "anfang", um die Geschichte noch einmal von vorne zu hören.';
+        + conjunct(
+            scene.passages.map((passage, i) => { 
+                return (i+1).toString() + ' für "' + passage.title + '"'; 
+            }), ' <break time="500ms" />oder');
 
     return text;
 }

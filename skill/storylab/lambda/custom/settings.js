@@ -6,11 +6,11 @@ module.exports = {
 
     SKILL_NAME: 'Erzählkreis',
     GET_FACT_MESSAGE: "Ich habe diese Gschichten für dich: ",
-    HELP_MESSAGE: 'Starte, indem du "Geschichten" sagst. Wähle eine der Geschichten aus und sage "Erste Geschichte". Folgen dann den Anweisungen',
+    HELP_MESSAGE: 'Sage eine Zahl, um einen Ausgang auszuwählen. Sage "noch mal" zum Wiederholen einer Szene. Sage "Anfang", um die Geschichte noch mal zu hören.',
     HELP_REPROMPT: 'Wie kann ich dir weiterhelfen?',
     STOP_MESSAGE: 'Tschüss!',
     
     API_HOST: 'storylab.schettler.net',
     API_PORT: 443
-    
 };
+
