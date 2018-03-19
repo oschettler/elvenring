@@ -84,6 +84,8 @@
 
                 <div class="links">
                     <a href="https://schettler.net">Home</a>
+                    <a href="{{ route('terms') }}">Nutzungsbedingungen</a>
+                    <a href="{{ route('privacy') }}">Datenschutz</a>
                 </div>
             </div>
         </div>
