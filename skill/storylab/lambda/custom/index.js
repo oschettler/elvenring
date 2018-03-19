@@ -31,7 +31,7 @@ const handlers = {
     'StoryAgainIntent': require('./story-again-intent'),
     'SceneAgainIntent': require('./scene-again-intent'),
     'AMAZON.HelpIntent': function () {
-        const speechOutput = settings.HELP_MESSAGE;
+        const speechOutput = settings.HELP_MESSAGE + settings.HELP_MESSAGE2;
         const reprompt = settings.HELP_REPROMPT;
 
         this.response.speak(speechOutput).listen(reprompt);

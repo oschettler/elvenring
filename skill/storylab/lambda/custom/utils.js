@@ -70,11 +70,18 @@ function conjunct(ary, conjunction) {
 
 function sceneText(scene) {
 
-    let text = scene.body + '\n\n Sage '
-        + conjunct(
-            scene.passages.map((passage, i) => { 
-                return (i+1).toString() + ' für "' + passage.title + '"'; 
-            }), ' <break time="500ms" />oder');
+    let text = scene.body;
+    
+    if (scene.passages.length == 0) {
+        text += '\n\n' + settings.HELP_MESSAGE2;
+    }
+    else {
+        text += '\n\n Sage '
+            + conjunct(
+                scene.passages.map((passage, i) => { 
+                    return (i+1).toString() + ' für "' + passage.title + '"'; 
+                }), ' <break time="500ms" />oder');
+    }
 
     return text;
 }
