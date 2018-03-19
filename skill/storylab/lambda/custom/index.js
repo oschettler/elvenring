@@ -19,7 +19,7 @@ const handlers = {
     'LaunchRequest': function () {
         if (this.attributes.story && this.attributes.sceneIndex) {
             this.emit(':ask', 'Willkommen zurück. Sage "weiter", um die Geschichte '
-                + story.title + ' fortzusetzen oder sage "neue Geschichte".'
+                + this.attributes.story.title + ' fortzusetzen oder sage "neue Geschichte".'
             );
             return;
         }
