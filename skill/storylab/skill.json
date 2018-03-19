@@ -6,7 +6,7 @@
           "summary": "Im Erzählkreis kannst du interaktive Geschichten erzählen",
           "examplePhrases": [
             "Alexa, starte Erzählkreis",
-            "Alexa, starte Erzählkreis mit Abenteuer im Abteil"
+            "Alexa, starte Erzählkreis mit Ein Irrgarten"
           ],
           "keywords": [
             "geschichten",
@@ -17,12 +17,12 @@
           ],
           "name": "Erzählkreis",
           "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/3f09/e46f133eda73494487881f171670e329/APP_ICON?versionId=31V9yrFaEphnv7gpmyduUASpdsmA9b0k&AWSAccessKeyId=AKIAI3X6PUXD7CU5F5BQ&Expires=1521531012&Signature=pwZqegxEWXfBw%2FZL5DLQ6yChizo%3D",
-          "description": "Im Erzählkreis liest Alexa dir interaktive Geschichten vor. Du kannst aus öffentlichen Geschichten wählen oder mit deinen Freunden auf der Website erzählkreis.de eigene Geschichten schreiben.",
+          "description": "Im Erzählkreis liest Alexa dir interaktive Geschichten vor. Du kannst mit deinen Freunden auf der Website storylab.schettler.net eigene Geschichten schreiben.",
           "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/5d84/48d4eb80258a4faaaac5b0dc0ff7540f/APP_ICON_LARGE?versionId=B9lA.OuyKil_n72OyRuUY602dfGdRWmx&AWSAccessKeyId=AKIAI3X6PUXD7CU5F5BQ&Expires=1521531012&Signature=kDuEfY8U8%2FetXRVJ%2B%2BhZZScCzTA%3D"
         }
       },
       "isAvailableWorldwide": false,
-      "testingInstructions": "Registriere zum Testen ein neues Konto unter storylab.schettler.net .\nIn diesem Konto steht eine Geschichte \"Die Höhle\" zur Verfügung.\nStarte den Skill mit \"starte erzähl kreis\" und sage \"eins\", um diese Geschichte zu spielen. Folge den dann Anweisungen.",
+      "testingInstructions": "Registriere dir zum Testen ein neues Konto unter storylab.schettler.net .\nBitte verwende eine gültige E-Mail-Adresse. In diesem Konto ist eine kleine Beispiel-Geschichte \"Ein Irrgarten\" angelegt.\nStarte den Skill mit \"starte erzähl kreis\" und sage \"eins\", um diese Geschichte zu spielen. Folge dann den Anweisungen.",
       "category": "EDUCATION_AND_REFERENCE",
       "distributionCountries": [
         "DE"
