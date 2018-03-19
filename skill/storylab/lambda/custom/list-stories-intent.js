@@ -23,9 +23,11 @@ module.exports = function () {
         return;
     }
 
-    const query = this.event.request.intent.slots.query.value;
     const url = '/api/stories';
-    if (query) {
+    let query;
+    
+    if (this.event.request.intent && this.event.request.intent.slots.query.value) {
+        query = this.event.request.intent.slots.query.value;
         url += '?q=' + encodeURIComponent(query);
     }
 
