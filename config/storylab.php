@@ -151,11 +151,13 @@ return [
                 'type' => 'textarea',
                 'rows' => 10,
             ],
+            /*
             'yaml_scenes' => [
                 'label' => 'Scenes',
                 'type' => 'textarea',
                 'rows' => 40,
             ]
+            */
         ],
     ],
     'user' => [

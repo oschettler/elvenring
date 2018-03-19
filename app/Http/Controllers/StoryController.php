@@ -89,6 +89,7 @@ class StoryController extends Controller
      */
     public function update(StoryRequest $request, Story $story)
     {
+        /*
         $scenes_data = Yaml::parse($request->yaml_scenes);
         if ($scenes_data === null) {
             return back()
@@ -125,7 +126,7 @@ class StoryController extends Controller
                 ]);
             }
         }
-
+        */
         return $this->crud->update($request, $story);
     }
 
