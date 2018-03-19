@@ -860,12 +860,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/knowfox/passwordless.git",
-                "reference": "71b1273169ebde0439554d254bb1b05fcd0711e9"
+                "reference": "b550f7b7573e1c6cd23752671c49c5f40baf00f0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/knowfox/passwordless/zipball/71b1273169ebde0439554d254bb1b05fcd0711e9",
-                "reference": "71b1273169ebde0439554d254bb1b05fcd0711e9",
+                "url": "https://api.github.com/repos/knowfox/passwordless/zipball/b550f7b7573e1c6cd23752671c49c5f40baf00f0",
+                "reference": "b550f7b7573e1c6cd23752671c49c5f40baf00f0",
                 "shasum": ""
             },
             "require": {
@@ -895,7 +895,7 @@
                 }
             ],
             "description": "Passwordless login.",
-            "time": "2018-03-19T15:16:58+00:00"
+            "time": "2018-03-19T17:32:43+00:00"
         },
         {
             "name": "laravel/framework",
