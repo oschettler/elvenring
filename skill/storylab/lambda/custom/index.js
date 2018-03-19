@@ -10,7 +10,7 @@ const settings = require('./settings');
 exports.handler = function(event, context, callback) {
     var alexa = Alexa.handler(event, context);
     alexa.appId = settings.APP_ID;
-    //alexa.dynamoDBTableName = 'storylab';
+    alexa.dynamoDBTableName = 'storylab';
     alexa.registerHandlers(handlers);
     alexa.execute();
 };
@@ -50,10 +50,10 @@ const handlers = {
         
         let handler;
         if (this.attributes.story && this.attributes.sceneIndex) {
-            handler = require('./list-stories-intent');
+            handler = require('./passage-intent');
         }
         else {
-            handler = require('./passage-intent');
+            handler = require('./list-stories-intent');
         }
         handler();
     }
