@@ -8,10 +8,25 @@
             "Alexa, starte Erzählkreis",
             "Alexa, starte Erzählkreis mit Abenteuer im Abteil"
           ],
+          "keywords": [
+            "geschichten",
+            "erzählen",
+            "interactive",
+            "fiction",
+            "textadventure"
+          ],
           "name": "Erzählkreis",
-          "description": "Im Erzählkreis liest Alexa dir interaktive Geschichten vor. Du kannst aus öffentlichen Geschichten wählen oder mit deinen Freunden auf der Website erzählkreis.de eigene Geschichten schreiben."
+          "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/3f09/e46f133eda73494487881f171670e329/APP_ICON?versionId=31V9yrFaEphnv7gpmyduUASpdsmA9b0k&AWSAccessKeyId=AKIAI3X6PUXD7CU5F5BQ&Expires=1521531012&Signature=pwZqegxEWXfBw%2FZL5DLQ6yChizo%3D",
+          "description": "Im Erzählkreis liest Alexa dir interaktive Geschichten vor. Du kannst aus öffentlichen Geschichten wählen oder mit deinen Freunden auf der Website erzählkreis.de eigene Geschichten schreiben.",
+          "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/5d84/48d4eb80258a4faaaac5b0dc0ff7540f/APP_ICON_LARGE?versionId=B9lA.OuyKil_n72OyRuUY602dfGdRWmx&AWSAccessKeyId=AKIAI3X6PUXD7CU5F5BQ&Expires=1521531012&Signature=kDuEfY8U8%2FetXRVJ%2B%2BhZZScCzTA%3D"
         }
-      }
+      },
+      "isAvailableWorldwide": false,
+      "testingInstructions": "Registriere zum Testen ein neues Konto unter storylab.schettler.net .\nIn diesem Konto steht eine Geschichte \"Die Höhle\" zur Verfügung.\nStarte den Skill mit \"starte erzähl kreis\" und sage \"eins\", um diese Geschichte zu spielen. Folge den dann Anweisungen.",
+      "category": "EDUCATION_AND_REFERENCE",
+      "distributionCountries": [
+        "DE"
+      ]
     },
     "apis": {
       "custom": {
@@ -21,6 +36,19 @@
         "interfaces": []
       }
     },
-    "manifestVersion": "1.0"
+    "manifestVersion": "1.0",
+    "privacyAndCompliance": {
+      "allowsPurchases": false,
+      "locales": {
+        "de-DE": {
+          "termsOfUseUrl": "https://storylab.schettler.net/terms",
+          "privacyPolicyUrl": "https://storylab.schettler.net/privacy"
+        }
+      },
+      "isExportCompliant": true,
+      "containsAds": false,
+      "isChildDirected": false,
+      "usesPersonalInfo": false
+    }
   }
 }

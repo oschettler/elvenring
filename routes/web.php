@@ -25,3 +25,11 @@ Route::resource('author', 'AuthorController');
 Route::resource('story', 'StoryController');
 Route::resource('scene', 'SceneController');
 Route::resource('passage', 'PassageController');
+
+Route::get('/privacy', function () {
+    return view('privacy');
+})->name('privacy');
+
+Route::get('/terms', function () {
+    return view('terms');
+})->name('terms');
