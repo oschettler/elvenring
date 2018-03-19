@@ -45,5 +45,17 @@ const handlers = {
         this.response.speak(settings.STOP_MESSAGE);
         this.emit(':responseReady');
     },
+    'Unhandled': function() {
+        console.log("Unhandled");
+        
+        let handler;
+        if (this.attributes.story && this.attributes.sceneIndex) {
+            handler = require('./list-stories-intent');
+        }
+        else {
+            handler = require('./passage-intent');
+        }
+        handler();
+    }
 };
 

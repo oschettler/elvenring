@@ -12,7 +12,9 @@ module.exports = function () {
         return;
     }
 
-    const story_index = this.event.request.intent.slots.story.value;
+    const story_index = this.event.request.intent.slots.hasOwnProperty('story') 
+        ? parseInt(this.event.request.intent.slots.story.value) : 0;
+
     const prompt = 'Bitte sage "Geschichte", gefolgt von einer Zahl zwischen 1 und ' 
     + stories.length.toString() + '.';
 

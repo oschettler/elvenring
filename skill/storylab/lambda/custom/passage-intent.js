@@ -15,9 +15,11 @@ module.exports = function () {
     const scene = story.scenes[this.attributes.sceneIndex];
     const prompt = utils.scenePrompt(scene);
 
-    const passage_index = this.event.request.intent.slots.passage.value;
+    const passage_index = this.event.request.intent.slots.hasOwnProperty('passage')
+        ? parseInt(this.event.request.intent.slots.passage.value) : 0;
+
     if (passage_index < 1 || passage_index > scene.passages.length) {
-        this.emit(':ask', prompt);
+        this.emit(':ask', 'Das habe ich nicht verstanden. ' + prompt);
         return;
     }
 
