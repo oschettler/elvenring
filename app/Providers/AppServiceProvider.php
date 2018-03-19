@@ -3,7 +3,9 @@
 namespace App\Providers;
 
 use App\Observers\SceneObserver;
+use App\Observers\UserObserver;
 use App\Scene;
+use App\User;
 use App\ViewComposers\SidebarComposer;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Request;
@@ -34,6 +36,7 @@ class AppServiceProvider extends ServiceProvider
         View::composer('partials.sidebar', SidebarComposer::class);
 
         Scene::observe(SceneObserver::class);
+        User::observe(UserObserver::class);
     }
 
     /**

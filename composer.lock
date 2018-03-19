@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "530d050b24cea7ff396e8147e98d66de",
+    "content-hash": "c501add96d355889ab2b0643f522d85b",
     "packages": [
         {
             "name": "barryvdh/laravel-debugbar",
@@ -817,12 +817,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/knowfox/crud.git",
-                "reference": "f90127e0a6b3ba9d635c74a42aab1580bd0944d2"
+                "reference": "eea392b61a9511c8f341f99b81d9a66f69e52df8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/knowfox/crud/zipball/f90127e0a6b3ba9d635c74a42aab1580bd0944d2",
-                "reference": "f90127e0a6b3ba9d635c74a42aab1580bd0944d2",
+                "url": "https://api.github.com/repos/knowfox/crud/zipball/eea392b61a9511c8f341f99b81d9a66f69e52df8",
+                "reference": "eea392b61a9511c8f341f99b81d9a66f69e52df8",
                 "shasum": ""
             },
             "require": {
@@ -852,26 +852,33 @@
                 }
             ],
             "description": "A CRUD generator for Laravel",
-            "time": "2018-03-13 19:07:03"
+            "time": "2018-03-19 15:14:51"
         },
         {
             "name": "knowfox/passwordless",
-            "version": "0.4.0",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/knowfox/passwordless.git",
-                "reference": "9af8c56ed9a76a130f9109afd9a0ce33490be544"
+                "reference": "4e6bbfb4e1069283f779ed85051c75037d58aba8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/knowfox/passwordless/zipball/9af8c56ed9a76a130f9109afd9a0ce33490be544",
-                "reference": "9af8c56ed9a76a130f9109afd9a0ce33490be544",
+                "url": "https://api.github.com/repos/knowfox/passwordless/zipball/4e6bbfb4e1069283f779ed85051c75037d58aba8",
+                "reference": "4e6bbfb4e1069283f779ed85051c75037d58aba8",
                 "shasum": ""
             },
             "require": {
-                "illuminate/support": "^5.4"
+                "illuminate/support": "^5.6"
             },
             "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Knowfox\\Passwordless\\ServiceProvider"
+                    ]
+                }
+            },
             "autoload": {
                 "psr-4": {
                     "Knowfox\\Passwordless\\": "src/"
@@ -879,7 +886,7 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "GPL v3"
+                "GPL-3.0-or-later"
             ],
             "authors": [
                 {
@@ -888,7 +895,7 @@
                 }
             ],
             "description": "Passwordless login.",
-            "time": "2017-08-23T20:09:20+00:00"
+            "time": "2018-03-13T10:03:41+00:00"
         },
         {
             "name": "laravel/framework",
@@ -5122,7 +5129,8 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "knowfox/crud": 20
+        "knowfox/crud": 20,
+        "knowfox/passwordless": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
