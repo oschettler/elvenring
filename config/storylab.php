@@ -1,4 +1,7 @@
 <?php
+
+use Illuminate\Support\Facades\Auth;
+
 return [
     'languages' => ['de', 'en', 'fr'],
 

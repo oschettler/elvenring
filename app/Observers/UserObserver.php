@@ -17,13 +17,14 @@ class UserObserver
      */
     public function created(User $user)
     {
-        $circle = Circle::create([[
-            'title' => 'Meine Geschichten',
+        $circle = Circle::create([
+            'name' => 'Meine Geschichten',
             'owner_id' => $user->id,
-        ]]);
+        ]);
 
+        $author_name = preg_replace('/\s.*$/', '', $user->name);
         $author = Author::create([
-            'name' => 'Ich selbst',
+            'name' => $author_name,
             'circle_id' => $circle->id,
         ]);
 

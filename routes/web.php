@@ -17,14 +17,17 @@ Route::get('/', function () {
 
 // Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/passport', 'HomeController@passport')->name('passport');
+Route::middleware('auth')->group(function () {
 
-Route::resource('circle', 'CircleController');
-Route::resource('author', 'AuthorController');
-Route::resource('story', 'StoryController');
-Route::resource('scene', 'SceneController');
-Route::resource('passage', 'PassageController');
+    Route::get('/home', 'HomeController@index')->name('home');
+    Route::get('/passport', 'HomeController@passport')->name('passport');
+
+    Route::resource('circle', 'CircleController');
+    Route::resource('author', 'AuthorController');
+    Route::resource('story', 'StoryController');
+    Route::resource('scene', 'SceneController');
+    Route::resource('passage', 'PassageController');
+});
 
 Route::get('/privacy', function () {
     return view('privacy');
