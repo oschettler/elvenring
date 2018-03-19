@@ -22,7 +22,7 @@
         }
       },
       "isAvailableWorldwide": false,
-      "testingInstructions": "Registriere dir zum Testen ein neues Konto unter storylab.schettler.net .\nBitte verwende eine gültige E-Mail-Adresse. In diesem Konto ist eine kleine Beispiel-Geschichte \"Ein Irrgarten\" angelegt.\nStarte den Skill mit \"starte erzähl kreis\" und sage \"eins\", um diese Geschichte zu spielen. Folge dann den Anweisungen.",
+      "testingInstructions": "Registriere dir zum Testen ein neues Konto unter storylab.schettler.net .\nBitte verwende eine gültige E-Mail-Adresse. In diesem Konto ist eine kleine Beispiel-Geschichte \"Ein Irrgarten\" angelegt.\nStarte den Skill mit \"starte erzähl kreis\" und sage \"geschichte eins\", um diese Geschichte zu spielen. Folge dann den Anweisungen.",
       "category": "EDUCATION_AND_REFERENCE",
       "distributionCountries": [
         "DE"
