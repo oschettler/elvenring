@@ -40,28 +40,28 @@ class UserObserver
         $scene[] = Scene::create([
             'story_id' => $story->id,
             'weight' => $i++,
-            'title' => '1. Eingang',
+            'title' => 'Eingang',
             'body' => 'Du stehst am Eingang eines Irrgartens.',
         ]);
 
         $scene[] = Scene::create([
             'story_id' => $story->id,
             'weight' => $i++,
-            'title' => '2. Ein enger Gang',
+            'title' => 'Ein enger Gang',
             'body' => 'Du befindest dich in einem Gang.',
         ]);
 
         $scene[] = Scene::create([
             'story_id' => $story->id,
             'weight' => $i++,
-            'title' => '3. Ein Kammer',
+            'title' => 'Ein Kammer',
             'body' => 'Du betrittst eine Kammer. Die Kammer hat links und gegenüber zwei Türen.',
         ]);
 
         $scene[] = Scene::create([
             'story_id' => $story->id,
             'weight' => $i++,
-            'title' => '4. Im Garten',
+            'title' => 'Im Garten',
             'body' => 'Du stehst in einem Garten. Ein kleines Tor führt auf die Strasse. Du hast es geschafft!',
         ]);
 

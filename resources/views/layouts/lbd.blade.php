@@ -39,11 +39,13 @@
                                 <span class="no-icon">@lang('Passport')</span>
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('setting.index') }}">
-                                <span class="no-icon">@lang('Settings')</span>
-                            </a>
-                        </li>
+                        @if (\Illuminate\Support\Facades\Auth::id() == 1)
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('setting.index') }}">
+                                    <span class="no-icon">@lang('Settings')</span>
+                                </a>
+                            </li>
+                        @endif
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('logout') }}">
                                 <span class="no-icon">@lang('Log out')</span>

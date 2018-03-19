@@ -7,7 +7,7 @@
         </div>
         <ul class="nav">
             <li class="nav-item active">
-                <a class="nav-link" href="dashboard.html">
+                <a class="nav-link" href="{{ route('home') }}">
                     <i class="nc-icon nc-chart-pie-35"></i>
                     <p>@lang('Home')</p>
                 </a>

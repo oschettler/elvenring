@@ -22,6 +22,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/home', 'HomeController@index')->name('home');
     Route::get('/passport', 'HomeController@passport')->name('passport');
 
+    Route::get('/first', 'StoryController@first')->name('first');
+
     Route::resource('circle', 'CircleController');
     Route::resource('author', 'AuthorController');
     Route::resource('story', 'StoryController');

@@ -158,4 +158,10 @@ class StoryController extends Controller
         $story->load('scenes.passages');
         return $story;
     }
+
+    public function first()
+    {
+        $story = Story::firstOrFail();
+        return response()->redirectToRoute('story.show', ['story' => $story]);
+    }
 }
