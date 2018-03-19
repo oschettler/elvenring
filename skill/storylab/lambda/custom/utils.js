@@ -87,8 +87,13 @@ function sceneText(scene) {
 }
 
 function scenePrompt(scene) {
-    return 'Bitte nenne eine Zahl zwischen 1 und ' 
+    if (scene.passages.length == 1) {
+        return 'Bitte sage 1 zur Auswahl des einzigen Ausgangs.';
+    }
+    else {
+        return 'Bitte nenne eine Zahl zwischen 1 und ' 
         + scene.passages.length.toString() + '.';
+    }
 }
 
 function startStory(story) {
