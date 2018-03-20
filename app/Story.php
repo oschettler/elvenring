@@ -9,7 +9,7 @@ use Knowfox\Story\Services\Story as StoryService;
 
 class Story extends Model
 {
-    protected $fillable = ['public', 'status', 'title', 'summary', 'author_id'];
+    protected $fillable = ['public', 'status', 'title', 'summary', 'author_id', 'textual_scenes'];
 
     public function author()
     {
@@ -30,7 +30,7 @@ class Story extends Model
     public function setTextualScenesAttribute($value)
     {
         $service = app(StoryService::class);
-        $this->attributes['scene_data'] = $service->parse($value);
+        $this->attributes['scene_data'] = json_encode($service->parse($value),  JSON_PRETTY_PRINT);
     }
 
     protected static function boot()
