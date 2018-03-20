@@ -1,0 +1,28 @@
+{
+    "name": "knowfox/story",
+    "description": "Parse and dump interactive stories",
+    "type": "library",
+    "require": {
+        "illuminate/support": "^5.6"
+    },
+    "license": "LGPL-3.0-or-later",
+    "authors": [
+        {
+            "name": "Olav Schettler",
+            "email": "olav@schettler.net"
+        }
+    ],
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "Knowfox\\Story\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Knowfox\\Story\\ServiceProvider"
+            ]
+        }
+    }
+}

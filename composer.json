@@ -32,7 +32,8 @@
         ],
         "psr-4": {
             "App\\": "app/",
-            "Knowfox\\Passwordless\\": "packages/knowfox/passwordless/src/"
+            "Knowfox\\Story\\": "packages/knowfox/story/src/",
+            "Knowfox\\Story\\Tests\\": "packages/knowfox/story/tests/"
         }
     },
     "autoload-dev": {

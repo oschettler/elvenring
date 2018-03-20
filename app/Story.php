@@ -5,7 +5,7 @@ namespace App;
 use App\Http\Resources\SceneResource;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
-use Symfony\Component\Yaml\Yaml;
+use Knowfox\Story\Services\Story as StoryService;
 
 class Story extends Model
 {
@@ -21,13 +21,16 @@ class Story extends Model
         return $this->hasMany(Scene::class)->orderby('weight');
     }
 
-    public function getYamlScenesAttribute()
+    public function getTextualScenesAttribute()
     {
-        return Yaml::dump(SceneResource::collection($this->scenes)->resolve(),
-            4,
-            4,
-            Yaml::DUMP_MULTI_LINE_LITERAL_BLOCK
-        );
+        $service = app(StoryService::class);
+        return $service->dump(SceneResource::collection($this->scenes)->resolve());
+    }
+
+    public function setTextualScenesAttribute($value)
+    {
+        $service = app(StoryService::class);
+        $this->attributes['scene_data'] = $service->parse($value);
     }
 
     protected static function boot()
