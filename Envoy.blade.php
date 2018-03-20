@@ -16,6 +16,11 @@
     }
 @endsetup
 
+@task('test', ['on' => 'web'])
+    cd {{ $root_dir }}/current
+    vendor/bin/phpunit packages/knowfox/story/tests
+@endtask
+
 @task('deploy', ['on' => 'web'])
     set -x
     if [[ "{{ $target }}" = "current" ]]
