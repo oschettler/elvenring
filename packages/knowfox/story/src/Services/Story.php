@@ -67,14 +67,16 @@ class Story
         foreach (preg_split("/\n/", $text) as $line) {
 
             if (preg_match('/^---/', $line)) {
-                $scenes[] = $this->parseScene($body);
+                $scene = $this->parseScene($body);
+                $scenes[$scene['title']] = $scene;
                 $body = '';
 
                 continue;
             }
             $body .= $line . "\n";
         }
-        $scenes[] = $this->parseScene($body);
+        $scene = $this->parseScene($body);
+        $scenes[$scene['title']] = $scene;
 
         return $scenes;
     }

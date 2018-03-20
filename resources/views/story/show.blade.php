@@ -21,7 +21,7 @@
 
 @push('scripts')
     <script>
-        var scenes = {!! json_encode($story->scenes) !!};
+        var scenes = {!! json_encode($story->scene_data) !!};
 
         function show(scene) {
             $('#scene h5').text(scene.title);
@@ -29,25 +29,19 @@
 
             $('#scene ul').html('');
             scene.passages.forEach(function (passage) {
-                $('#scene ul').append('<li><a data-id="'
-                    + passage.target_id + '" href="#">' + passage.title + '</a></li>');
+                $('#scene ul').append('<li><a data-target="'
+                    + passage.target + '" href="#">' + passage.title + '</a></li>');
             });
         }
 
         $('#passages').on('click', 'a', function (e) {
             e.preventDefault();
 
-            var target_id = $(this).data('id');
-
-            scenes.forEach(function (scene) {
-                if (target_id == scene.id) {
-                    show(scene);
-                    return;
-                }
-            });
+            var target = $(this).data('target');
+            show(scenes[target]);
         });
 
-        show(scenes[0]);
+        show(scenes[Object.keys(scenes)[0]]);
 
     </script>
 @endpush
