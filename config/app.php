@@ -151,7 +151,7 @@ return [
         /*
          * Package Service Providers...
          */
-        Knowfox\Passwordless\ServiceProvider::class,
+        //Knowfox\Passwordless\ServiceProvider::class,
 
         /*
          * Application Service Providers...

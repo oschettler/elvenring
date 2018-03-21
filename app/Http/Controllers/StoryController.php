@@ -4,11 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Circle;
 use App\Http\Requests\StoryRequest;
+use App\Http\Resources\StoryResource;
 use App\Passage;
 use App\Scene;
 use App\Story;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 use Knowfox\Crud\Services\Crud;
 
 class StoryController extends Controller
@@ -31,6 +33,14 @@ class StoryController extends Controller
     public function index(Request $request)
     {
         return $this->crud->index($request);
+    }
+
+    public function published(Request $request)
+    {
+        return $this->crud->index($request, Story::withoutGlobalScope('author_circle_owner')
+            ->where('public', true)
+            ->where('status', 'complete')
+        );
     }
 
     /**
@@ -62,9 +72,16 @@ class StoryController extends Controller
      * @param  \App\Story  $story
      * @return \Illuminate\Http\Response
      */
-    public function show(Story $story)
+    public function show($id)
     {
-        $story->load('scenes.passages');
+        $story = Story::withoutGlobalScope('author_circle_owner')
+            ->where('id', $id)->firstOrFail();
+        if (!$story->public) {
+            $story->load('author');
+            if (!$story->author) {
+                return Redirect::back()->with('error', 'You are not allowed to access this story');
+            }
+        }
         return view('story.show', ['story' => $story]);
     }
 
@@ -105,19 +122,16 @@ class StoryController extends Controller
     public function apiList(Circle $circle)
     {
         if ($circle->id) {
-            return $circle->stories()->paginate();
+            return StoryResource::collection($circle->stories()->paginate());
         }
         else {
-            return Story::whereHas('author.circle', function($q) {
-                return $q->where('owner_id', Auth::id());
-            })->paginate();
+            return StoryResource::collection(Story::paginate());
         }
     }
 
     public function apiShow(Story $story)
     {
         $story->load('scenes.passages');
-        return $story;
     }
 
     public function first()

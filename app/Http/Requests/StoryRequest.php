@@ -25,7 +25,9 @@ class StoryRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'title' => 'required',
+            'summary' => 'required',
+
         ];
     }
 }

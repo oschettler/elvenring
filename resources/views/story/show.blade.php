@@ -4,6 +4,12 @@
     <div class="container">
         <div class="row">
             <div class="col-6 mx-auto">
+
+                @include('crud::partials.messages')
+
+                <div class="float-right mt-3">
+                    <a href="#" id="start-story"><i class="fa fa-home"></i> Start</a>
+                </div>
                 <h1>{{ $story->title }}</h1>
                 <p>{!! nl2br($story->summary) !!}</p>
 
@@ -21,7 +27,7 @@
 
 @push('scripts')
     <script>
-        var scenes = {!! json_encode($story->scene_data) !!};
+        var scenes = {!! json_encode($story->scenes()) !!};
 
         function show(scene) {
             $('#scene h5').text(scene.title);
@@ -38,7 +44,22 @@
             e.preventDefault();
 
             var target = $(this).data('target');
-            show(scenes[target]);
+
+            if (typeof scenes[target] === 'undefined') {
+                var $msg = $('<div class="alert alert-danger">Szene <strong>' + target + '</strong> nicht gefunden</div>');
+                $msg.insertBefore('#scene');
+                setTimeout(function () {
+                    $msg.fadeOut();
+                }, 2000);
+            }
+            else {
+                show(scenes[target]);
+            }
+        });
+
+        $('#start-story').on('click', function (e) {
+            e.preventDefault();
+            show(scenes[Object.keys(scenes)[0]]);
         });
 
         show(scenes[Object.keys(scenes)[0]]);

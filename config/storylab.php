@@ -42,77 +42,6 @@ return [
             'name' => 'Name',
         ],
     ],
-    'passage' => [
-        'extends' => 'entity',
-        'model' => \App\Passage::class,
-        'entity_title' => [' Passage', 'Passages'],
-        'entity_name' => 'passage',
-        'order_by' => 'title',
-        'columns' => [
-            'weight' => 'Weight',
-            'scene.title' => 'Scene',
-            'target.title' => 'Target',
-            'title' => 'Title',
-        ],
-        'fields' => [
-            'title' => [
-                'label' => 'Title',
-                'cols' => 9,
-            ],
-            'weight' => [
-                'label' => 'Weight',
-                'type' => 'select',
-                'options' => 'weight',
-                'cols' => 3
-            ],
-            'scene_id' => [
-                'label' => 'Scene',
-                'type' => 'select',
-                'model' => \App\Scene::class,
-                'field' => 'title',
-            ],
-            'target_id' => [
-                'label' => 'Target Scene',
-                'type' => 'select',
-                'model' => \App\Scene::class,
-                'field' => 'title',
-            ],
-        ],
-    ],
-    'scene' => [
-        'extends' => 'entity',
-        'model' => \App\Scene::class,
-        'entity_title' => [' Scene', 'Scenes'],
-        'entity_name' => 'scene',
-        'order_by' => ['story_id|desc', 'weight'],
-        'columns' => [
-            'title' => 'Title',
-            'story.title' => 'Story',
-        ],
-        'fields' => [
-            'title' => [
-                'label' => 'Title',
-                'cols' => 9,
-            ],
-            'weight' => [
-                'label' => 'Weight',
-                'type' => 'select',
-                'options' => 'weight',
-                'cols' => 3,
-            ],
-            'story_id' => [
-                'label' => 'Story',
-                'type' => 'select',
-                'model' => \App\Story::class,
-                'field' => 'title',
-            ],
-            'body'=> [
-                'label'=> 'Body',
-                'type' => 'textarea',
-                'rows' => 16,
-            ],
-        ],
-    ],
     'story' => [
         'extends' => 'entity',
         'model' => \App\Story::class,
@@ -158,7 +87,7 @@ return [
                 'label' => 'Scenes',
                 'type' => 'textarea',
                 'rows' => 40,
-            ]
+            ],
         ],
     ],
     'user' => [

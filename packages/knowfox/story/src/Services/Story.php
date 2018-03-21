@@ -47,11 +47,11 @@ class Story
                 $passage['target'] = trim($matches[3]);
             }
             else {
-                $passage['target'] = $matches[1];
+                $passage['target'] = trim(ucfirst($matches[1]));
             }
             $scene['passages'][] = $passage;
 
-            return $do_remove ? '' : $passage['title'];
+            return $do_remove ? '' : '<u>' . $passage['title'] . '</u>';
 
         }, $body));
 

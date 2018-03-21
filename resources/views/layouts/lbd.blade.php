@@ -34,23 +34,38 @@
                 </button>
                 <div class="collapse navbar-collapse justify-content-end" id="navigation">
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('passport') }}">
-                                <span class="no-icon">@lang('Passport')</span>
-                            </a>
-                        </li>
-                        @if (\Illuminate\Support\Facades\Auth::id() == 1)
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('setting.index') }}">
-                                    <span class="no-icon">@lang('Settings')</span>
+                        @guest
+                            <li><a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a></li>
+                            <li><a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a></li>
+                        @else
+                            <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                </a>
+
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class="nav-link" href="{{ route('passport') }}">
+                                        <span class="no-icon">@lang('Passport')</span>
+                                    </a>
+                                    @if (\Illuminate\Support\Facades\Auth::id() == 1)
+                                            <a class="nav-link" href="{{ route('setting.index') }}">
+                                                <span class="no-icon">@lang('Settings')</span>
+                                            </a>
+                                    @endif
+                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        @lang('Logout')
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
+                                </div>
+                            </li>
                                 </a>
                             </li>
                         @endif
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('logout') }}">
-                                <span class="no-icon">@lang('Log out')</span>
-                            </a>
-                        </li>
                     </ul>
                 </div>
             </div>

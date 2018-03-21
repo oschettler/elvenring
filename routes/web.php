@@ -26,10 +26,11 @@ Route::middleware('auth')->group(function () {
 
     Route::resource('circle', 'CircleController');
     Route::resource('author', 'AuthorController');
-    Route::resource('story', 'StoryController');
-    Route::resource('scene', 'SceneController');
-    Route::resource('passage', 'PassageController');
+    Route::resource('story', 'StoryController', ['except' => 'show']);
 });
+
+Route::get('/published', 'StoryController@published')->name('published');
+Route::get('/story/{id}', 'StoryController@show')->name('story.show');
 
 Route::get('/privacy', function () {
     return view('privacy');

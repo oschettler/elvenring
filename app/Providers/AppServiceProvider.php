@@ -2,9 +2,7 @@
 
 namespace App\Providers;
 
-use App\Observers\SceneObserver;
 use App\Observers\UserObserver;
-use App\Scene;
 use App\User;
 use App\ViewComposers\SidebarComposer;
 use Illuminate\Support\Facades\App;
@@ -35,7 +33,6 @@ class AppServiceProvider extends ServiceProvider
         $this->setLanguage();
         View::composer('partials.sidebar', SidebarComposer::class);
 
-        Scene::observe(SceneObserver::class);
         User::observe(UserObserver::class);
     }
 

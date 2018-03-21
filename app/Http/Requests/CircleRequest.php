@@ -14,7 +14,7 @@ class CircleRequest extends FormRequest
      */
     public function authorize()
     {
-        return Auth::check();
+        return Auth::check() ;
     }
 
     /**
@@ -25,7 +25,6 @@ class CircleRequest extends FormRequest
     public function rules()
     {
         return [
-            //
         ];
     }
 }
