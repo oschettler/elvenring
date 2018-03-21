@@ -46,7 +46,7 @@ const handlers = {
         this.emit(':responseReady');
     },
     'Unhandled': function() {
-        console.log("Unhandled");
+        console.log("Unhandled", JSON.stringify(this.attributes));
         
         let handler;
         if (this.attributes.story && this.attributes.sceneIndex) {
@@ -55,7 +55,7 @@ const handlers = {
         else {
             handler = require('./list-stories-intent');
         }
-        handler();
+        handler.call(this);
     }
 };
 
