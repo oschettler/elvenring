@@ -41,7 +41,7 @@ module.exports = function () {
                 return 'Geschichte ' + (i+1).toString() + ' für ' + story.title; 
             }), 'oder') + '. ';
 
-        console.log(text);
+        console.log("ListStoriesIntent: ", text);
 
         this.response.cardRenderer(settings.SKILL_NAME, text);
         this.emit(':ask', text, 'Bitte wähle eine Geschichte.');

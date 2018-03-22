@@ -7,15 +7,116 @@
 			"attributes": {
 				"stories": [
 					{
-						"id": 2,
-						"public": 1,
+						"public": false,
+						"status": "draft",
+						"title": "Eichen und Eicheln",
+						"created_at": {
+							"date": "2018-03-21 17:59:34.000000",
+							"timezone_type": 3,
+							"timezone": "Europe/Berlin"
+						},
+						"updated_at": {
+							"date": "2018-03-22 08:12:37.000000",
+							"timezone_type": 3,
+							"timezone": "Europe/Berlin"
+						},
+						"summary": "Eine kurze Hypertextgeschichte von <a href=\"http://susangibb.net/\">Susan Gibb</a>, 2009 geschrieben im Rahmen einer 100-Tage-Challenge. Hier ist <a href=\"http://www.susangibb.net/blog2/wp-content/uploads/100stories/99oaksandacorns/titlec.html\">das englischsprachige Original</a>."
+					},
+					{
+						"public": false,
+						"status": "draft",
+						"title": "Ein Irrgarten",
+						"created_at": {
+							"date": "2018-03-19 19:51:11.000000",
+							"timezone_type": 3,
+							"timezone": "Europe/Berlin"
+						},
+						"updated_at": {
+							"date": "2018-03-22 08:04:39.000000",
+							"timezone_type": 3,
+							"timezone": "Europe/Berlin"
+						},
+						"summary": "Beispiel für eine Geschichte aus vier Szenen."
+					},
+					{
+						"public": false,
+						"status": "draft",
+						"title": "Personenbeschreibung",
+						"created_at": {
+							"date": "2018-03-20 19:32:54.000000",
+							"timezone_type": 3,
+							"timezone": "Europe/Berlin"
+						},
+						"updated_at": {
+							"date": "2018-03-22 08:04:39.000000",
+							"timezone_type": 3,
+							"timezone": "Europe/Berlin"
+						},
+						"summary": "Eine kurze Personenbeschreibung."
+					},
+					{
+						"public": true,
 						"status": "draft",
 						"title": "Abenteuer im Abteil",
-						"summary": "Dies ist die Adaption einer Kurzgeschichte aus dem Buch \"Was für Lumpen sind doch Männer\", erschienen im Jahr 1940 im Paul Neff Verlag, Berlin.\r\n\r\nQuelle: http://gutenberg.spiegel.de/buch/kurzgeschichten-4780/2\r\n\r\nEs gibt auch eine gelesene Fassung von Detlev Hürter: http://detlevhuerter.de/abenteuer-im-abteil",
-						"author_id": 4,
-						"created_at": "2018-03-13 11:25:03",
-						"updated_at": "2018-03-13 16:11:21",
-						"circle_id": 2
+						"created_at": {
+							"date": "2018-03-13 11:25:03.000000",
+							"timezone_type": 3,
+							"timezone": "Europe/Berlin"
+						},
+						"updated_at": {
+							"date": "2018-03-22 08:04:38.000000",
+							"timezone_type": 3,
+							"timezone": "Europe/Berlin"
+						},
+						"summary": "Dies ist die Adaption einer Kurzgeschichte aus dem Buch \"Was für Lumpen sind doch Männer\", erschienen im Jahr 1940 im Paul Neff Verlag, Berlin.\r\n\r\nQuelle: http://gutenberg.spiegel.de/buch/kurzgeschichten-4780/2\r\n\r\nEs gibt auch eine gelesene Fassung von Detlev Hürter: http://detlevhuerter.de/abenteuer-im-abteil"
+					},
+					{
+						"public": true,
+						"status": "complete",
+						"title": "Zahlenraten",
+						"created_at": {
+							"date": "2018-03-18 16:49:13.000000",
+							"timezone_type": 3,
+							"timezone": "Europe/Berlin"
+						},
+						"updated_at": {
+							"date": "2018-03-22 08:04:38.000000",
+							"timezone_type": 3,
+							"timezone": "Europe/Berlin"
+						},
+						"summary": "Ich kann Zahlen raten."
+					},
+					{
+						"public": true,
+						"status": "complete",
+						"title": "Die Höhle",
+						"created_at": {
+							"date": "2018-03-18 18:13:33.000000",
+							"timezone_type": 3,
+							"timezone": "Europe/Berlin"
+						},
+						"updated_at": {
+							"date": "2018-03-22 08:04:38.000000",
+							"timezone_type": 3,
+							"timezone": "Europe/Berlin"
+						},
+						"summary": "Ein Höhlenlabyrinth"
+					},
+					{
+						"public": false,
+						"status": "draft",
+						"title": "Plom und das Heilkraut",
+						"created_at": {
+							"date": "2018-03-13 00:17:17.000000",
+							"timezone_type": 3,
+							"timezone": "Europe/Berlin"
+						},
+						"updated_at": {
+							"date": "2018-03-22 08:02:55.000000",
+							"timezone_type": 3,
+							"timezone": "Europe/Berlin"
+						},
+						"summary": "Plom ist ein kleiner Junge vom Planeten Gurgius."
 					}
 				]
 			},

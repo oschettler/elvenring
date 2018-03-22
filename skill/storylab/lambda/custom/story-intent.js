@@ -25,7 +25,7 @@ module.exports = function () {
 
     const listed_story = stories[story_index - 1];
 
-    console.log("Endpoint: " + JSON.stringify(this.event));
+    console.log("StoryIntent - Endpoint: " + JSON.stringify(this.event));
 
     if (!this.event.session.user.accessToken) {
         this.emit(':tellWithLinkAccountCard', 'Für den Zugang zu Geschichten musst du dich mit deinem Konto auf ' 
@@ -35,7 +35,9 @@ module.exports = function () {
 
     utils.api('/api/story/' + listed_story.id, this.event.session.user.accessToken, data => {
         const story = data.data;
-        
+
+        console.log("StoryIntent - Callback");
+
         const text = utils.startStory(story);
         const prompt = utils.scenePrompt(story.scenes[0]);
 
