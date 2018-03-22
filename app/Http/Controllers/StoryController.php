@@ -132,7 +132,7 @@ class StoryController extends Controller
 
     public function apiShow(Story $story)
     {
-        $story->load('scenes.passages');
+        return new StoryResource($story);
     }
 
     public function first()
