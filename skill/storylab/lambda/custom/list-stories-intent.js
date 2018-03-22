@@ -23,7 +23,7 @@ module.exports = function () {
         return;
     }
 
-    const url = '/api/stories';
+    let url = '/api/stories';
     let query;
     
     if (this.event.request.intent && this.event.request.intent.hasOwnProperty('slots')
