@@ -39,10 +39,14 @@ module.exports = function () {
         console.log("StoryIntent - Callback");
 
         const text = utils.startStory(story);
-        const prompt = utils.scenePrompt(story.scenes[0]);
+
+        const first = Object.keys(story.scenes)[0];
+        const scene = story.scenes[first];    
+
+        const prompt = utils.scenePrompt(scene);
 
         this.attributes.story = story;
-        this.attributes.sceneIndex = 0;
+        this.attributes.sceneIndex = first;
     
         this.response.cardRenderer(settings.SKILL_NAME, text);
         this.emit(':ask', text, prompt);
