@@ -18,7 +18,7 @@ module.exports = function () {
     const prompt = 'Bitte sage "Geschichte", gefolgt von einer Zahl zwischen 1 und ' 
     + stories.length.toString() + '.';
 
-    if (story_index < 1 || story_index > stories.length) {
+    if (isNaN(story_index) || story_index < 1 || story_index > stories.length) {
         this.emit(':ask', prompt);
         return;
     }

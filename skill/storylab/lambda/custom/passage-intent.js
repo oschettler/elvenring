@@ -26,7 +26,7 @@ module.exports = function () {
         passage_index = parseInt(this.event.request.intent.slots.passage.value);
     }
 
-    if (passage_index < 1 || passage_index > scene.passages.length) {
+    if (isNaN(passage_index) || passage_index < 1 || passage_index > scene.passages.length) {
         this.emit(':ask', 'Das habe ich nicht verstanden. ' + prompt);
         return;
     }
