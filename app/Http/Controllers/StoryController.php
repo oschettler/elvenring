@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Circle;
 use App\Http\Requests\StoryRequest;
+use App\Http\Resources\StoryCollection;
 use App\Http\Resources\StoryResource;
 use App\Passage;
 use App\Scene;
@@ -122,10 +123,10 @@ class StoryController extends Controller
     public function apiList(Circle $circle)
     {
         if ($circle->id) {
-            return StoryResource::collection($circle->stories()->paginate());
+            return new StoryCollection($circle->stories()->paginate());
         }
         else {
-            return StoryResource::collection(Story::paginate());
+            return new StoryCollection(Story::orderBy('updated_at', 'desc')->paginate());
         }
     }
 
