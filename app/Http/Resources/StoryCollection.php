@@ -17,6 +17,7 @@ class StoryCollection extends ResourceCollection
         return [
             'data' => $this->collection->map(function ($story) {
                 return [
+                    'id' => $story->id,
                     'public' => $story->public ? true : false,
                     'status' => $story->status,
                     'title' => $story->title,

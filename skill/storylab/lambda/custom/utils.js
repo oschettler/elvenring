@@ -5,6 +5,8 @@ const https = require('https');
 const settings = require('./settings');
 
 function api(path, token, callback) {
+    console.log("API: ", path);
+
     let options = {
         timeout: 2000,
         host: settings.API_HOST,

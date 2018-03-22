@@ -18,6 +18,7 @@ class StoryResource extends JsonResource
         $service = app(StoryService::class);
 
         return [
+            'id' => $this->id,
             'public' => $this->public ? true : false,
             'status' => $this->status,
             'title' => $this->title,
