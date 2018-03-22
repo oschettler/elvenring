@@ -23,7 +23,7 @@
         }
       },
       "isAvailableWorldwide": false,
-      "testingInstructions": "Für den Test haben wir einen speziellen Zugang unter http://storylab.schettler.net/gh345kghj3425g56kjhg8ljk angelegt .\nBitte klicke zum Anmelden diesen Link, um angemeldet zu sein, wenn du den Skill aktivierst. In diesem Nutzerkonto ist eine kleine Beispiel-Geschichte \"Ein Irrgarten\" angelegt.\nStarte den Skill mit \"starte erzählkreis\" und sage \"geschichte eins\", um diese Geschichte zu spielen. Folge dann den Anweisungen.",
+      "testingInstructions": "Für den Test haben wir einen speziellen Zugang unter https://storylab.schettler.net/gh345kghj3425g56kjhg8ljk angelegt .\nBitte klicke zum Anmelden diesen Link, um angemeldet zu sein, wenn du den Skill aktivierst. In diesem Nutzerkonto ist eine kleine Beispiel-Geschichte \"Ein Irrgarten\" angelegt.\nStarte den Skill mit \"starte erzählkreis\" und sage \"geschichte eins\", um diese Geschichte zu spielen. Folge dann den Anweisungen.",
       "category": "EDUCATION_AND_REFERENCE",
       "distributionCountries": [
         "DE"
