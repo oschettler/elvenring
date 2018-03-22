@@ -33,7 +33,9 @@ module.exports = function () {
         return;
     }
 
-    utils.api('/api/story/' + listed_story.id, this.event.session.user.accessToken, story => {
+    utils.api('/api/story/' + listed_story.id, this.event.session.user.accessToken, data => {
+        const story = data.data;
+        
         const text = utils.startStory(story);
         const prompt = utils.scenePrompt(story.scenes[0]);
 

@@ -1,7 +1,7 @@
 {
   "interactionModel": {
     "languageModel": {
-      "invocationName": "erzähl kreis",
+      "invocationName": "erzählkreis",
       "intents": [
         {
           "name": "AMAZON.CancelIntent",
@@ -27,6 +27,7 @@
             "Geschichten",
             "Welche Geschichten gibt es",
             "Neue Geschichte",
+            "nach neuen Geschichten",
             "mit der Geschichte {query}",
             "Geschichten mit {query}",
             "Die Geschichte {query}"

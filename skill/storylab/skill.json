@@ -6,7 +6,8 @@
           "summary": "Im Erzählkreis kannst du interaktive Geschichten erzählen",
           "examplePhrases": [
             "Alexa, starte Erzählkreis",
-            "Alexa, starte Erzählkreis mit Ein Irrgarten"
+            "Alexa, frage Erzählkreis nach neuen Geschichten",
+            "Alexa, starte Erzählkreis mit der Geschichte Ein Irrgarten"
           ],
           "keywords": [
             "geschichten",
@@ -17,12 +18,12 @@
           ],
           "name": "Erzählkreis",
           "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/3f09/e46f133eda73494487881f171670e329/APP_ICON?versionId=31V9yrFaEphnv7gpmyduUASpdsmA9b0k&AWSAccessKeyId=AKIAI3X6PUXD7CU5F5BQ&Expires=1521531012&Signature=pwZqegxEWXfBw%2FZL5DLQ6yChizo%3D",
-          "description": "Im Erzählkreis liest Alexa dir interaktive Geschichten vor. Du kannst mit deinen Freunden auf der Website storylab.schettler.net eigene Geschichten schreiben.",
+          "description": "Im Erzählkreis liest Alexa dir interaktive Geschichten vor. Du kannst mit deinen Freunden auf der Website storylab.schettler.net eigene Geschichten schreiben.\n\nUm den Skill zu nutzen, benötigst du ein Nutzerkonto auf storylab.schettler.net. Du kannst dir durch Angabe deines Namens und einer gültigen E-Mail-Adresse auf dieser Website ein kostenloses Konto anlegen. Bestätige die Kontoverknüpfung, wenn du diesen Skill aktivierst. Interaktive Geschichten, die du auf storylab.schettler.net schreibst, können so von Alexa vorgelesen werden.",
           "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/5d84/48d4eb80258a4faaaac5b0dc0ff7540f/APP_ICON_LARGE?versionId=B9lA.OuyKil_n72OyRuUY602dfGdRWmx&AWSAccessKeyId=AKIAI3X6PUXD7CU5F5BQ&Expires=1521531012&Signature=kDuEfY8U8%2FetXRVJ%2B%2BhZZScCzTA%3D"
         }
       },
       "isAvailableWorldwide": false,
-      "testingInstructions": "Registriere dir zum Testen ein neues Konto unter storylab.schettler.net .\nBitte verwende eine gültige E-Mail-Adresse. In diesem Konto ist eine kleine Beispiel-Geschichte \"Ein Irrgarten\" angelegt.\nStarte den Skill mit \"starte erzähl kreis\" und sage \"geschichte eins\", um diese Geschichte zu spielen. Folge dann den Anweisungen.",
+      "testingInstructions": "Für den Test haben wir einen speziellen Zugang unter http://storylab.schettler.net/gh345kghj3425g56kjhg8ljk angelegt .\nBitte klicke zum Anmelden diesen Link, um angemeldet zu sein, wenn du den Skill aktivierst. In diesem Nutzerkonto ist eine kleine Beispiel-Geschichte \"Ein Irrgarten\" angelegt.\nStarte den Skill mit \"starte erzählkreis\" und sage \"geschichte eins\", um diese Geschichte zu spielen. Folge dann den Anweisungen.",
       "category": "EDUCATION_AND_REFERENCE",
       "distributionCountries": [
         "DE"
