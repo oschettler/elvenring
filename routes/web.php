@@ -31,6 +31,7 @@ Route::middleware('auth')->group(function () {
 
 Route::get('/published', 'StoryController@published')->name('published');
 Route::get('/story/{id}', 'StoryController@show')->name('story.show');
+Route::get('/gh345kghj3425g56kjhg8ljk', 'Auth\\LoginController@aztest')->name('aztest');
 
 Route::get('/privacy', function () {
     return view('privacy');
@@ -39,3 +40,4 @@ Route::get('/privacy', function () {
 Route::get('/terms', function () {
     return view('terms');
 })->name('terms');
+

@@ -32,65 +32,33 @@ class UserObserver
             'title' => 'Ein Irrgarten',
             'summary' => 'Beispiel für eine Geschichte aus vier Szenen.',
             'author_id' => $author->id,
-        ]);
+            'textual_scenes' => <<<EOS
+Eingang
 
-        $scene = [];
-        $i = 0;
+Du stehst am Eingang eines Irrgartens.
 
-        $scene[] = Scene::create([
-            'story_id' => $story->id,
-            'weight' => $i++,
-            'title' => 'Eingang',
-            'body' => 'Du stehst am Eingang eines Irrgartens.',
-        ]);
+    [- Betrete den Irrgarten -> Ein enger Gang]
 
-        $scene[] = Scene::create([
-            'story_id' => $story->id,
-            'weight' => $i++,
-            'title' => 'Ein enger Gang',
-            'body' => 'Du befindest dich in einem Gang.',
-        ]);
+---
+Ein enger Gang
 
-        $scene[] = Scene::create([
-            'story_id' => $story->id,
-            'weight' => $i++,
-            'title' => 'Ein Kammer',
-            'body' => 'Du betrittst eine Kammer. Die Kammer hat links und gegenüber zwei Türen.',
-        ]);
+Du befindest dich in einem Gang.
 
-        $scene[] = Scene::create([
-            'story_id' => $story->id,
-            'weight' => $i++,
-            'title' => 'Im Garten',
-            'body' => 'Du stehst in einem Garten. Ein kleines Tor führt auf die Strasse. Du hast es geschafft!',
-        ]);
+    [- Folge dem Gang -> Ein Kammer]
 
-        Passage::create([
-            'weight' => 0,
-            'scene_id' => $scene[0]->id,
-            'target_id' => $scene[1]->id,
-            'title' => 'Betrete den Irrgarten',
-        ]);
+---
+Ein Kammer
 
-        Passage::create([
-            'weight' => 0,
-            'scene_id' => $scene[1]->id,
-            'target_id' => $scene[2]->id,
-            'title' => 'Folge dem Gang',
-        ]);
+Du betrittst eine Kammer. Die Kammer hat links und gegenüber zwei Türen.
 
-        Passage::create([
-            'weight' => 0,
-            'scene_id' => $scene[2]->id,
-            'target_id' => $scene[1]->id,
-            'title' => 'Gehe durch die linke Tür',
-        ]);
+    [- Gehe durch die linke Tür -> Ein enger Gang]
+[- Gehe durch die gegenüberliegende Tür -> Im Garten]
 
-        Passage::create([
-            'weight' => 1,
-            'scene_id' => $scene[2]->id,
-            'target_id' => $scene[3]->id,
-            'title' => 'Gehe durch die gegenüberliegende Tür',
+---
+Im Garten
+
+Du stehst in einem Garten. Ein kleines Tor führt auf die Strasse. Du hast es geschafft!
+EOS
         ]);
     }
 }

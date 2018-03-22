@@ -3,10 +3,14 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\User;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
+    const AMAZON_TEST_USER_ID = 100;
+
     /*
     |--------------------------------------------------------------------------
     | Login Controller
@@ -35,5 +39,16 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+    }
+
+    public function aztest()
+    {
+        $user = User::find(self::AMAZON_TEST_USER_ID);
+        if (!$user) {
+            return response('Diesen Nutzer gibt es nicht', 404);
+        }
+
+        Auth::login($user, /*remember*/true);
+        return redirect()->route('home');
     }
 }
