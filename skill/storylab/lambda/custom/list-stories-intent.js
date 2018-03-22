@@ -26,7 +26,8 @@ module.exports = function () {
     const url = '/api/stories';
     let query;
     
-    if (this.event.request.intent && this.event.request.intent.slots.query.value) {
+    if (this.event.request.intent && this.event.request.intent.hasOwnProperty('slots')
+        && this.event.request.intent.slots.hasOwnProperty('query')) {
         query = this.event.request.intent.slots.query.value;
         url += '?q=' + encodeURIComponent(query);
     }
