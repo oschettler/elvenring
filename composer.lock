@@ -1172,12 +1172,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/knowfox/crud.git",
-                "reference": "eea392b61a9511c8f341f99b81d9a66f69e52df8"
+                "reference": "685d900151ea28d1a38ab32c3eea57ad0e12a5fd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/knowfox/crud/zipball/eea392b61a9511c8f341f99b81d9a66f69e52df8",
-                "reference": "eea392b61a9511c8f341f99b81d9a66f69e52df8",
+                "url": "https://api.github.com/repos/knowfox/crud/zipball/685d900151ea28d1a38ab32c3eea57ad0e12a5fd",
+                "reference": "685d900151ea28d1a38ab32c3eea57ad0e12a5fd",
                 "shasum": ""
             },
             "require": {
@@ -1207,7 +1207,7 @@
                 }
             ],
             "description": "A CRUD generator for Laravel",
-            "time": "2018-03-19 15:14:51"
+            "time": "2018-03-21 22:25:56"
         },
         {
             "name": "knowfox/passwordless",
@@ -1215,12 +1215,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/knowfox/passwordless.git",
-                "reference": "a9c91d0da74dabbf7f886735a11646b9a4e8866a"
+                "reference": "2c67b9f3ab1f905d7258abe461e7c79827d73d79"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/knowfox/passwordless/zipball/a9c91d0da74dabbf7f886735a11646b9a4e8866a",
-                "reference": "a9c91d0da74dabbf7f886735a11646b9a4e8866a",
+                "url": "https://api.github.com/repos/knowfox/passwordless/zipball/2c67b9f3ab1f905d7258abe461e7c79827d73d79",
+                "reference": "2c67b9f3ab1f905d7258abe461e7c79827d73d79",
                 "shasum": ""
             },
             "require": {
@@ -1250,7 +1250,7 @@
                 }
             ],
             "description": "Passwordless login.",
-            "time": "2018-03-21T22:27:17+00:00"
+            "time": "2018-03-21T23:33:49+00:00"
         },
         {
             "name": "laravel/framework",
