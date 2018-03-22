@@ -12,7 +12,7 @@ module.exports = function () {
         this.emit('ListStoriesIntent');
         return;
     }
-    const scene = story.scenes[this.attributes.sceneIndex];
+    let scene = story.scenes[this.attributes.sceneIndex];
     const prompt = utils.scenePrompt(scene);
 
     const passage_index = this.event.request.intent.slots.hasOwnProperty('passage')
@@ -24,15 +24,14 @@ module.exports = function () {
     }
 
     const passage = scene.passages[passage_index - 1];
+    if (story.scenes.hasOwnProperty(passage.target)) {
+        scene = story.scenes[passage.target]
+        text = utils.sceneText(scene);
 
-    const i = story.scenes.findIndex(scene => {
-        return scene.id == passage.target_id;
-    });
-
-    text = 'Szene nicht gefunden';
-    if (i >= 0) {
-        this.attributes.sceneIndex = i;
-        text = utils.sceneText(story.scenes[i]);
+        this.attributes.sceneIndex = passage.target;
+    }
+    else {
+        text = 'Szene nicht gefunden';
     }
 
     this.response.cardRenderer(settings.SKILL_NAME, text);

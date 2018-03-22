@@ -100,7 +100,8 @@ function scenePrompt(scene) {
 
 function startStory(story) {
     let text = 'Dies ist die Geschichte "' + story.title + '". ';
-    const scene = story.scenes[0];
+    const first = Object.keys(story.scenes)[0];
+    const scene = story.scenes[first];
     const prompt = scenePrompt(scene);
 
     text += sceneText(scene);
