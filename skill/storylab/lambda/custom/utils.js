@@ -28,7 +28,7 @@ function api(path, token, callback) {
         });
 
         res.on('end', () => {
-            //console.log(JSON.stringify(return_data));
+            console.log("API: Calling with ", return_data);
             callback(JSON.parse(return_data));
         })
     });
