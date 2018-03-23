@@ -25,7 +25,10 @@ class StoryResource extends JsonResource
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
             'summary' => $this->summary,
-            'scenes' => $service->parse($this->textual_scenes),
+            'scenes' => array_map(function ($scene) {
+                $scene['body'] = strip_tags($scene['body']);
+                return $scene;
+            }, $service->parse($this->textual_scenes))
         ];
     }
 }

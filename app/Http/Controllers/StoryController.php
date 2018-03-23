@@ -139,7 +139,7 @@ class StoryController extends Controller
 
     public function first()
     {
-        $story = Story::firstOrFail();
+        $story = Story::orderBy('updated_at', 'desc')->firstOrFail();
         return response()->redirectToRoute('story.show', ['story' => $story]);
     }
 }
