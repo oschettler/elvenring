@@ -126,7 +126,9 @@ class StoryController extends Controller
             return new StoryCollection($circle->stories()->paginate());
         }
         else {
-            return new StoryCollection(Story::orderBy('updated_at', 'desc')->paginate());
+            return new StoryCollection(Story::orderBy('updated_at', 'desc')
+                ->where('status', 'complete')
+                ->paginate());
         }
     }
 
