@@ -87,6 +87,7 @@
 
                 <div class="links">
                     <a href="{{ route('doc') }}">Anleitung</a>
+                    <a href="https://skills-store.amazon.de/deeplink/dp/B07BKR4J8F?deviceType=app&share&refSuffix=ss_copy">Alexa-Skill für Amazon Echo</a>
                     <a href="{{ route('published') }}">Veröffentliche Geschichten</a>
                     <a href="{{ route('terms') }}">Nutzungsbedingungen</a>
                     <a href="{{ route('privacy') }}">Datenschutz</a>
