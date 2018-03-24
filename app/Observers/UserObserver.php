@@ -44,10 +44,10 @@ Ein enger Gang
 
 Du befindest dich in einem Gang.
 
-    [- Folge dem Gang -> Ein Kammer]
+    [- Folge dem Gang -> Eine Kammer]
 
 ---
-Ein Kammer
+Eine Kammer
 
 Du betrittst eine Kammer. Die Kammer hat links und gegenüber zwei Türen.
 

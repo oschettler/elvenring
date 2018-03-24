@@ -86,6 +86,7 @@
                 </div>
 
                 <div class="links">
+                    <a href="{{ route('doc') }}">Anleitung</a>
                     <a href="{{ route('published') }}">Veröffentliche Geschichten</a>
                     <a href="{{ route('terms') }}">Nutzungsbedingungen</a>
                     <a href="{{ route('privacy') }}">Datenschutz</a>

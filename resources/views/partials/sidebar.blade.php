@@ -37,6 +37,13 @@
                     <p>Öffentlich</p>
                 </a>
             </li>
+
+            <li>
+                <a class="nav-link" href="{{ route('doc') }}">
+                    <i class="nc-icon nc-circle-09"></i>
+                    <p><strong>Anleitung</strong></p>
+                </a>
+            </li>
         </ul>
     </div>
 </div>

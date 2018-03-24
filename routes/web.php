@@ -41,3 +41,7 @@ Route::get('/terms', function () {
     return view('terms');
 })->name('terms');
 
+Route::get('/doc', function () {
+    return view('doc');
+})->name('doc');
+
