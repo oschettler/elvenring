@@ -80,7 +80,7 @@ Du stehst in einem Garten. Ein kleines Tor führt auf die Strasse. Du hast es ge
                     Und jetzt viel Spass beim Schreiben deiner eigenen Geschichten!
                 </p>
                 <p>
-                    <em>Olav, Autor des Erzählkreis</em>
+                    <em>Olav, Autor des Erzählkreises</em>
                 </p>
             </div>
         </div>
