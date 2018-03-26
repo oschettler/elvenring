@@ -66,3 +66,7 @@
 
     </script>
 @endpush
+
+@section('page-head')
+    <meta name="robots" content="noindex, nofollow">
+@endsection
