@@ -1,7 +1,7 @@
 <div class="sidebar" data-image="img/sidebar-5.jpg">
     <div class="sidebar-wrapper">
         <div class="logo">
-            <a href="http://www.creative-tim.com" class="simple-text">
+            <a href="{{ route('home') }}" class="simple-text">
                 @lang(config('app.name', 'Laravel'))
             </a>
         </div>
