@@ -30,6 +30,7 @@ class UserObserver
 
         $story = Story::create([
             'title' => 'Ein Irrgarten',
+            'status' => 'complete',
             'summary' => 'Beispiel für eine Geschichte aus vier Szenen.',
             'author_id' => $author->id,
             'textual_scenes' => <<<EOS
