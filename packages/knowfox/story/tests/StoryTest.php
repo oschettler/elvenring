@@ -8,7 +8,7 @@ use Tests\TestCase;
 class StoryTest extends TestCase
 {
     protected $scenes1 = [
-        [
+        'Scene #1' => [
             'title' => 'Scene #1',
             'body' => "fdasdfsfgs asdfuizdf\nasdfuiz sadfiu",
             'passages' => [
@@ -20,19 +20,23 @@ class StoryTest extends TestCase
                     'title' => 'Passage 2',
                     'target' => 'Scene #1',
                 ],
-            ]
+            ],
+            'vars' => [],
+            'expr' => [],
         ],
-        [
+        'Scene #2' => [
             'title' => 'Scene #2',
             'body' => "asdfuizdf fdasdfsfgs\nasdfuiz sadfiu",
             'passages' => [],
+            'vars' => [],
+            'expr' => [],
         ],
     ];
 
     protected $scenes2 = [
-        [
+        'Scene #3' => [
             'title' => 'Scene #3',
-            'body' => "asdfuizdf  fdasdfsfgs\nasdfuiz Passage 43 sadfiu\nasdfuiz Passage 44 sadfiu",
+            'body' => "asdfuizdf  fdasdfsfgs\nasdfuiz <u>Passage 43</u> sadfiu\nasdfuiz <u>Passage 44</u> sadfiu",
             'passages' => [
                 [
                     'title' => 'Passage 42',
@@ -47,6 +51,8 @@ class StoryTest extends TestCase
                     'target' => 'Scene #3',
                 ]
             ],
+            'vars' => [],
+            'expr' => [],
         ]
     ];
 
