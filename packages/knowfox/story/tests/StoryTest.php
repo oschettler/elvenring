@@ -26,7 +26,7 @@ class StoryTest extends TestCase
         ],
         'Scene #2' => [
             'title' => 'Scene #2',
-            'body' => "asdfuizdf fdasdfsfgs\nasdfuiz sadfiu",
+            'body' => "...text1 dies ist der\nerste Text\n...\nasdfuizdf fdasdfsfgs\nasdfuiz sadfiu",
             'passages' => [],
             'vars' => [],
             'expr' => [],
