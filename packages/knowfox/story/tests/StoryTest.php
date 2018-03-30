@@ -22,14 +22,40 @@ class StoryTest extends TestCase
                 ],
             ],
             'vars' => [],
-            'expr' => [],
+            'code' => [],
         ],
         'Scene #2' => [
             'title' => 'Scene #2',
-            'body' => "...text1 dies ist der\nerste Text\n...\nasdfuizdf fdasdfsfgs\nasdfuiz sadfiu",
+            'body' => "asdfuizdf <code2> fdasdfsfgs\nasdfuiz sadfiu",
             'passages' => [],
-            'vars' => [],
-            'expr' => [],
+            'vars' => [
+                'text1' => "<code1> dies ist der\nerste Text",
+                'text2' => "dies ist der\nzweite Text",
+            ],
+            'code' => [
+                [
+                    'type' => 'apply',
+                    'operator' => [
+                        'type' => 'word',
+                        'name' => '*',
+                    ],
+                    'args' => [
+                        ['type' => 'word', 'name' => 'a'],
+                        ['type' => 'value', 'value' => 42],
+                    ],
+                ],
+                [
+                    'type' => 'apply',
+                    'operator' => [
+                        'type' => 'word',
+                        'name' => '+',
+                    ],
+                    'args' => [
+                        ['type' => 'word', 'name' => 'a'],
+                        ['type' => 'value', 'value' => 10],
+                    ],
+                ],
+            ],
         ],
     ];
 
@@ -52,7 +78,7 @@ class StoryTest extends TestCase
                 ]
             ],
             'vars' => [],
-            'expr' => [],
+            'code' => [],
         ]
     ];
 
@@ -68,7 +94,30 @@ asdfuiz sadfiu
 ---
 Scene #2
 
-asdfuizdf fdasdfsfgs
+...text1 {*(a, 42)} dies ist der
+erste Text
+...
+...text2 dies ist der
+zweite Text
+...
+asdfuizdf {+(a, 10)} fdasdfsfgs
+asdfuiz sadfiu
+
+EOS;
+
+    protected $textual1_dumped = <<<EOS
+Scene #1
+
+fdasdfsfgs asdfuizdf
+asdfuiz sadfiu
+
+[- Passage 1 -> Scene #1]
+[- Passage 2 -> Scene #1]
+
+---
+Scene #2
+
+asdfuizdf <code2> fdasdfsfgs
 asdfuiz sadfiu
 
 EOS;
@@ -93,7 +142,7 @@ EOS;
     public function testDump1()
     {
         $service = app(Story::class);
-        $this->assertEquals($this->textual1, $service->dump($this->scenes1));
+        $this->assertEquals($this->textual1_dumped, $service->dump($this->scenes1));
     }
 
     public function testParse2()
