@@ -606,7 +606,7 @@ if (typeof DEBUG !== 'undefined' && DEBUG) {
   ) }
 }
 
-var listToStyles = __webpack_require__(48)
+var listToStyles = __webpack_require__(49)
 
 /*
 type StyleObject = {
@@ -14220,8 +14220,8 @@ module.exports = __webpack_require__(18);
  */
 
 __webpack_require__(19);
-
 window.Vue = __webpack_require__(42);
+window.egg = __webpack_require__(45);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -14231,11 +14231,11 @@ window.Vue = __webpack_require__(42);
 
 //Vue.component('example-component', require('./components/ExampleComponent.vue'));
 
-Vue.component('passport-clients', __webpack_require__(45));
+Vue.component('passport-clients', __webpack_require__(46));
 
-Vue.component('passport-authorized-clients', __webpack_require__(51));
+Vue.component('passport-authorized-clients', __webpack_require__(52));
 
-Vue.component('passport-personal-access-tokens', __webpack_require__(56));
+Vue.component('passport-personal-access-tokens', __webpack_require__(57));
 
 var app = new Vue({
     el: '#app'
@@ -47444,18 +47444,225 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 
 /***/ }),
 /* 45 */
+/***/ (function(module, exports) {
+
+function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+
+/**
+ * Run an Egg program
+ * @see https://eloquentjavascript.net/12_language.html
+ */
+
+var specialForms = Object.create(null);
+
+function evaluate(expr, scope) {
+    if (expr.type == "value") {
+        return expr.value;
+    } else if (expr.type == "word") {
+        if (expr.name in scope) {
+            return scope[expr.name];
+        } else {
+            throw new ReferenceError("Undefined binding: " + expr.name);
+        }
+    } else if (expr.type == "apply") {
+        var operator = expr.operator,
+            args = expr.args;
+
+        if (operator.type == "word" && operator.name in specialForms) {
+            return specialForms[operator.name](expr.args, scope);
+        } else {
+            var op = evaluate(operator, scope);
+            if (typeof op == "function") {
+                return op.apply(undefined, _toConsumableArray(args.map(function (arg) {
+                    return evaluate(arg, scope);
+                })));
+            } else {
+                throw new TypeError("Applying a non-function.");
+            }
+        }
+    }
+}
+
+specialForms.if = function (args, scope) {
+    if (args.length != 3) {
+        throw new SyntaxError("Wrong number of args to if");
+    } else if (evaluate(args[0], scope) !== false) {
+        return evaluate(args[1], scope);
+    } else {
+        return evaluate(args[2], scope);
+    }
+};
+
+specialForms.while = function (args, scope) {
+    if (args.length != 2) {
+        throw new SyntaxError("Wrong number of args to while");
+    }
+    while (evaluate(args[0], scope) !== false) {
+        evaluate(args[1], scope);
+    }
+
+    // Since undefined does not exist in Egg, we return false,
+    // for lack of a meaningful result.
+    return false;
+};
+
+specialForms.do = function (args, scope) {
+    var value = false;
+    var _iteratorNormalCompletion = true;
+    var _didIteratorError = false;
+    var _iteratorError = undefined;
+
+    try {
+        for (var _iterator = args[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+            var arg = _step.value;
+
+            value = evaluate(arg, scope);
+        }
+    } catch (err) {
+        _didIteratorError = true;
+        _iteratorError = err;
+    } finally {
+        try {
+            if (!_iteratorNormalCompletion && _iterator.return) {
+                _iterator.return();
+            }
+        } finally {
+            if (_didIteratorError) {
+                throw _iteratorError;
+            }
+        }
+    }
+
+    return value;
+};
+
+specialForms.local = function (args, scope) {
+    if (args.length != 2 || args[0].type != "word") {
+        throw new SyntaxError("Incorrect use of local");
+    }
+    var value = evaluate(args[1], scope);
+    scope[args[0].name] = value;
+    return value;
+};
+
+specialForms.set = function (args, scope) {
+    if (args.length != 2 || args[0].type != 'word') {
+        throw new SyntaxError('Incorrect use of set');
+    }
+
+    var valName = args[0].name;
+    var value = evaluate(args[1], scope);
+    for (var scopeUp = scope; scopeUp; scopeUp = Object.getPrototypeOf(scopeUp)) {
+        if (Object.prototype.hasOwnProperty.call(scopeUp, valName)) {
+            scopeUp[valName] = value;
+            return value;
+        }
+    }
+    throw new ReferenceError("Tried setting an undefined variable: " + valName);
+};
+
+specialForms.incr = function (args, scope) {
+    if (args.length != 1 || args[0].type != "word") {
+        throw new SyntaxError("Incorrect use of incr");
+    }
+    scope[args[0].name] += 1;
+    return scope[args[0].name];
+};
+
+specialForms.decr = function (args, scope) {
+    if (args.length != 1 || args[0].type != "word") {
+        throw new SyntaxError("Incorrect use of decr");
+    }
+    scope[args[0].name] -= 1;
+    return scope[args[0].name];
+};
+
+specialForms.even = function (args, scope) {
+    if (args.length != 1) {
+        throw new SyntaxError("Incorrect use of even");
+    }
+    var value = evaluate(args[0], scope);
+    return value % 2 == 0;
+};
+
+specialForms.odd = function (args, scope) {
+    if (args.length != 1) {
+        throw new SyntaxError("Incorrect use of odd");
+    }
+    var value = evaluate(args[0], scope);
+    return value % 2 != 0;
+};
+
+specialForms.fun = function (args, scope) {
+    if (!args.length) {
+        throw new SyntaxError("Functions need a body");
+    }
+    var body = args[args.length - 1];
+    var params = args.slice(0, args.length - 1).map(function (expr) {
+        if (expr.type != "word") {
+            throw new SyntaxError("Parameter names must be words");
+        }
+        return expr.name;
+    });
+
+    return function () {
+        if (arguments.length != params.length) {
+            throw new TypeError("Wrong number of arguments");
+        }
+        var localScope = Object.create(scope);
+        for (var i = 0; i < arguments.length; i++) {
+            localScope[params[i]] = arguments[i];
+        }
+        return evaluate(body, localScope);
+    };
+};
+
+var topScope = {
+    true: true,
+    false: false,
+    print: function print(value) {
+        console.log(value);
+        return value;
+    },
+    array: function array() {
+        var args = Array.prototype.slice.call(arguments, 0);
+        return args;
+    },
+    length: function length(array) {
+        return array.length;
+    },
+    element: function element(array, n) {
+        return array[n];
+    }
+};
+
+var _arr = ["+", "-", "*", "/", "%", "==", "<", ">"];
+for (var _i = 0; _i < _arr.length; _i++) {
+    var op = _arr[_i];
+    topScope[op] = Function("a, b", "return a " + op + " b;");
+}
+
+module.exports = {
+    topScope: topScope,
+    run: function run(program, scope) {
+        return evaluate(program, scope);
+    }
+};
+
+/***/ }),
+/* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(46)
+  __webpack_require__(47)
 }
 var normalizeComponent = __webpack_require__(5)
 /* script */
-var __vue_script__ = __webpack_require__(49)
+var __vue_script__ = __webpack_require__(50)
 /* template */
-var __vue_template__ = __webpack_require__(50)
+var __vue_template__ = __webpack_require__(51)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -47494,13 +47701,13 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 46 */
+/* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(47);
+var content = __webpack_require__(48);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -47520,7 +47727,7 @@ if(false) {
 }
 
 /***/ }),
-/* 47 */
+/* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(2)(false);
@@ -47534,7 +47741,7 @@ exports.push([module.i, "\n.action-link[data-v-5d1d7d82] {\n    cursor: pointer;
 
 
 /***/ }),
-/* 48 */
+/* 49 */
 /***/ (function(module, exports) {
 
 /**
@@ -47567,7 +47774,7 @@ module.exports = function listToStyles (parentId, list) {
 
 
 /***/ }),
-/* 49 */
+/* 50 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -47931,7 +48138,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 });
 
 /***/ }),
-/* 50 */
+/* 51 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -48492,19 +48699,19 @@ if (false) {
 }
 
 /***/ }),
-/* 51 */
+/* 52 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(52)
+  __webpack_require__(53)
 }
 var normalizeComponent = __webpack_require__(5)
 /* script */
-var __vue_script__ = __webpack_require__(54)
+var __vue_script__ = __webpack_require__(55)
 /* template */
-var __vue_template__ = __webpack_require__(55)
+var __vue_template__ = __webpack_require__(56)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -48543,13 +48750,13 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 52 */
+/* 53 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(53);
+var content = __webpack_require__(54);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -48569,7 +48776,7 @@ if(false) {
 }
 
 /***/ }),
-/* 53 */
+/* 54 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(2)(false);
@@ -48583,7 +48790,7 @@ exports.push([module.i, "\n.action-link[data-v-2ee9fe67] {\n    cursor: pointer;
 
 
 /***/ }),
-/* 54 */
+/* 55 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -48703,7 +48910,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 55 */
+/* 56 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -48812,19 +49019,19 @@ if (false) {
 }
 
 /***/ }),
-/* 56 */
+/* 57 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(57)
+  __webpack_require__(58)
 }
 var normalizeComponent = __webpack_require__(5)
 /* script */
-var __vue_script__ = __webpack_require__(59)
+var __vue_script__ = __webpack_require__(60)
 /* template */
-var __vue_template__ = __webpack_require__(60)
+var __vue_template__ = __webpack_require__(61)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -48863,13 +49070,13 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 57 */
+/* 58 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(58);
+var content = __webpack_require__(59);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -48889,7 +49096,7 @@ if(false) {
 }
 
 /***/ }),
-/* 58 */
+/* 59 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(2)(false);
@@ -48903,7 +49110,7 @@ exports.push([module.i, "\n.action-link[data-v-89c53f18] {\n    cursor: pointer;
 
 
 /***/ }),
-/* 59 */
+/* 60 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -49225,7 +49432,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 });
 
 /***/ }),
-/* 60 */
+/* 61 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {

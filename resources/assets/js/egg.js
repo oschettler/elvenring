@@ -62,13 +62,29 @@ specialForms.do = (args, scope) => {
     return value;
 };
 
-specialForms.define = (args, scope) => {
+specialForms.local = (args, scope) => {
     if (args.length != 2 || args[0].type != "word") {
-        throw new SyntaxError("Incorrect use of define");
+        throw new SyntaxError("Incorrect use of local");
     }
     let value = evaluate(args[1], scope);
     scope[args[0].name] = value;
     return value;
+};
+
+specialForms.set = (args, scope) => {
+    if (args.length != 2 || args[0].type != 'word') {
+        throw new SyntaxError('Incorrect use of set');
+    }
+
+    const valName = args[0].name;
+    const value = evaluate(args[1], scope);
+    for (let scopeUp = scope; scopeUp; scopeUp = Object.getPrototypeOf(scopeUp)) {
+        if (Object.prototype.hasOwnProperty.call(scopeUp, valName)) {
+            scopeUp[valName] = value;
+            return value;
+        }
+    }
+    throw new ReferenceError(`Tried setting an undefined variable: ${valName}`);
 };
 
 specialForms.incr = (args, scope) => {
@@ -127,21 +143,32 @@ specialForms.fun = (args, scope) => {
     };
 };
 
-window.topScope = {
+let topScope = {
     true: true,
     false: false,
     print: value => {
         console.log(value);
         return value;
+    },
+    array: function() {
+        var args = Array.prototype.slice.call(arguments, 0);
+        return args;
+    },
+    length: function(array) {
+        return array.length;
+    },
+    element: function(array, n) {
+        return array[n];
     }
 };
 
-
 for (let op of ["+", "-", "*", "/", "%", "==", "<", ">"]) {
-    window.topScope[op] = Function("a, b", `return a ${op} b;`);
+    topScope[op] = Function("a, b", `return a ${op} b;`);
 }
 
-window.egg = function (program, scope) {
-    return evaluate(program, scope);
+module.exports = {
+    topScope,
+    run: function (program, scope) {
+        return evaluate(program, scope);
+    }
 };
-

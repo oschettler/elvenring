@@ -26,16 +26,12 @@
 @endsection
 
 @push('scripts')
-    <script src="{{ asset('js/egg.js') }}"></script>
-@endpush
-
-@push('scripts')
     <script>
         var scenes = {!! json_encode($story->scenes()) !!};
 
         function show(scene) {
 
-            let scope = topScope;
+            let scope = egg.topScope;
 
             $.each(scene.vars, function (name, value) { scope[name] = value; });
 
@@ -44,7 +40,7 @@
             let body = scene.body;
 
             scene.code.forEach(function (code, i) {
-                const result = egg(code, scope);
+                const result = egg.run(code, scope);
                 body = body.replace('<code #' + (i+1).toString() + '>', result);
             });
 
@@ -55,7 +51,7 @@
 
                 let condition = true;
                 if (typeof passage.condition !== 'undefined') {
-                    condition = egg(passage.condition, scope);
+                    condition = egg.run(passage.condition, scope);
                 }
                 if (condition) {
                     $('#scene ul').append('<li><a data-target="'

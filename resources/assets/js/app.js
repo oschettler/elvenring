@@ -6,8 +6,8 @@
  */
 
 require('./bootstrap');
-
 window.Vue = require('vue');
+window.egg = require('./egg');
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

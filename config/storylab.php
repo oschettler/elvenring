@@ -81,7 +81,7 @@ return [
             'summary' => [
                 'label' => 'Summary',
                 'type' => 'textarea',
-                'rows' => 10,
+                'rows' => 4,
             ],
             'textual_scenes' => [
                 'label' => 'Scenes',
