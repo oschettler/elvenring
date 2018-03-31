@@ -33,6 +33,8 @@ class Story
 
     private function passage($link, &$scene)
     {
+        $passage = [];
+
         $do_remove = false;
         if (strpos($link, '-') === 0) {
             $link = preg_replace('/^-?\s*/', '', $link);
@@ -47,15 +49,14 @@ class Story
                 throw new SyntaxErrorException("Unbalanced curly braces");
             }
 
-            $passage['condition'] = $program['expr'];
+            $passage['condition'] = $condition['expr'];
             $link = ltrim(substr($link, 1));
         }
 
         preg_match('/^(.+)(\s*->\s*(.+))?$/U', $link, $matches);
 
-        $passage = [
-            'title' => trim($matches[1]),
-        ];
+        $passage['title'] = trim($matches[1]);
+
         if (count($matches) > 2) {
             $passage['target'] = trim($matches[3]);
         }
@@ -70,7 +71,15 @@ class Story
     private function extractCode($text, &$scene)
     {
         while (false !== ($pos = strpos($text, '{'))) {
-            $expr = $this->egg->parseExpression(substr($text, $pos + 1));
+
+            $code_pos = $pos + 1;
+            $include_code = true;
+            if (strpos($text, '-', $code_pos) === $code_pos) {
+                $code_pos += 1;
+                $include_code = false;
+            }
+
+            $expr = $this->egg->parseExpression(substr($text, $code_pos));
 
             $prefix = substr($text, 0, $pos);
 
@@ -80,7 +89,13 @@ class Story
             }
 
             $scene['code'][] = $expr['expr'];
-            $text = $prefix . '<code' . count($scene['code']) . '>' . substr($text, 1);
+
+            if ($include_code) {
+                $text = $prefix . '<code #' . count($scene['code']) . '>' . substr($text, 1);
+            }
+            else {
+                $text = $prefix . substr($text, 1);
+            }
         }
 
         return $text;
@@ -114,11 +129,11 @@ class Story
 
         $body = $this->extractVars($body, $scene);
 
-        $body = $this->extractCode($body, $scene);
-
-        $scene['body'] = trim(preg_replace_callback('/\[([^\]]+)\]/', function ($matches) use (&$scene) {
+        $body = trim(preg_replace_callback('/\[([^\]]+)\]/', function ($matches) use (&$scene) {
             return $this->passage($matches[1], $scene);
         }, $body));
+
+        $scene['body'] = $this->extractCode($body, $scene);
 
         return $scene;
     }

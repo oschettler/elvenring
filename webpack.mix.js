@@ -13,6 +13,7 @@ let mix = require('laravel-mix');
 
 mix.js('resources/assets/js/lbd.js', 'public/js')
     .js('resources/assets/js/app.js', 'public/js')
+    .js('resources/assets/js/egg.js', 'public/js')
     .copy('resources/assets/css/*', 'public/css/')
     .sass('resources/assets/sass/storylab.scss', 'public/css')
     .copy('resources/assets/fonts/*', 'public/fonts/')

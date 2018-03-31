@@ -26,7 +26,7 @@ class StoryResource extends JsonResource
             'updated_at' => $this->updated_at,
             'summary' => $this->summary,
             'scenes' => array_map(function ($scene) {
-                $scene['body'] = strip_tags($scene['body']);
+                $scene['body'] = strip_tags($scene['body'], '<u><code>');
                 return $scene;
             }, $service->parse($this->textual_scenes))
         ];

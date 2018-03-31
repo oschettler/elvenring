@@ -10,11 +10,21 @@ class StoryTest extends TestCase
     protected $scenes1 = [
         'Scene #1' => [
             'title' => 'Scene #1',
-            'body' => "fdasdfsfgs asdfuizdf\nasdfuiz sadfiu",
+            'body' => "fdasdfsfgs <code #1> asdfuizdf\nasdfuiz  sadfiu",
             'passages' => [
                 [
                     'title' => 'Passage 1',
                     'target' => 'Scene #1',
+                    'condition' => [
+                        'type' => 'apply',
+                        'operator' => [
+                            'type' => 'word',
+                            'name' => 'seen',
+                        ],
+                        'args' => [
+                            ['type' => 'value', 'value' => "Scene #2"],
+                        ],
+                    ]
                 ],
                 [
                     'title' => 'Passage 2',
@@ -22,14 +32,17 @@ class StoryTest extends TestCase
                 ],
             ],
             'vars' => [],
-            'code' => [],
+            'code' => [
+                ['type' => 'value', 'value' => 'included'],
+                ['type' => 'value', 'value' => 'not included']
+            ],
         ],
         'Scene #2' => [
             'title' => 'Scene #2',
-            'body' => "asdfuizdf <code2> fdasdfsfgs\nasdfuiz sadfiu",
+            'body' => "asdfuizdf <code #2> fdasdfsfgs\nasdfuiz sadfiu",
             'passages' => [],
             'vars' => [
-                'text1' => "<code1> dies ist der\nerste Text",
+                'text1' => "<code #1> dies ist der\nerste Text",
                 'text2' => "dies ist der\nzweite Text",
             ],
             'code' => [
@@ -85,10 +98,10 @@ class StoryTest extends TestCase
     protected $textual1 = <<<EOS
 Scene #1
 
-fdasdfsfgs asdfuizdf
-asdfuiz sadfiu
+fdasdfsfgs { "included" } asdfuizdf
+asdfuiz {- "not included" } sadfiu
 
-[- Passage 1 -> Scene #1]
+[-{ seen("Scene #2") } Passage 1 -> Scene #1]
 [- Passage 2 -> Scene #1]
 
 ---
@@ -108,8 +121,8 @@ EOS;
     protected $textual1_dumped = <<<EOS
 Scene #1
 
-fdasdfsfgs asdfuizdf
-asdfuiz sadfiu
+fdasdfsfgs <code #1> asdfuizdf
+asdfuiz  sadfiu
 
 [- Passage 1 -> Scene #1]
 [- Passage 2 -> Scene #1]
@@ -117,7 +130,7 @@ asdfuiz sadfiu
 ---
 Scene #2
 
-asdfuizdf <code2> fdasdfsfgs
+asdfuizdf <code #2> fdasdfsfgs
 asdfuiz sadfiu
 
 EOS;

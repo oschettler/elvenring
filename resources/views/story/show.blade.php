@@ -26,17 +26,41 @@
 @endsection
 
 @push('scripts')
+    <script src="{{ asset('js/egg.js') }}"></script>
+@endpush
+
+@push('scripts')
     <script>
         var scenes = {!! json_encode($story->scenes()) !!};
 
         function show(scene) {
+
+            let scope = topScope;
+
+            $.each(scene.vars, function (name, value) { scope[name] = value; });
+
             $('#scene h5').text(scene.title);
-            $('#scene p').html(scene.body.replace(/\n/g, '<br>'));
+
+            let body = scene.body;
+
+            scene.code.forEach(function (code, i) {
+                const result = egg(code, scope);
+                body = body.replace('<code #' + (i+1).toString() + '>', result);
+            });
+
+            $('#scene p').html(body.replace(/\n/g, '<br>'));
 
             $('#scene ul').html('');
             scene.passages.forEach(function (passage) {
-                $('#scene ul').append('<li><a data-target="'
-                    + passage.target + '" href="#">' + passage.title + '</a></li>');
+
+                let condition = true;
+                if (typeof passage.condition !== 'undefined') {
+                    condition = egg(passage.condition, scope);
+                }
+                if (condition) {
+                    $('#scene ul').append('<li><a data-target="'
+                        + passage.target + '" href="#">' + passage.title + '</a></li>');
+                }
             });
         }
 
