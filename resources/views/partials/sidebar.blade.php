@@ -1,31 +1,20 @@
-<div class="sidebar" data-image="img/sidebar-5.jpg">
-    <div class="sidebar-wrapper">
-        <div class="logo">
-            <a href="{{ route('home') }}" class="simple-text">
-                @lang(config('app.name', 'Laravel'))
-            </a>
-        </div>
-        <ul class="nav">
+<nav class="col-md-2 d-none d-md-block bg-light sidebar">
+    <div class="sidebar-sticky">
+        <ul class="nav flex-column">
             @auth
-                <li class="nav-item active">
-                    <a class="nav-link" href="{{ route('home') }}">
-                        <i class="nc-icon nc-chart-pie-35"></i>
-                        <p>@lang('Home')</p>
-                    </a>
-                </li>
-
                 @foreach ([
-                    'circle' => 'Circles',
-                    'author' => 'Authors',
-                    'story' => 'Stories',
-                ] as $name => $title)
+                    'circle' => ['fas fa-circle-notch', 'Circles'],
+                    'author' => ['fas fa-user-circle', 'Authors'],
+                    'story' => ['fas fa-book', 'Stories'],
+                ] as $name => $info)
+
+                    @php list($icon, $title) = $info; @endphp
 
                     <li>
                         <a class="nav-link" href="{{ route($name . '.index') }}">
-                            <i class="nc-icon nc-circle-09"></i>
-                            <p>@lang($title)
-                                <span class="entity-count badge badge-pill badge-light">{{ $count[$name] }}</span>
-                            </p>
+                            <i class="{{ $icon }}"></i>
+                            @lang($title)
+                                <span class="badge badge-pill badge-info">{{ $count[$name] }}</span>
                         </a>
                     </li>
                 @endforeach
@@ -33,17 +22,17 @@
 
             <li>
                 <a class="nav-link" href="{{ route('published') }}">
-                    <i class="nc-icon nc-circle-09"></i>
-                    <p>Öffentlich</p>
+                    <i class="fas fa-unlock-alt"></i>
+                    Öffentlich
                 </a>
             </li>
 
             <li>
                 <a class="nav-link" href="{{ route('doc') }}">
-                    <i class="nc-icon nc-circle-09"></i>
-                    <p><strong>Anleitung</strong></p>
+                    <i class="fas fa-file-alt"></i>
+                    <strong>Anleitung</strong>
                 </a>
             </li>
         </ul>
     </div>
-</div>
+</nav>

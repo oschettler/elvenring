@@ -8,6 +8,12 @@
 require('./bootstrap');
 window.Vue = require('vue');
 window.egg = require('./egg');
+window.Dropzone = require('dropzone');
+
+Dropzone.options.dropzone = {
+    previewsContainer: '.dropzone-previews',
+    acceptedFiles: 'image/*'
+};
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

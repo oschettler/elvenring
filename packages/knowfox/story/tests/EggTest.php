@@ -7,7 +7,14 @@ use Tests\TestCase;
 
 class EggTest extends TestCase
 {
-    protected $textual1 = '+(a, 10)';
+    protected $textual1 = <<<EOS
+# Egg programms are similar
+# ... to Lisp
+
++(
+    a, 10
+)
+EOS;
     protected $prog1 = [
         'type' => 'apply',
         'operator' => [

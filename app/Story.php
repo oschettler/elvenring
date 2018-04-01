@@ -6,10 +6,14 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Knowfox\Story\Services\Story as StoryService;
 use Mpociot\Versionable\VersionableTrait;
+use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
+use Spatie\MediaLibrary\HasMedia\HasMedia;
+use Spatie\MediaLibrary\Models\Media;
 
-class Story extends Model
+
+class Story extends Model implements HasMedia
 {
-    use VersionableTrait;
+    use VersionableTrait, HasMediaTrait;
 
     protected $fillable = ['public', 'status', 'title', 'summary', 'author_id', 'textual_scenes'];
 
@@ -27,6 +31,18 @@ class Story extends Model
     {
         $service = app(StoryService::class);
         return $service->parse($this->textual_scenes);
+    }
+
+    public function registerMediaConversions(Media $media = null)
+    {
+        $this->addMediaConversion('thumb')
+            ->width(700)
+            ->height(400)
+            ->sharpen(10);
+
+        $this->addMediaConversion('preview')
+            ->width(750)
+            ->height(500);
     }
 
     protected static function boot()

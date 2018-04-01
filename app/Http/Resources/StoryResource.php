@@ -17,7 +17,7 @@ class StoryResource extends JsonResource
     {
         $service = app(StoryService::class);
 
-        $keep_tags = ($request->has('keep_tags') && $request->keep_tags)
+        $keep_tags = $request->has('keep_tags')
             ? '<u><code>' : '';
 
         return [
@@ -28,8 +28,8 @@ class StoryResource extends JsonResource
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
             'summary' => $this->summary,
-            'scenes' => array_map(function ($scene) {
-                $scene['body'] = strip_tags($scene['body'], $keep_tags);
+            'scenes' => array_map(function ($scene) use ($keep_tags) {
+                $scene['body'] = trim(strip_tags($scene['body'], $keep_tags));
                 return $scene;
             }, $service->parse($this->textual_scenes))
         ];

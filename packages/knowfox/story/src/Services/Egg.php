@@ -14,7 +14,7 @@ class Egg
 {
     public function parseExpression($program)
     {
-        $program = ltrim($program);
+        $program = $this->skipSpace($program);
 
         if (preg_match('/^"([^"]*)"/', $program, $match)) {
             $expr = [
@@ -41,21 +41,25 @@ class Egg
         return $this->parseApply($expr, substr($program, strlen($match[0])));
     }
 
+    private function skipSpace($string) {
+        return preg_replace("/^(\s|#.*\n)*/", '', $string);
+    }
+
     private function parseApply($expr, $program)
     {
-        $program = ltrim($program);
+        $program = $this->skipSpace($program);
         if ($program == '' || $program[0] != "(") {
             return ['expr' => $expr, 'rest' => $program];
         }
 
-        $program = ltrim(substr($program, 1));
+        $program = $this->skipSpace(substr($program, 1));
         $expr = ['type' => "apply", 'operator' => $expr, 'args' => []];
         while ($program[0] != ")") {
             $arg = $this->parseExpression($program);
             array_push($expr['args'], $arg['expr']);
-            $program = ltrim($arg['rest']);
+            $program = $this->skipSpace($arg['rest']);
             if ($program[0] == ",") {
-                $program = ltrim(substr($program, 1));
+                $program = $this->skipSpace(substr($program, 1));
             }
             else if ($program[0] != ")") {
                 throw new SyntaxErrorException("Expected ',' or ')'");
@@ -66,7 +70,7 @@ class Egg
 
     function parse($program) {
         $result = $this->parseExpression($program);
-        if (strlen(ltrim($result['rest'])) > 0) {
+        if (strlen($this->skipSpace($result['rest'])) > 0) {
             throw new SyntaxErrorException("Unexpected text after program");
         }
         return $result['expr'];

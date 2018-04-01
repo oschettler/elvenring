@@ -6,7 +6,7 @@ return [
     'languages' => ['de', 'en', 'fr'],
 
     'entity' => [
-        'layout' => 'layouts.lbd',
+        'layout' => 'layouts.app',
     ],
     'author' => [
         'extends' => 'entity',
@@ -49,6 +49,7 @@ return [
         'entity_name' => 'story',
         'order_by' => 'title',
         'show' => true,
+        'has_file' => true,
         'columns' => [
             'title' => 'Title',
             'author.name' => 'Author',
