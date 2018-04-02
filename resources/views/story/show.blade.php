@@ -34,13 +34,11 @@
 
             $.each(scene.vars, function (name, value) { scope[name] = value; });
 
+            $('#scene h5').remove();
             if (typeof scene.vars.show_title === 'undefined' || scene.vars.show_title) {
                 $('<h5 class="card-title"></h5>')
                     .text(scene.title)
                     .prependTo('#scene .card-body');
-            }
-            else {
-                $('#scene h5').remove();
             }
 
             $('#scene img[class=card-img-top]').remove();
