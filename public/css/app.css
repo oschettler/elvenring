@@ -10395,3 +10395,7 @@ body {
   background-color: #f5f5f5;
 }
 
+textarea[name=textual_scenes] {
+  font-family: Hack, monospace;
+}
+

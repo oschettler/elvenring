@@ -50,6 +50,7 @@ return [
         'order_by' => 'title',
         'show' => true,
         'has_file' => true,
+        'multiple_files' => true,
         'columns' => [
             'title' => 'Title',
             'author.name' => 'Author',

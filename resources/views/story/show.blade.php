@@ -37,6 +37,11 @@
 
             $('#scene h5').text(scene.title);
 
+            $('#scene img[class=card-img-top]').remove();
+            if (typeof scene.vars.image !== 'undefined') {
+                $('#scene').prepend('<img class="card-img-top" src="' + scene.vars.image + '">');
+            }
+
             let body = scene.body;
 
             scene.code.forEach(function (code, i) {

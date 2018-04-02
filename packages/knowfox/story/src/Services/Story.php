@@ -11,7 +11,6 @@ use Knowfox\Story\SyntaxErrorException;
 
 class Story
 {
-    const SEP = "\n...";
     private $egg;
 
     public function __construct(Egg $egg)
