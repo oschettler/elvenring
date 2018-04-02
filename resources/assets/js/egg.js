@@ -1,6 +1,7 @@
 /**
  * Run an Egg program
  * @see https://eloquentjavascript.net/12_language.html
+ * @see https://gist.github.com/wldcordeiro/2ec9aeb4e3fa512eec26
  */
 
 const specialForms = Object.create(null);

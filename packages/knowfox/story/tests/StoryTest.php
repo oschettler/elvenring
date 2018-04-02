@@ -2,6 +2,7 @@
 
 namespace Knowfox\Story\Tests;
 
+use Knowfox\Story\Services\Scene;
 use Knowfox\Story\Services\Story;
 use Tests\TestCase;
 
@@ -42,8 +43,8 @@ class StoryTest extends TestCase
             'body' => "asdfuizdf <code #2> fdasdfsfgs\nasdfuiz sadfiu",
             'passages' => [],
             'vars' => [
-                'text1' => "<code #1> dies ist der\nerste Text",
-                'text2' => "dies ist der\nzweite Text",
+                'text1' => "<code #1> dies ist der\nerste Text\n",
+                'text2' => "dies ist der\nzweite Text\n",
             ],
             'code' => [
                 [
@@ -106,12 +107,13 @@ asdfuiz {- "not included" } sadfiu
 
 ---
 Scene #2
-
-...text1 {*(a, 42)} dies ist der
-erste Text
 ...
-...text2 dies ist der
-zweite Text
+text1: |
+  {*(a, 42)} dies ist der
+  erste Text
+text2: |
+  dies ist der
+  zweite Text
 ...
 asdfuizdf {+(a, 10)} fdasdfsfgs
 asdfuiz sadfiu
@@ -145,22 +147,30 @@ asdfuiz [Passage 44
 
 EOS;
 
+    private function scenes(array $a)
+    {
+        $result = [];
+        foreach ($a as $n => $scene) {
+            $result[$n] = new Scene($scene);
+        }
+        return $result;
+    }
 
     public function testParse1()
     {
         $service = app(Story::class);
-        $this->assertEquals($this->scenes1, $service->parse($this->textual1));
+        $this->assertEquals($this->scenes($this->scenes1), $service->parse($this->textual1));
     }
 
     public function testDump1()
     {
         $service = app(Story::class);
-        $this->assertEquals($this->textual1_dumped, $service->dump($this->scenes1));
+        $this->assertEquals($this->textual1_dumped, $service->dump($this->scenes($this->scenes1)));
     }
 
     public function testParse2()
     {
         $service = app(Story::class);
-        $this->assertEquals($this->scenes2, $service->parse($this->textual2));
+        $this->assertEquals($this->scenes($this->scenes2), $service->parse($this->textual2));
     }
 }

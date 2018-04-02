@@ -13,9 +13,12 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::middleware(['auth:api'])->group(function () {
 
-Route::middleware('auth:api')->get('/stories/{circle?}', 'StoryController@apiList');
-Route::middleware('auth:api')->get('/story/{story}', 'StoryController@apiShow');
+    Route::get('/user', function (Request $request) {
+        return $request->user();
+    });
+
+    Route::get('/stories/{circle?}', 'StoryController@apiList');
+    Route::get('/story/{story}', 'StoryController@apiShow');
+});

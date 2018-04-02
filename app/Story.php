@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Knowfox\Story\Services\Story as StoryService;
 use Mpociot\Versionable\VersionableTrait;
+use Spatie\Image\Manipulations;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 use Spatie\MediaLibrary\HasMedia\HasMedia;
 use Spatie\MediaLibrary\Models\Media;
@@ -36,13 +37,10 @@ class Story extends Model implements HasMedia
     public function registerMediaConversions(Media $media = null)
     {
         $this->addMediaConversion('thumb')
-            ->width(700)
-            ->height(400)
-            ->sharpen(10);
+            ->fit(Manipulations::FIT_CROP, 80, 80);
 
         $this->addMediaConversion('preview')
-            ->width(750)
-            ->height(500);
+            ->fit(Manipulations::FIT_CROP, 750, 550);
     }
 
     protected static function boot()

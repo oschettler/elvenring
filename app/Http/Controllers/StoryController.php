@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Circle;
 use App\Http\Requests\StoryRequest;
+use App\Http\Resources\ImageResource;
 use App\Http\Resources\StoryCollection;
 use App\Http\Resources\StoryResource;
 use App\Passage;
@@ -118,6 +119,11 @@ class StoryController extends Controller
     public function destroy(Story $story)
     {
         //
+    }
+
+    public function images(Story $story)
+    {
+        return ImageResource::collection($story->getMedia('images'));
     }
 
     public function apiList(Circle $circle)

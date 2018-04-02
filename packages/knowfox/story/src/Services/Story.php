@@ -2,6 +2,11 @@
 
 namespace Knowfox\Story\Services;
 
+use hkod\frontmatter\BlockParser;
+use hkod\frontmatter\Parser;
+use hkod\frontmatter\ParserBuilder;
+use hkod\frontmatter\VoidParser;
+use hkod\frontmatter\YamlParser;
 use Knowfox\Story\SyntaxErrorException;
 
 class Story
@@ -19,9 +24,9 @@ class Story
         $result = '';
         $sep = '';
         foreach ($scenes as $scene) {
-            $result .= $sep . $scene['title'] . "\n\n" . $scene['body'] . "\n";
+            $result .= $sep . $scene->title . "\n\n" . $scene->body . "\n";
 
-            foreach ($scene['passages'] as $passage) {
+            foreach ($scene->passages as $passage) {
                 $result .= "\n[- " . $passage['title'] . ' -> ' . $passage['target'] . "]";
             }
 
@@ -31,109 +36,28 @@ class Story
         return $result;
     }
 
-    private function passage($link, &$scene)
-    {
-        $passage = [];
-
-        $do_remove = false;
-        if (strpos($link, '-') === 0) {
-            $link = preg_replace('/^-?\s*/', '', $link);
-            $do_remove = true;
-        }
-
-        if (strpos($link, '{') === 0) {
-            $condition = $this->egg->parseExpression(substr($link, 1));
-
-            $link = ltrim($condition['rest']);
-            if (strpos($link, '}') !== 0) {
-                throw new SyntaxErrorException("Unbalanced curly braces");
-            }
-
-            $passage['condition'] = $condition['expr'];
-            $link = ltrim(substr($link, 1));
-        }
-
-        preg_match('/^(.+)(\s*->\s*(.+))?$/U', $link, $matches);
-
-        $passage['title'] = trim($matches[1]);
-
-        if (count($matches) > 2) {
-            $passage['target'] = trim($matches[3]);
-        }
-        else {
-            $passage['target'] = trim(ucfirst($matches[1]));
-        }
-        $scene['passages'][] = $passage;
-
-        return $do_remove ? '' : '<u>' . $passage['title'] . '</u>';
-    }
-
-    private function extractCode($text, &$scene)
-    {
-        while (false !== ($pos = strpos($text, '{'))) {
-
-            $code_pos = $pos + 1;
-            $include_code = true;
-            if (strpos($text, '-', $code_pos) === $code_pos) {
-                $code_pos += 1;
-                $include_code = false;
-            }
-
-            $expr = $this->egg->parseExpression(substr($text, $code_pos));
-
-            $prefix = substr($text, 0, $pos);
-
-            $text = ltrim($expr['rest']);
-            if (strpos($text, '}') !== 0) {
-                throw new SyntaxErrorException("Unbalanced curly braces");
-            }
-
-            $scene['code'][] = $expr['expr'];
-
-            if ($include_code) {
-                $text = $prefix . '<code #' . count($scene['code']) . '>' . substr($text, 1);
-            }
-            else {
-                $text = $prefix . substr($text, 1);
-            }
-        }
-
-        return $text;
-    }
-
-    private function extractVars($text, &$scene)
-    {
-        while (preg_match("/^\.\.\.(\w+)\s*/", $text, $matches)) {
-            $name = $matches[1];
-            $text = substr($text, strlen($matches[0]));
-
-            $end = strpos($text, self::SEP);
-
-            $scene['vars'][$name] = $this->extractCode(substr($text, 0, $end), $scene);
-
-            $text = ltrim(substr($text, $end + strlen(self::SEP)));
-        }
-
-        return $text;
-    }
-
     private function parseScene($text)
     {
-        $scene = ['passages' => [], 'vars' => [], 'code' => []];
+        $scene = new Scene();
 
-        list ($scene['title'], $body) = preg_split("/\n/", $text, 2);
+        list ($scene->title, $body) = preg_split("/\n/", $text, 2);
 
-        $scene['title'] = trim($scene['title']);
+        $scene->title = trim($scene->title);
 
         $body = trim($body);
 
-        $body = $this->extractVars($body, $scene);
+        $parser = (new ParserBuilder())
+            ->addFrontmatterPass(new EggParser($scene))
+            ->addFrontmatterPass(new YamlParser())
+            ->addBodyPass(new PassageParser($scene))
+            ->addBodyPass(new EggParser($scene))
+            ->setBlockParser(new BlockParser('...', '...'))
+            ->buildParser();
 
-        $body = trim(preg_replace_callback('/\[([^\]]+)\]/', function ($matches) use (&$scene) {
-            return $this->passage($matches[1], $scene);
-        }, $body));
+        $result = $parser->parse($body);
 
-        $scene['body'] = $this->extractCode($body, $scene);
+        $scene->vars = $result->getFrontmatter() ?? [];
+        $scene->body = $result->getBody();
 
         return $scene;
     }
@@ -148,7 +72,7 @@ class Story
 
             if (preg_match('/^---/', $line)) {
                 $scene = $this->parseScene($body);
-                $scenes[$scene['title']] = $scene;
+                $scenes[$scene->title] = $scene;
                 $body = '';
 
                 continue;
@@ -156,7 +80,7 @@ class Story
             $body .= $line . "\n";
         }
         $scene = $this->parseScene($body);
-        $scenes[$scene['title']] = $scene;
+        $scenes[$scene->title] = $scene;
 
         return $scenes;
     }
