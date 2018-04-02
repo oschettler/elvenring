@@ -25,7 +25,17 @@ class StoryTest extends TestCase
                         'args' => [
                             ['type' => 'value', 'value' => "Scene #2"],
                         ],
-                    ]
+                    ],
+                    'action' => [
+                        'type' => 'apply',
+                        'operator' => [
+                            'type' => 'word',
+                            'name' => 'eat',
+                        ],
+                        'args' => [
+                            ['type' => 'value', 'value' => "Icecream"],
+                        ],
+                    ],
                 ],
                 [
                     'title' => 'Passage 2',
@@ -102,7 +112,7 @@ Scene #1
 fdasdfsfgs { "included" } asdfuizdf
 asdfuiz {- "not included" } sadfiu
 
-[-{ seen("Scene #2") } Passage 1 -> Scene #1]
+[-{ seen("Scene #2") } { eat("Icecream") } Passage 1 -> Scene #1]
 [- Passage 2 -> Scene #1]
 
 ---

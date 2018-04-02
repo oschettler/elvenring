@@ -47630,6 +47630,9 @@ var topScope = {
         console.log(value);
         return value;
     },
+    random: function random(value) {
+        return Math.round(Math.random() * value);
+    },
     array: function array() {
         var args = Array.prototype.slice.call(arguments, 0);
         return args;

@@ -42,3 +42,13 @@ body {
 textarea[name=textual_scenes] {
   font-family: Hack, monospace;
 }
+
+figure.figure {
+  position: relative;
+}
+
+figure.figure .delete-image {
+  position: absolute;
+  top: 0;
+  right: 0;
+}

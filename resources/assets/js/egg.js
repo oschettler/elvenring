@@ -151,6 +151,9 @@ let topScope = {
         console.log(value);
         return value;
     },
+    random: value => {
+        return Math.round(Math.random() * value);
+    },
     array: function() {
         var args = Array.prototype.slice.call(arguments, 0);
         return args;

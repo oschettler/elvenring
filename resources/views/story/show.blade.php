@@ -70,6 +70,10 @@
 
             var target = $(this).data('target');
 
+            if (typeof passage.action !== 'undefined') {
+                egg.run(passage.action, scope);
+            }
+
             if (typeof scenes[target] === 'undefined') {
                 var $msg = $('<div class="alert alert-danger">Szene <strong>' + target + '</strong> nicht gefunden</div>');
                 $msg.insertBefore('#scene');

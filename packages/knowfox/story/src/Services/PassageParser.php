@@ -29,10 +29,22 @@ class PassageParser
 
             $link = ltrim($condition['rest']);
             if (strpos($link, '}') !== 0) {
-                throw new SyntaxErrorException("Unbalanced curly braces");
+                throw new SyntaxErrorException("Unbalanced curly braces (condition)");
             }
 
             $passage['condition'] = $condition['expr'];
+            $link = ltrim(substr($link, 1));
+        }
+
+        if ($pos = strpos($link, '{') !== false) {
+            $action = $this->egg->parseExpression(substr($link, $pos + 1));
+
+            $link = ltrim($action['rest']);
+            if (strpos($link, '}') !== 0) {
+                throw new SyntaxErrorException("Unbalanced curly braces (action)");
+            }
+
+            $passage['action'] = $action['expr'];
             $link = ltrim(substr($link, 1));
         }
 
