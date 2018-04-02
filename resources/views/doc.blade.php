@@ -77,6 +77,7 @@ Du stehst in einem Garten. Ein kleines Tor führt auf die Strasse. Du hast es ge
                 <p>Markierst du eine Geschichte als <em>öffentlich</em>, ist sie für alle Besucher der Seite <em>Erzählkreis</em> sichtbar. Markiere also nur solche Geschichten als öffentlich, die fertig sind und die - besonders wichtig - nichts Privates über dich und auch nichts Rechtswidriges oder Obszönes enthalten. Nur Geschichten, die als <em>complete</em> markiert sind, werden von Alexa zum Spielen angeboten. Sobald du eine Geschichte als <em>complete</em> markiert hast, kannst du sie auf der Website ausprobieren - klicke dazu in der Geschichtenliste auf den Titel - oder über <a href="https://skills-store.amazon.de/deeplink/dp/B07BKR4J8F?deviceType=app&share&refSuffix=ss_copy">unseren Alexa-Skill</a> von deinem Echo-Gerät vorlesen lassen.
                 </p>
                 <p>
+                    Wenn du fortgeschrittene Merkmale wie Bilder, Daten und Programmlogik verwenden willst, lies <a href="{{ route('doc2') }}">die Anleitung</a> dafür.
                     Und jetzt viel Spass beim Schreiben deiner eigenen Geschichten!
                 </p>
                 <p>

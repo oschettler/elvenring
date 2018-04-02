@@ -49,3 +49,7 @@ Route::get('/doc', function () {
     return view('doc');
 })->name('doc');
 
+Route::get('/doc2', function () {
+    return view('doc2');
+})->name('doc2');
+
