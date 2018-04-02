@@ -152,7 +152,7 @@ let topScope = {
         return value;
     },
     random: value => {
-        return Math.round(Math.random() * value);
+        return Math.floor(Math.random() * value);
     },
     array: function() {
         var args = Array.prototype.slice.call(arguments, 0);

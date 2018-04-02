@@ -36,16 +36,19 @@ class PassageParser
             $link = ltrim(substr($link, 1));
         }
 
-        if ($pos = strpos($link, '{') !== false) {
+        if (($pos = strpos($link, '{')) !== false) {
             $action = $this->egg->parseExpression(substr($link, $pos + 1));
 
-            $link = ltrim($action['rest']);
-            if (strpos($link, '}') !== 0) {
+            $prefix = substr($link, 0, $pos);
+
+            $rest = ltrim($action['rest']);
+
+            if (strpos($rest, '}') !== 0) {
                 throw new SyntaxErrorException("Unbalanced curly braces (action)");
             }
 
             $passage['action'] = $action['expr'];
-            $link = ltrim(substr($link, 1));
+            $link = $prefix . substr($rest, 1);
         }
 
         preg_match('/^(.+)(\s*->\s*(.+))?$/U', $link, $matches);
