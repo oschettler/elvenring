@@ -113,6 +113,10 @@ Das Ende :)
                 </p>
 
                 <video style="max-width:100%" src="/img/storylab.mp4" controls></video>
+
+                <p>
+                    ... und hier <a href="https://storylab.neocities.org/">als statische Seite bei Neocities</a>.
+                </p>
             </div>
         </div>
     </div>

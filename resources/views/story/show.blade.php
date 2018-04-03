@@ -27,7 +27,7 @@
 
 @push('scripts')
     <script>
-        var scenes = {!! json_encode($story->scenes()) !!};
+        var scenes = {!! json_encode($story->scenes(), JSON_PRETTY_PRINT) !!};
         let scope = egg.topScope;
 
         function show(scene) {
