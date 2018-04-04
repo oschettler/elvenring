@@ -70,9 +70,13 @@ function conjunct(ary, conjunction) {
     }
 }
 
+function stripTags(text) {
+    return text.replace(/(<([^>]+)>)/ig, '');
+}
+
 function sceneText(scene) {
 
-    let text = scene.body;
+    let text = stripTags(scene.body);
     
     if (scene.passages.length == 0) {
         text += '\n\n' + settings.HELP_MESSAGE2;
@@ -81,7 +85,7 @@ function sceneText(scene) {
         text += '\n\n Sage '
             + conjunct(
                 scene.passages.map((passage, i) => { 
-                    return (i+1).toString() + ' für "' + passage.title + '"'; 
+                    return (i+1).toString() + ' für "' + stripTags(passage.title) + '"'; 
                 }), ' <break time="500ms" />oder');
     }
 

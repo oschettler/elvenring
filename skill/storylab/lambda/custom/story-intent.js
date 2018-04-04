@@ -33,7 +33,7 @@ module.exports = function () {
         return;
     }
 
-    utils.api('/api/story/' + listed_story.id, this.event.session.user.accessToken, data => {
+    utils.api('/api/story/' + listed_story.id + '?keep_tags', this.event.session.user.accessToken, data => {
         const story = data.data;
 
         console.log("StoryIntent - Callback");
