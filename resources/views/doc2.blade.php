@@ -6,8 +6,6 @@
             <div class="col-8 mx-auto">
                 <h1>Fortgeschrittene Merkmale</h1>
 
-                <p><strong>Achtung:</strong> Die hier beschriebenen Merkmale werden im Augenblick noch nicht vom Alexa-Skill unterstützt.</p>
-
                 <p>
                     Zusätzlich zu <a href="{{ route('doc') }}">einfachen Szenen</a> können Geschichten im Erzählkreis auch bebilderte Szenen, Daten und Logik enthalten. Dieses Dinge erklären wir auf dieser Seite.
                 </p>
@@ -117,6 +115,17 @@ Das Ende :)
                 <p>
                     ... und hier <a href="https://storylab.neocities.org/">als statische Seite bei Neocities</a>.
                 </p>
+
+                <p>
+                    ... und so sieht die Geschichte im Simulator für Alexa-Skills aus:
+                </p>
+
+                <img class="img-fluid" src="/img/dynamics.jpg">
+
+                <p>
+                    Dies ist die mittlere Szene, nachdem ich zehn Mal <em>zwei</em> für <em>Bleiben</em> gesagt habe. Dieses Mal ist als dritter Ausgang <em>Geschafft!</em> hinzugekommen. Ausgelöst wird dies durch die Bedingung <code>{ >(count, 9) }</code>. Der Ausgang wird also nur angeboten, wenn der Zähler einen Wert größer 
+                </p>
+
             </div>
         </div>
     </div>
