@@ -123,7 +123,11 @@ Das Ende :)
                 <img class="img-fluid" src="/img/dynamic.jpg">
 
                 <p>
-                    Dies ist die mittlere Szene, nachdem ich zehn Mal <em>zwei</em> für <em>Bleiben</em> gesagt habe. Dieses Mal ist als dritter Ausgang <em>Geschafft!</em> hinzugekommen. Ausgelöst wird dies durch die Bedingung <code>{ >(count, 9) }</code>. Der Ausgang wird also nur angeboten, wenn der Zähler einen Wert größer
+                    Dies ist die mittlere Szene, nachdem ich zehn Mal <em>zwei</em> für <em>Bleiben</em> gesagt habe. Dieses Mal ist als dritter Ausgang <em>Geschafft!</em> hinzugekommen. Ausgelöst wird dies durch die Bedingung <code>{ >(count, 9) }</code>. Der Ausgang wird also nur angeboten, wenn der Zähler einen Wert größer 9 hat.
+                </p>
+
+                <p>
+                    Jetzt bin ich gespannt. Wie werdet ihr die neuen Möglichkeiten nutzen?
                 </p>
 
             </div>
