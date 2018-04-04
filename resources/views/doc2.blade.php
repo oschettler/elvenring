@@ -120,10 +120,10 @@ Das Ende :)
                     ... und so sieht die Geschichte im Simulator für Alexa-Skills aus:
                 </p>
 
-                <img class="img-fluid" src="/img/dynamics.jpg">
+                <img class="img-fluid" src="/img/dynamic.jpg">
 
                 <p>
-                    Dies ist die mittlere Szene, nachdem ich zehn Mal <em>zwei</em> für <em>Bleiben</em> gesagt habe. Dieses Mal ist als dritter Ausgang <em>Geschafft!</em> hinzugekommen. Ausgelöst wird dies durch die Bedingung <code>{ >(count, 9) }</code>. Der Ausgang wird also nur angeboten, wenn der Zähler einen Wert größer 
+                    Dies ist die mittlere Szene, nachdem ich zehn Mal <em>zwei</em> für <em>Bleiben</em> gesagt habe. Dieses Mal ist als dritter Ausgang <em>Geschafft!</em> hinzugekommen. Ausgelöst wird dies durch die Bedingung <code>{ >(count, 9) }</code>. Der Ausgang wird also nur angeboten, wenn der Zähler einen Wert größer
                 </p>
 
             </div>
