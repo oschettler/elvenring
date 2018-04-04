@@ -16,6 +16,17 @@ class Scene
         $this->body = $a['body'] ?? '';
         $this->vars = $a['vars'] ?? [];
         $this->passages = $a['passages'] ?? [];
-        $this->code= $a['code'] ?? [];
+        $this->code = $a['code'] ?? [];
+    }
+
+    public function toArray()
+    {
+        return [
+            'title' => $this->title,
+            'body' => $this->body,
+            'vars' => $this->vars,
+            'passages' => $this->passages,
+            'code' => $this->code,
+        ];
     }
 }
