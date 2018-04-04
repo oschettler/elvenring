@@ -3,6 +3,7 @@
  */
 const utils = require('./utils');
 const settings = require('./settings');
+const egg = require('./egg');
 
 module.exports = function () {
     let text;
@@ -32,6 +33,11 @@ module.exports = function () {
     }
 
     const passage = scene.passages[passage_index - 1];
+
+    if (typeof passage.action !== 'undefined') {
+        egg.run(passage.action, egg.topScope);
+    }
+
     if (story.scenes.hasOwnProperty(passage.target)) {
         scene = story.scenes[passage.target]
         text = utils.sceneText(scene);

@@ -3,6 +3,7 @@
  */
 const https = require('https');
 const settings = require('./settings');
+const egg = require('./egg');
 
 function api(path, token, callback) {
     console.log("API: ", path);
@@ -76,17 +77,39 @@ function stripTags(text) {
 
 function sceneText(scene) {
 
-    let text = stripTags(scene.body);
+    let scope = egg.topScope;
+    Object.keys(scene.vars).map(name => scope[name] = scene.vars[name]);
+
+    let text = scene.body;
+
+    scene.code.forEach((code, i) => {
+        const result = egg.run(code, scope);
+        text = text.replace('<code #' + (i+1).toString() + '>', result);
+    });
+
+    text = stripTags(text);
     
     if (scene.passages.length == 0) {
         text += '\n\n' + settings.HELP_MESSAGE2;
     }
     else {
+        let passages = [];
+        scene.passages.forEach((passage, i) => {
+            let condition = true;
+            if (typeof passage.condition !== 'undefined') {
+                condition = egg.run(passage.condition, scope);
+            }
+            if (condition) {
+                passages.push(passage);
+            }
+        });
+
         text += '\n\n Sage '
-            + conjunct(
-                scene.passages.map((passage, i) => { 
-                    return (i+1).toString() + ' für "' + stripTags(passage.title) + '"'; 
-                }), ' <break time="500ms" />oder');
+        + conjunct(
+            passages.map((passage, i) => { 
+                return (i+1).toString() + ' für "' + stripTags(passage.title) + '"'; 
+            }), ' <break time="500ms" />oder');
+
     }
 
     return text;

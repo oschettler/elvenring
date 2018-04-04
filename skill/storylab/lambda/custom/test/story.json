@@ -1,146 +1,391 @@
 {
-    "session": {
-      "sessionId": "SessionId.Session1",
-      "application": {
-        "applicationId": "amzn1.ask.skill.c925a17b-b3cc-46e7-91e4-f6317c8e88e1"
-			},
-			"attributes": {
-				"stories": [
-					{
-						"public": false,
-						"status": "draft",
-						"title": "Eichen und Eicheln",
-						"created_at": {
-							"date": "2018-03-21 17:59:34.000000",
-							"timezone_type": 3,
-							"timezone": "Europe/Berlin"
-						},
-						"updated_at": {
-							"date": "2018-03-22 08:12:37.000000",
-							"timezone_type": 3,
-							"timezone": "Europe/Berlin"
-						},
-						"summary": "Eine kurze Hypertextgeschichte von <a href=\"http://susangibb.net/\">Susan Gibb</a>, 2009 geschrieben im Rahmen einer 100-Tage-Challenge. Hier ist <a href=\"http://www.susangibb.net/blog2/wp-content/uploads/100stories/99oaksandacorns/titlec.html\">das englischsprachige Original</a>."
+	"version": "1.0",
+	"session": {
+		"new": false,
+		"sessionId": "amzn1.echo-api.session.5b1d9261-73d4-4198-856a-5e8beddcd7bc",
+		"application": {
+			"applicationId": "amzn1.ask.skill.c925a17b-b3cc-46e7-91e4-f6317c8e88e1"
+		},
+		"attributes": {
+			"stories": [
+				{
+					"id": 25,
+					"public": true,
+					"status": "complete",
+					"title": "Beispiel mit Logik",
+					"created_at": {
+						"date": "2018-04-03 08:20:22.000000",
+						"timezone_type": 3,
+						"timezone": "Europe/Berlin"
 					},
-					{
-						"public": false,
-						"status": "draft",
-						"title": "Ein Irrgarten",
-						"created_at": {
-							"date": "2018-03-19 19:51:11.000000",
-							"timezone_type": 3,
-							"timezone": "Europe/Berlin"
-						},
-						"updated_at": {
-							"date": "2018-03-22 08:04:39.000000",
-							"timezone_type": 3,
-							"timezone": "Europe/Berlin"
-						},
-						"summary": "Beispiel für eine Geschichte aus vier Szenen."
+					"updated_at": {
+						"date": "2018-04-03 08:24:15.000000",
+						"timezone_type": 3,
+						"timezone": "Europe/Berlin"
 					},
-					{
-						"public": false,
-						"status": "draft",
-						"title": "Personenbeschreibung",
-						"created_at": {
-							"date": "2018-03-20 19:32:54.000000",
-							"timezone_type": 3,
-							"timezone": "Europe/Berlin"
-						},
-						"updated_at": {
-							"date": "2018-03-22 08:04:39.000000",
-							"timezone_type": 3,
-							"timezone": "Europe/Berlin"
-						},
-						"summary": "Eine kurze Personenbeschreibung."
+					"summary": "Testgeschichte mit Egg-Logik"
+				},
+				{
+					"id": 8,
+					"public": false,
+					"status": "complete",
+					"title": "Eichen und Eicheln",
+					"created_at": {
+						"date": "2018-03-21 17:59:34.000000",
+						"timezone_type": 3,
+						"timezone": "Europe/Berlin"
 					},
-					{
-						"public": true,
-						"status": "draft",
-						"title": "Abenteuer im Abteil",
-						"created_at": {
-							"date": "2018-03-13 11:25:03.000000",
-							"timezone_type": 3,
-							"timezone": "Europe/Berlin"
-						},
-						"updated_at": {
-							"date": "2018-03-22 08:04:38.000000",
-							"timezone_type": 3,
-							"timezone": "Europe/Berlin"
-						},
-						"summary": "Dies ist die Adaption einer Kurzgeschichte aus dem Buch \"Was für Lumpen sind doch Männer\", erschienen im Jahr 1940 im Paul Neff Verlag, Berlin.\r\n\r\nQuelle: http://gutenberg.spiegel.de/buch/kurzgeschichten-4780/2\r\n\r\nEs gibt auch eine gelesene Fassung von Detlev Hürter: http://detlevhuerter.de/abenteuer-im-abteil"
+					"updated_at": {
+						"date": "2018-03-23 18:29:02.000000",
+						"timezone_type": 3,
+						"timezone": "Europe/Berlin"
 					},
-					{
-						"public": true,
-						"status": "complete",
-						"title": "Zahlenraten",
-						"created_at": {
-							"date": "2018-03-18 16:49:13.000000",
-							"timezone_type": 3,
-							"timezone": "Europe/Berlin"
-						},
-						"updated_at": {
-							"date": "2018-03-22 08:04:38.000000",
-							"timezone_type": 3,
-							"timezone": "Europe/Berlin"
-						},
-						"summary": "Ich kann Zahlen raten."
+					"summary": "Eine kurze Hypertextgeschichte von <a href=\"http://susangibb.net/\">Susan Gibb</a>, 2009 geschrieben im Rahmen einer 100-Tage-Challenge. Hier ist <a href=\"http://www.susangibb.net/blog2/wp-content/uploads/100stories/99oaksandacorns/titlec.html\">das englischsprachige Original</a>."
+				},
+				{
+					"id": 6,
+					"public": false,
+					"status": "complete",
+					"title": "Ein Irrgarten",
+					"created_at": {
+						"date": "2018-03-19 19:51:11.000000",
+						"timezone_type": 3,
+						"timezone": "Europe/Berlin"
 					},
-					{
-						"public": true,
-						"status": "complete",
-						"title": "Die Höhle",
-						"created_at": {
-							"date": "2018-03-18 18:13:33.000000",
-							"timezone_type": 3,
-							"timezone": "Europe/Berlin"
-						},
-						"updated_at": {
-							"date": "2018-03-22 08:04:38.000000",
-							"timezone_type": 3,
-							"timezone": "Europe/Berlin"
-						},
-						"summary": "Ein Höhlenlabyrinth"
+					"updated_at": {
+						"date": "2018-03-22 08:04:39.000000",
+						"timezone_type": 3,
+						"timezone": "Europe/Berlin"
 					},
-					{
-						"public": false,
-						"status": "draft",
-						"title": "Plom und das Heilkraut",
-						"created_at": {
-							"date": "2018-03-13 00:17:17.000000",
-							"timezone_type": 3,
-							"timezone": "Europe/Berlin"
-						},
-						"updated_at": {
-							"date": "2018-03-22 08:02:55.000000",
-							"timezone_type": 3,
-							"timezone": "Europe/Berlin"
-						},
-						"summary": "Plom ist ein kleiner Junge vom Planeten Gurgius."
-					}
-				]
-			},
-      "user": {
-        "userId": "amzn1.ask.account.AFAIKLJ34U2PTFZZGKN7OXJWIYJ3ZCRYGB5TTRC6EW2I4OO4DPAS7VCQNUGV6UV76XROQAG56TOWDFFAR6PKV2O756I3OZB3VHGMS4VXZ4EFUETNOLGNN7RCJGI7JWXJTFVEUGSHM4Z3NG4R7QXO6ZQA7IPPK7GT7YEQDV3ZLQTFVMV5NLPUKGWMV7MFI2HX4ZNGXOCV2TFHLLQ"
-      },
-      "new": true
-    },
-    "request": {
-			"type": "IntentRequest",
-			"requestId": "amzn1.echo-api.request.e31a4355-c7d2-4f75-8dc0-04b2095d2cd5",
-			"timestamp": "2018-03-17T17:37:38Z",
-			"locale": "de-DE",
-			"intent": {
-				"name": "StoryIntent",
-				"confirmationStatus": "NONE",
-				"slots": {
-					"story": {
-						"name": "story",
-						"value": "1",
-						"confirmationStatus": "NONE"
-					}
+					"summary": "Beispiel für eine Geschichte aus vier Szenen."
+				},
+				{
+					"id": 2,
+					"public": true,
+					"status": "complete",
+					"title": "Abenteuer im Abteil",
+					"created_at": {
+						"date": "2018-03-13 11:25:03.000000",
+						"timezone_type": 3,
+						"timezone": "Europe/Berlin"
+					},
+					"updated_at": {
+						"date": "2018-03-22 08:04:38.000000",
+						"timezone_type": 3,
+						"timezone": "Europe/Berlin"
+					},
+					"summary": "Dies ist die Adaption einer Kurzgeschichte aus dem Buch \"Was für Lumpen sind doch Männer\", erschienen im Jahr 1940 im Paul Neff Verlag, Berlin.\r\n\r\nQuelle: http://gutenberg.spiegel.de/buch/kurzgeschichten-4780/2\r\n\r\nEs gibt auch eine gelesene Fassung von Detlev Hürter: http://detlevhuerter.de/abenteuer-im-abteil"
+				},
+				{
+					"id": 3,
+					"public": true,
+					"status": "complete",
+					"title": "Zahlenraten",
+					"created_at": {
+						"date": "2018-03-18 16:49:13.000000",
+						"timezone_type": 3,
+						"timezone": "Europe/Berlin"
+					},
+					"updated_at": {
+						"date": "2018-03-22 08:04:38.000000",
+						"timezone_type": 3,
+						"timezone": "Europe/Berlin"
+					},
+					"summary": "Ich kann Zahlen raten."
+				},
+				{
+					"id": 4,
+					"public": true,
+					"status": "complete",
+					"title": "Die Höhle",
+					"created_at": {
+						"date": "2018-03-18 18:13:33.000000",
+						"timezone_type": 3,
+						"timezone": "Europe/Berlin"
+					},
+					"updated_at": {
+						"date": "2018-03-22 08:04:38.000000",
+						"timezone_type": 3,
+						"timezone": "Europe/Berlin"
+					},
+					"summary": "Ein Höhlenlabyrinth"
 				}
+			],
+			"sceneIndex": "Das Ende",
+			"story": {
+				"summary": "Testgeschichte mit Egg-Logik",
+				"public": true,
+				"updated_at": {
+					"date": "2018-04-03 08:24:15.000000",
+					"timezone_type": 3,
+					"timezone": "Europe/Berlin"
+				},
+				"scenes": {
+					"Der Anfang": {
+						"passages": [
+							{
+								"title": "Mittendrin",
+								"target": "Mittendrin"
+							}
+						],
+						"vars": {
+							"image": "/storage/5/conversions/anfang-preview.jpg"
+						},
+						"code": [
+							{
+								"type": "apply",
+								"args": [
+									{
+										"type": "word",
+										"name": "count"
+									},
+									{
+										"type": "value",
+										"value": 0
+									}
+								],
+								"operator": {
+									"type": "word",
+									"name": "local"
+								}
+							}
+						],
+						"title": "Der Anfang",
+						"body": "Das hier ist der Anfang"
+					},
+					"Das Ende": {
+						"passages": [
+							{
+								"title": "Zum Anfang",
+								"target": "Der Anfang"
+							}
+						],
+						"vars": {
+							"image": "/storage/4/conversions/ende-preview.jpg"
+						},
+						"code": [],
+						"title": "Das Ende",
+						"body": "Das Ende :)"
+					},
+					"Mittendrin": {
+						"passages": [
+							{
+								"title": "Zum Anfang",
+								"target": "Der Anfang"
+							},
+							{
+								"title": "Bleiben",
+								"action": {
+									"type": "apply",
+									"args": [
+										{
+											"type": "word",
+											"name": "count"
+										}
+									],
+									"operator": {
+										"type": "word",
+										"name": "print"
+									}
+								},
+								"target": "Mittendrin"
+							},
+							{
+								"title": "Geschafft!",
+								"condition": {
+									"type": "apply",
+									"args": [
+										{
+											"type": "word",
+											"name": "count"
+										},
+										{
+											"type": "value",
+											"value": 9
+										}
+									],
+									"operator": {
+										"type": "word",
+										"name": ">"
+									}
+								},
+								"target": "Das Ende"
+							}
+						],
+						"vars": {
+							"image": "/storage/6/conversions/mitte-preview.jpg",
+							"gerade": "Das ist der gerade Text\n",
+							"ungerade": "Das ist der UNGERADE Text\n",
+							"show_title": false,
+							"wetter": [
+								"Es schneit",
+								"Die Sonne scheint",
+								"Es hagelt",
+								"Es ist dicht bewölkt und nieselt leicht",
+								"Der Himmel ist grau",
+								"Der Himmel ist strahlend blau, aber es ist eiskalt"
+							]
+						},
+						"code": [
+							{
+								"type": "apply",
+								"args": [
+									{
+										"type": "word",
+										"name": "count"
+									}
+								],
+								"operator": {
+									"type": "word",
+									"name": "incr"
+								}
+							},
+							{
+								"type": "apply",
+								"args": [
+									{
+										"type": "apply",
+										"args": [
+											{
+												"type": "word",
+												"name": "count"
+											}
+										],
+										"operator": {
+											"type": "word",
+											"name": "even"
+										}
+									},
+									{
+										"type": "word",
+										"name": "gerade"
+									},
+									{
+										"type": "word",
+										"name": "ungerade"
+									}
+								],
+								"operator": {
+									"type": "word",
+									"name": "if"
+								}
+							},
+							{
+								"type": "apply",
+								"args": [
+									{
+										"type": "word",
+										"name": "welches"
+									},
+									{
+										"type": "apply",
+										"args": [
+											{
+												"type": "apply",
+												"args": [
+													{
+														"type": "word",
+														"name": "wetter"
+													}
+												],
+												"operator": {
+													"type": "word",
+													"name": "length"
+												}
+											}
+										],
+										"operator": {
+											"type": "word",
+											"name": "random"
+										}
+									}
+								],
+								"operator": {
+									"type": "word",
+									"name": "local"
+								}
+							},
+							{
+								"type": "apply",
+								"args": [
+									{
+										"type": "word",
+										"name": "wetter"
+									},
+									{
+										"type": "word",
+										"name": "welches"
+									}
+								],
+								"operator": {
+									"type": "word",
+									"name": "element"
+								}
+							}
+						],
+						"title": "Mittendrin",
+						"body": "Du warst schon  Mal hier.\r\n\r\n\r\n:"
+					}
+				},
+				"created_at": {
+					"date": "2018-04-03 08:20:22.000000",
+					"timezone_type": 3,
+					"timezone": "Europe/Berlin"
+				},
+				"id": 25,
+				"title": "Beispiel mit Logik",
+				"status": "complete"
 			}
 		},
-    "version": "1.0"
-  }
+		"user": {
+			"userId": "amzn1.ask.account.AHARTUL6D7F7MC3GAAQJCVHSVLM5Y3EBPWIIKR7657D2EWF6T2JUXYCN5GSFXTJFZTT5TS3OWKZ4ZGWXYBZU7BK4OKUUXUZYFTMU2O2SKNWA4F5ZABNXJHWXLTIIGH27VDMQW5MYLZJJV5FWSHBD5V6GX672UVUNJ6BHSARA3WHVSYZTEBFB7U6VZBG7WOSDU565UVKZVLX4A5A",
+			"accessToken": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjhkYTE1YmM3NWM5NGFjYTg0YThhNzlmZjUyMzU5ODYzNjM5NjA3MmY1NDczYWY5MDFlZTUzOTZmZmQ0NTI0ZTMxNmU4MDQwOWM5MzFjZmEzIn0.eyJhdWQiOiIzIiwianRpIjoiOGRhMTViYzc1Yzk0YWNhODRhOGE3OWZmNTIzNTk4NjM2Mzk2MDcyZjU0NzNhZjkwMWVlNTM5NmZmZDQ1MjRlMzE2ZTgwNDA5YzkzMWNmYTMiLCJpYXQiOjE1MjE4MzUwMzcsIm5iZiI6MTUyMTgzNTAzNywiZXhwIjoxNTUzMzcxMDM3LCJzdWIiOiIyIiwic2NvcGVzIjpbXX0.SOqUw3QBORzrhNFlvjMxqmvx5Xk5cNzkNDVKJgoQRAt_mDjSiA8RuFIhSoOKndfQTsrvV-Dv0lXgT6ZosSJer84eSPrQaRg3pCXbHri3C090MQQY-uxZDGm-RzPChV1JP8gPbJ29k1ruGLqyBAOVaywVMnDLaEc2AHbeaR5KNSk1rbnfkKDYZYslaCW1mzQjlFHFf0KKfC60dmOuMnHaRdI1B0tgaHmh2a3PXBc45_rJ8FJqQO59jYCw8dNqkl0OxTpQPpbPk3JJ5zn7M29BfcuzG2bCpSpOgh5dG-03VydM0c-mb0TJTGRpQAVd51xGg9s1ln0NbnFsk5RZW1bu-3NB7b1aQe6eI9fR2WpuN1EuTMEQx-6F2v3uyrXgBuIqEv1XbH95YiZ09MiUvg8Nf4K5qdPexrtwc7-xV-YZLFtbrmEqA2h0zTKip61gmZjouwhxUATZT2DTrwrnrFe_HxMP1N6ytAsd4isfK687L8kwB42qqgFfqTw61pWCcfV-oLFqJKxu_v0seDgJuOnFb6EATxugjTd2f549qovkbX4K5dDh75gagHwBfntzJgnGP9F33WYcBNFANkk1--cHdIs1jVbj5fD6-Jbp9yh3cGOTdYR347hXVPjXelF2FSRlX1-5aAUHk7OKi2HLg6-ODk4gyQ0Y5wPqcK93BSnGhT4"
+		}
+	},
+	"context": {
+		"AudioPlayer": {
+			"playerActivity": "IDLE"
+		},
+		"Display": {
+			"token": ""
+		},
+		"System": {
+			"application": {
+				"applicationId": "amzn1.ask.skill.c925a17b-b3cc-46e7-91e4-f6317c8e88e1"
+			},
+			"user": {
+				"userId": "amzn1.ask.account.AHARTUL6D7F7MC3GAAQJCVHSVLM5Y3EBPWIIKR7657D2EWF6T2JUXYCN5GSFXTJFZTT5TS3OWKZ4ZGWXYBZU7BK4OKUUXUZYFTMU2O2SKNWA4F5ZABNXJHWXLTIIGH27VDMQW5MYLZJJV5FWSHBD5V6GX672UVUNJ6BHSARA3WHVSYZTEBFB7U6VZBG7WOSDU565UVKZVLX4A5A",
+				"accessToken": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjhkYTE1YmM3NWM5NGFjYTg0YThhNzlmZjUyMzU5ODYzNjM5NjA3MmY1NDczYWY5MDFlZTUzOTZmZmQ0NTI0ZTMxNmU4MDQwOWM5MzFjZmEzIn0.eyJhdWQiOiIzIiwianRpIjoiOGRhMTViYzc1Yzk0YWNhODRhOGE3OWZmNTIzNTk4NjM2Mzk2MDcyZjU0NzNhZjkwMWVlNTM5NmZmZDQ1MjRlMzE2ZTgwNDA5YzkzMWNmYTMiLCJpYXQiOjE1MjE4MzUwMzcsIm5iZiI6MTUyMTgzNTAzNywiZXhwIjoxNTUzMzcxMDM3LCJzdWIiOiIyIiwic2NvcGVzIjpbXX0.SOqUw3QBORzrhNFlvjMxqmvx5Xk5cNzkNDVKJgoQRAt_mDjSiA8RuFIhSoOKndfQTsrvV-Dv0lXgT6ZosSJer84eSPrQaRg3pCXbHri3C090MQQY-uxZDGm-RzPChV1JP8gPbJ29k1ruGLqyBAOVaywVMnDLaEc2AHbeaR5KNSk1rbnfkKDYZYslaCW1mzQjlFHFf0KKfC60dmOuMnHaRdI1B0tgaHmh2a3PXBc45_rJ8FJqQO59jYCw8dNqkl0OxTpQPpbPk3JJ5zn7M29BfcuzG2bCpSpOgh5dG-03VydM0c-mb0TJTGRpQAVd51xGg9s1ln0NbnFsk5RZW1bu-3NB7b1aQe6eI9fR2WpuN1EuTMEQx-6F2v3uyrXgBuIqEv1XbH95YiZ09MiUvg8Nf4K5qdPexrtwc7-xV-YZLFtbrmEqA2h0zTKip61gmZjouwhxUATZT2DTrwrnrFe_HxMP1N6ytAsd4isfK687L8kwB42qqgFfqTw61pWCcfV-oLFqJKxu_v0seDgJuOnFb6EATxugjTd2f549qovkbX4K5dDh75gagHwBfntzJgnGP9F33WYcBNFANkk1--cHdIs1jVbj5fD6-Jbp9yh3cGOTdYR347hXVPjXelF2FSRlX1-5aAUHk7OKi2HLg6-ODk4gyQ0Y5wPqcK93BSnGhT4"
+			},
+			"device": {
+				"deviceId": "amzn1.ask.device.AGKHBB2FQAUXAPB4GICN4PHJG2UOIXZHB5TC2OCFYXBWAF6UOFVAU6ZG4377TFNW4YSS7PH7K5INHRA5M6GKH4GR7M4CPXHPCEVCRWNTBBRXTXZEJAWYYXJIIEAEN54ZMMO5HEXDB35YS4KYLQYD7SPNF62A",
+				"supportedInterfaces": {
+					"AudioPlayer": {},
+					"Display": {
+						"templateVersion": "1.0",
+						"markupVersion": "1.0"
+					}
+				}
+			},
+			"apiEndpoint": "https://api.eu.amazonalexa.com",
+			"apiAccessToken": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6IjEifQ.eyJhdWQiOiJodHRwczovL2FwaS5hbWF6b25hbGV4YS5jb20iLCJpc3MiOiJBbGV4YVNraWxsS2l0Iiwic3ViIjoiYW16bjEuYXNrLnNraWxsLmM5MjVhMTdiLWIzY2MtNDZlNy05MWU0LWY2MzE3YzhlODhlMSIsImV4cCI6MTUyMjg0OTEzMywiaWF0IjoxNTIyODQ1NTMzLCJuYmYiOjE1MjI4NDU1MzMsInByaXZhdGVDbGFpbXMiOnsiY29uc2VudFRva2VuIjpudWxsLCJkZXZpY2VJZCI6ImFtem4xLmFzay5kZXZpY2UuQUdLSEJCMkZRQVVYQVBCNEdJQ040UEhKRzJVT0lYWkhCNVRDMk9DRllYQldBRjZVT0ZWQVU2Wkc0Mzc3VEZOVzRZU1M3UEg3SzVJTkhSQTVNNkdLSDRHUjdNNENQWEhQQ0VWQ1JXTlRCQlJYVFhaRUpBV1lZWEpJSUVBRU41NFpNTU81SEVYREIzNVlTNEtZTFFZRDdTUE5GNjJBIiwidXNlcklkIjoiYW16bjEuYXNrLmFjY291bnQuQUhBUlRVTDZEN0Y3TUMzR0FBUUpDVkhTVkxNNVkzRUJQV0lJS1I3NjU3RDJFV0Y2VDJKVVhZQ041R1NGWFRKRlpUVDVUUzNPV0taNFpHV1hZQlpVN0JLNE9LVVVYVVpZRlRNVTJPMlNLTldBNEY1WkFCTlhKSFdYTFRJSUdIMjdWRE1RVzVNWUxaSkpWNUZXU0hCRDVWNkdYNjcyVVZVTko2QkhTQVJBM1dIVlNZWlRFQkZCN1U2VlpCRzdXT1NEVTU2NVVWS1pWTFg0QTVBIn19.Ss6oukusCJM2QuqRqagTtsUSO9mvhCCUMAa7h0Rb5zfmE9VFiWACRy07TWXo0BSBDCRk9shgaxG6-k_Wo9jOQCBxc3EozCjjPJdW1kEbaDAaVsU7ybXiroDDMcq0qHY91A5SHjm3xet4fkaYjnS839kNN_1FTZ2IOm3IM27qjNGMk1DtJBTERnT6odDh1opTbMtVnSxU3l9dm9i3VrUOTzk9zL8nFZ0AVWXwtVBTe4hn-RtJFG7nCMlca1Sb_Cmpu_SxptyEnjnZCwpMO7yU5aq9VEMQkqBXmKmV5d6bAHUv98_eYsynAHeiPzBluGXkPkRyDDJeRE-XBSTglF7FVg"
+		}
+	},
+	"request": {
+		"type": "IntentRequest",
+		"requestId": "amzn1.echo-api.request.84e9c2b2-2906-43a9-b25f-fa6ae8cc4432",
+		"timestamp": "2018-04-04T12:38:53Z",
+		"locale": "de-DE",
+		"intent": {
+			"name": "StoryIntent",
+			"confirmationStatus": "NONE",
+			"slots": {
+				"story": {
+					"name": "story",
+					"value": "1",
+					"confirmationStatus": "NONE"
+				}
+			}
+		}
+	}
+}
