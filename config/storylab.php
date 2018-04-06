@@ -47,7 +47,7 @@ return [
         'model' => \App\Story::class,
         'entity_title' => [' Story', 'Stories'],
         'entity_name' => 'story',
-        'order_by' => 'title',
+        'order_by' => 'updated_at|desc',
         'show' => true,
         'has_file' => true,
         'multiple_files' => true,
