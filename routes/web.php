@@ -27,6 +27,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('circle', 'CircleController');
     Route::resource('author', 'AuthorController');
     Route::resource('story', 'StoryController', ['except' => 'show']);
+    Route::get('/story/{story}/download', 'StoryController@download')->name('story.download');
 
     Route::get('story/{story}/images', 'StoryController@images');
 

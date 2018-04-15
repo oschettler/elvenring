@@ -148,4 +148,53 @@ class StoryController extends Controller
         $story = Story::orderBy('updated_at', 'desc')->firstOrFail();
         return response()->redirectToRoute('story.show', ['story' => $story]);
     }
+
+    public function download(Story $story)
+    {
+        $dir = '/tmp/storylab/' . $story->id;
+        shell_exec("rm -rf $dir");
+        mkdir($dir . '/lib', 0755, true);
+
+        foreach (glob(base_path('static') . '/lib/*') as $f) {
+            $fname = pathinfo($f, PATHINFO_BASENAME);
+            copy($f, $dir . "/lib/$fname");
+        }
+
+        $story_json = json_encode([
+            'title' => $story->title,
+            'summary' => $story->summary,
+            'updated_at' => strftime('%Y-%m-%d %H:%M:%S', strtotime($story->updated_at)),
+        ], JSON_PRETTY_PRINT);
+
+        $scenes = [];
+        foreach ($story->scenes() as $title => $scene) {
+            if (isset($scene->vars['image'])) {
+                $scene->vars['image'] = pathinfo($scene->vars['image'], PATHINFO_BASENAME);
+            }
+            $scenes[$title] = $scene;
+        }
+
+        $scenes_json = json_encode($scenes, JSON_PRETTY_PRINT);
+
+        $index = preg_replace([
+            '/%%STORY%%/',
+            '/%%SCENES%%/',
+        ], [
+            $story_json,
+            $scenes_json,
+        ], file_get_contents(base_path('static') . '/index.html'));
+
+        file_put_contents($dir . '/index.html', $index);
+
+        foreach ($story->getMedia('images') as $image) {
+            $f = $image->getPath('preview');
+            $fname = pathinfo($f, PATHINFO_BASENAME);
+            copy($f, $dir . "/$fname");
+        }
+
+        $filename = "story{$story->id}.zip";
+        shell_exec("cd $dir; rm ../$filename; zip ../$filename * lib/*");
+
+        return response()->download("/tmp/storylab/$filename", $filename);
+    }
 }

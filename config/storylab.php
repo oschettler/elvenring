@@ -51,6 +51,8 @@ return [
         'show' => true,
         'has_file' => true,
         'multiple_files' => true,
+        'deletes' => true,
+        'downloads' => true,
         'columns' => [
             'title' => 'Title',
             'author.name' => 'Author',
