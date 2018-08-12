@@ -10409,3 +10409,9 @@ figure.figure .delete-image {
   right: 0;
 }
 
+#chatter #chatter_hero,
+#chatter #chatter_header {
+  width: auto !important;
+  margin: 0 -15px;
+}
+

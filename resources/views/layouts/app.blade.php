@@ -13,6 +13,7 @@
     <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/fontawesome.js" integrity="sha384-7ox8Q2yzO/uWircfojVuCQOZl+ZZBg2D2J5nkpLqzH1HY0C1dHlTKIbpRz/LG23c" crossorigin="anonymous"></script>
 
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    @yield('css')
     @yield('page-head')
 
 </head>
@@ -53,8 +54,10 @@
             <div class="row">
                 @include('partials.sidebar')
 
-                <main class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+                <main class="col-md-9 ml-sm-auto col-lg-10">
+                    @yield('header')
                     @yield('content')
+                    @yield('footer')
                 </main>
             </div>
         </div>
@@ -74,5 +77,6 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
     @stack('scripts')
+    @yield('js')
 </body>
 </html>

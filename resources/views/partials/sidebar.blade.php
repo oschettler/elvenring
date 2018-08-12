@@ -28,6 +28,13 @@
             </li>
 
             <li>
+                <a class="nav-link" href="/forums">
+                    <i class="fas fa-comments"></i>
+                    Forum
+                </a>
+            </li>
+
+            <li>
                 <a class="nav-link" href="{{ route('doc') }}">
                     <i class="fas fa-file-alt"></i>
                     <strong>Anleitung</strong>
