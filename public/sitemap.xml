@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+<url>
+  <loc>https://storylab.schettler.net/</loc>
+  <lastmod>2018-08-12T21:10:40+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://storylab.schettler.net/login</loc>
+  <lastmod>2018-08-12T21:10:40+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://storylab.schettler.net/register</loc>
+  <lastmod>2018-08-12T21:10:40+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://storylab.schettler.net/doc</loc>
+  <lastmod>2018-08-12T21:10:40+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://storylab.schettler.net/doc2</loc>
+  <lastmod>2018-08-12T21:10:40+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://storylab.schettler.net/published</loc>
+  <lastmod>2018-08-12T21:10:40+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://storylab.schettler.net/forums</loc>
+  <lastmod>2018-08-12T21:10:40+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://storylab.schettler.net/forums/discussion/allgemeines/herzlich-willkommen-im-erzahlkreis-forum</loc>
+  <lastmod>2018-08-12T21:10:40+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://storylab.schettler.net/forums/category/allgemeines</loc>
+  <lastmod>2018-08-12T21:10:40+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://storylab.schettler.net/terms</loc>
+  <lastmod>2018-08-12T21:10:40+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://storylab.schettler.net/privacy</loc>
+  <lastmod>2018-08-12T21:10:40+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+
+</urlset>
