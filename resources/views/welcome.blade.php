@@ -64,6 +64,18 @@
             .m-b-md {
                 margin-bottom: 30px;
             }
+
+            footer {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                text-align: center;
+                padding-bottom: 20px;
+            }
+            footer a {
+                text-decoration: none;
+            }
         </style>
     </head>
     <body>
@@ -91,10 +103,14 @@
                     <a href="{{ route('doc') }}">Anleitung</a>
                     <a href="https://skills-store.amazon.de/deeplink/dp/B07BKR4J8F?deviceType=app&share&refSuffix=ss_copy">Alexa-Skill für Amazon Echo</a>
                     <a href="{{ route('published') }}">Veröffentliche Geschichten</a>
-                    <a href="{{ route('terms') }}">Nutzungsbedingungen</a>
-                    <a href="{{ route('privacy') }}">Datenschutz</a>
+                    <a href="/forums">Forum</a>
                 </div>
             </div>
+
+            <footer>
+                <a href="{{ route('terms') }}">Nutzungsbedingungen</a>
+                &middot; <a href="{{ route('privacy') }}">Datenschutz</a>
+            </footer>
         </div>
     </body>
 </html>
