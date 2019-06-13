@@ -78,7 +78,10 @@ function stripTags(text) {
 function sceneText(scene) {
 
     let scope = egg.topScope;
-    Object.keys(scene.vars).map(name => scope[name] = scene.vars[name]);
+    
+    if (typeof scene.shown === 'undefined' || scene.shown === false) {
+        Object.keys(scene.vars).map(name => scope[name] = scene.vars[name]);
+    }
 
     let text = scene.body;
 
@@ -111,6 +114,7 @@ function sceneText(scene) {
             }), ' <break time="500ms" />oder');
 
     }
+    scene.shown = true;
 
     return text;
 }
