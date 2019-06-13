@@ -31,7 +31,7 @@ class EggParser
 
             $text = ltrim($expr['rest']);
             if (strpos($text, '}') !== 0) {
-                throw new SyntaxErrorException("Unbalanced curly braces");
+                throw new SyntaxErrorException("Unbalanced curly braces in text '" . htmlentities($text) . "'");
             }
 
             $this->scene->code[] = $expr['expr'];

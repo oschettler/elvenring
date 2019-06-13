@@ -62,7 +62,7 @@ class Egg
                 $program = $this->skipSpace(substr($program, 1));
             }
             else if ($program[0] != ")") {
-                throw new SyntaxErrorException("Expected ',' or ')'");
+                throw new SyntaxErrorException("Expected ',' or ')' in text '" . htmlentities($program) . "'");
             }
         }
         return $this->parseApply($expr, substr($program, 1));

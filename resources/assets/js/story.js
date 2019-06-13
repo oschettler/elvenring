@@ -3,8 +3,10 @@ let scope = egg.topScope;
 
 function show(scene) {
 
-    $.each(scene.vars, function (name, value) { scope[name] = value; });
-
+    if (typeof scene.shown === 'undefined' || scene.shown === false) {
+        $.each(scene.vars, function (name, value) { scope[name] = value; });
+    }
+    
     $('#scene h5').remove();
     if (typeof scene.vars.show_title === 'undefined' || scene.vars.show_title) {
         $('<h5 class="card-title"></h5>')
@@ -46,6 +48,7 @@ function show(scene) {
             $('#passage-' + i).data('action', action);
         }
     });
+    scene.shown = true;
 }
 
 $('#passages').on('click', 'a', function (e) {
