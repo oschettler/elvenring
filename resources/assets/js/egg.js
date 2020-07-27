@@ -147,6 +147,7 @@ specialForms.fun = (args, scope) => {
 let topScope = {
     true: true,
     false: false,
+    "!": value => !value,
     print: value => {
         console.log(value);
         return value;

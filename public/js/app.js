@@ -55781,6 +55781,9 @@ specialForms.fun = function (args, scope) {
 var topScope = {
   "true": true,
   "false": false,
+  "!": function _(value) {
+    return !value;
+  },
   print: function print(value) {
     console.log(value);
     return value;
@@ -55800,7 +55803,7 @@ var topScope = {
   }
 };
 
-for (var _i = 0, _arr = ["+", "-", "*", "/", "%", "==", "<", ">"]; _i < _arr.length; _i++) {
+for (var _i = 0, _arr = ["+", "-", "*", "/", "%", "==", "<", ">", ">=", "<=", "&&", "||"]; _i < _arr.length; _i++) {
   var op = _arr[_i];
   topScope[op] = Function("a, b", "return a ".concat(op, " b;"));
 }
