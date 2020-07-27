@@ -22,7 +22,7 @@ class Egg
                 'value' => $match[1],
             ];
         }
-        else if (preg_match('/^\d+\b/', $program, $match)) {
+        else if (preg_match('/^-?\d+\b/', $program, $match)) {
             $expr = [
                 'type' => "value",
                 'value' => intval($match[0]),
