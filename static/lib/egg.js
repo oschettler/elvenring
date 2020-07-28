@@ -147,6 +147,7 @@ specialForms.fun = (args, scope) => {
 let topScope = {
     true: true,
     false: false,
+    "!": value => !value,
     print: value => {
         console.log(value);
         return value;
@@ -166,6 +167,13 @@ let topScope = {
     }
 };
 
-for (let op of ["+", "-", "*", "/", "%", "==", "<", ">"]) {
+for (let op of ["+", "-", "*", "/", "%", "==", "<", ">", ">=", "<=", "&&", "||"]) {
     topScope[op] = Function("a, b", `return a ${op} b;`);
 }
+
+module.exports = {
+    topScope,
+    run: function (program, scope) {
+        return evaluate(program, scope);
+    }
+};
