@@ -193,7 +193,7 @@ class StoryController extends Controller
         }
 
         $filename = "story{$story->id}.zip";
-        shell_exec("cd $dir; rm ../$filename; zip ../$filename * lib/*");
+        shell_exec("cd $dir; rm -f ../$filename; zip ../$filename * lib/*");
 
         return response()->download("/tmp/storylab/$filename", $filename);
     }
